@@ -1,0 +1,13 @@
+
+# Secrets
+.env
+.env.*
+
+# APM dependencies
+apm_modules/
+**/AGENTS.md
+AGENTS.md
+.apm
+
+# Node
+node_modules/

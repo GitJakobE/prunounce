@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "pronuncia-italiana-backend-python"
+version = "0.1.0"
+description = "Python migration target for Pronuncia Italiana backend"
+authors = ["Pronuncia Team"]
+readme = "README.md"
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+fastapi = "0.116.1"
+uvicorn = { version = "0.35.0", extras = ["standard"] }
+sqlalchemy = "2.0.44"
+alembic = "1.16.5"
+pydantic-settings = "2.11.0"
+python-jose = { version = "3.5.0", extras = ["cryptography"] }
+passlib = { version = "1.7.4", extras = ["bcrypt"] }
+bcrypt = "<4.0.0"
+email-validator = "2.3.0"
+edge-tts = "^7.2.8"
+gtts = "^2.5.4"
+deep-translator = "^1.11.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "8.4.2"
+httpx = "0.28.1"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.poetry.scripts]
+backend-python = "run:main"
+
+[build-system]
+requires = ["poetry-core>=1.9.0"]
+build-backend = "poetry.core.masonry.api"

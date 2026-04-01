@@ -1,0 +1,136 @@
+{
+  "app": {
+    "title": "Pronuncia Italiana",
+    "subtitle": "Learn Italian pronunciation"
+  },
+  "nav": {
+    "categories": "Categories",
+    "search": "Search",
+    "profile": "Profile",
+    "logout": "Log out",
+    "changeHost": "Change host",
+    "stories": "Stories"
+  },
+  "auth": {
+    "login": "Log in",
+    "register": "Create account",
+    "email": "Email",
+    "password": "Password",
+    "displayName": "Display name (optional)",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "loginWithGoogle": "Sign in with Google",
+    "invalidCredentials": "Invalid email or password",
+    "passwordHint": "Min. 8 characters, uppercase, lowercase, and a digit",
+    "welcomeTitle": "Welcome to Pronuncia Italiana",
+    "welcomeDescription": "Your tool for mastering Italian pronunciation. Browse curated word lists, listen to native audio, and track your progress."
+  },
+  "categories": {
+    "title": "Categories",
+    "progress": "{{listened}} / {{total}} practised",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "all": "All levels"
+  },
+  "words": {
+    "listened": "Listened",
+    "playAudio": "Play pronunciation of {{word}}",
+    "noWords": "No words found in this category.",
+    "noTranslation": "No {{lang}} translation yet",
+    "example": "Example",
+    "playExample": "Play example sentence"
+  },
+  "search": {
+    "placeholder": "Search for a word…",
+    "noResults": "No results found for '{{term}}'.",
+    "minChars": "Type at least 2 characters to search."
+  },
+  "profile": {
+    "title": "Profile",
+    "language": "Reference language",
+    "save": "Save changes",
+    "saved": "Settings saved!",
+    "deleteAccount": "Delete account",
+    "cancel": "Cancel",
+    "deleteConfirm": "Are you sure you want to delete your account? This action cannot be undone. All your data will be permanently removed.",
+    "progress": "Your progress",
+    "progressSummary": "You've practised {{listened}} of {{total}} words"
+  },
+  "errors": {
+    "audioUnavailable": "Pronunciation temporarily unavailable. Please try again shortly.",
+    "generic": "Something went wrong. Please try again."
+  },
+  "languages": {
+    "en": "English",
+    "da": "Dansk",
+    "it": "Italiano"
+  },
+  "host": {
+    "title": "Choose your host",
+    "yourHost": "Your host",
+    "change": "Change host"
+  },
+  "selectHost": {
+    "title": "Choose Your Host",
+    "subtitle": "Pick a host to start learning. Each host speaks a different language.",
+    "learnItalian": "Learn Italian",
+    "learnDanish": "Learn Danish",
+    "learnEnglish": "Learn English"
+  },
+  "contribute": {
+    "title": "Add a Word",
+    "word": "Word ({{lang}})",
+    "translation": "Translation ({{lang}})",
+    "translationRequired": "{{lang}} translation (required)",
+    "translationOptional": "{{lang}} translation (optional)",
+    "translationHelp": "Adding translations in all languages helps other learners",
+    "phoneticHint": "Phonetic hint (optional)",
+    "category": "Category",
+    "categoryDefault": "Uncategorised",
+    "difficulty": "Difficulty",
+    "example": "Example sentence (optional)",
+    "exampleTranslation": "Example translation (optional)",
+    "submit": "Add word",
+    "submitting": "Adding…",
+    "success": "Word added successfully!",
+    "duplicate": "This word already exists.",
+    "viewExisting": "View existing word",
+    "addAnother": "Add another word",
+    "wordRequired": "Word is required.",
+    "wordTooLong": "Word must be 100 characters or fewer.",
+    "translationRequired": "Translation is required.",
+    "atLeastOneTranslation": "At least one translation is required."
+  },
+  "stories": {
+    "title": "Stories",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "short": "Short",
+    "medium": "Medium",
+    "long": "Long",
+    "readingTime": "{{count}} min read",
+    "clickToTranslate": "Click a word to translate it",
+    "translationUnavailable": "No translation found",
+    "playNarration": "Play narration",
+    "pauseNarration": "Pause",
+    "stopNarration": "Stop",
+    "speed": {
+      "very_slow": "Very slow",
+      "slow": "Slow",
+      "normal": "Normal",
+      "fast": "Fast",
+      "very_fast": "Very fast"
+    },
+    "narrating": "Playing narration…",
+    "loadingAudio": "Generating audio…",
+    "translation": "Translation",
+    "phoneticHint": "Pronunciation",
+    "playWord": "Play pronunciation",
+    "backToStories": "Back to stories",
+    "noStories": "No stories available yet.",
+    "speaker": "{{name}} says"
+  }
+}

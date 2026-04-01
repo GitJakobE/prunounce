@@ -1,0 +1,56 @@
+[   26672ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/api/stories:0
+[   27330ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/api/stories:0
+[   30376ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/api/stories:0
+[   30396ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/api/stories:0
+[   37114ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/api/stories:0
+[   37127ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/api/stories:0
+[   42200ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/api/stories:0
+[   42218ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5173/api/stories:0
+[  665980ms] Error: useAuth must be inside AuthProvider
+    at useAuth (http://localhost:5173/src/components/AuthProvider.tsx?t=1774853030064:66:19)
+    at ProtectedRoute (http://localhost:5173/src/components/ProtectedRoute.tsx?t=1774853030064:24:29)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:18509:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:5654:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:7475:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:8525:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:997:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:12561:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:12424:43)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:12408:13)
+[  665975ms] [WARNING] %s
+
+%s
+ An error occurred in the <ProtectedRoute> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:6965
+[  666105ms] Error: useAuth must be inside AuthProvider
+    at useAuth (http://localhost:5173/src/components/AuthProvider.tsx?t=1774853030064:66:19)
+    at ProtectedRoute (http://localhost:5173/src/components/ProtectedRoute.tsx?t=1774853030064:24:29)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:18509:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:5654:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:7475:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:8525:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:997:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:12561:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:12424:43)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:12408:13)
+[  666104ms] [WARNING] %s
+
+%s
+ An error occurred in the <ProtectedRoute> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:6965
+[  666354ms] Error: useAuth must be inside AuthProvider
+    at useAuth (http://localhost:5173/src/components/AuthProvider.tsx?t=1774853030064:66:19)
+    at ProtectedRoute (http://localhost:5173/src/components/ProtectedRoute.tsx?t=1774853030064:24:29)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:18509:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:5654:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:7475:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:8525:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:997:72)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:12561:98)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:12424:43)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:12408:13)
+[  666354ms] [WARNING] %s
+
+%s
+ An error occurred in the <ProtectedRoute> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=9d16f1d3:6965

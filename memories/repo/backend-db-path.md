@@ -1,0 +1,2 @@
+- Backend SQLite database should resolve to the repo-root app.db, not a cwd-relative path.
+- Relative sqlite:///./app.db caused the running API and seed script to read different files: app.db vs src/backend-python/app.db.

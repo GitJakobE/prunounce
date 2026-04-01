@@ -1,0 +1,136 @@
+{
+  "app": {
+    "title": "Pronuncia Italiana",
+    "subtitle": "Lær italiensk udtale"
+  },
+  "nav": {
+    "categories": "Kategorier",
+    "search": "Søg",
+    "profile": "Profil",
+    "logout": "Log ud",
+    "changeHost": "Skift vært",
+    "stories": "Historier"
+  },
+  "auth": {
+    "login": "Log ind",
+    "register": "Opret konto",
+    "email": "E-mail",
+    "password": "Adgangskode",
+    "displayName": "Visningsnavn (valgfrit)",
+    "forgotPassword": "Glemt adgangskode?",
+    "noAccount": "Har du ikke en konto?",
+    "hasAccount": "Har du allerede en konto?",
+    "loginWithGoogle": "Log ind med Google",
+    "invalidCredentials": "Ugyldig e-mail eller adgangskode",
+    "passwordHint": "Min. 8 tegn, store bogstaver, små bogstaver og et tal",
+    "welcomeTitle": "Velkommen til Pronuncia Italiana",
+    "welcomeDescription": "Dit værktøj til at mestre italiensk udtale. Gennemse kuraterede ordlister, lyt til native lyd, og følg dine fremskridt."
+  },
+  "categories": {
+    "title": "Kategorier",
+    "progress": "{{listened}} / {{total}} øvet",
+    "beginner": "Begynder",
+    "intermediate": "Øvet",
+    "advanced": "Avanceret",
+    "all": "Alle niveauer"
+  },
+  "words": {
+    "listened": "Lyttet",
+    "playAudio": "Afspil udtale af {{word}}",
+    "noWords": "Ingen ord fundet i denne kategori.",
+    "noTranslation": "Ingen {{lang}} oversættelse endnu",
+    "example": "Eksempel",
+    "playExample": "Afspil eksempelsætning"
+  },
+  "search": {
+    "placeholder": "Søg efter et ord…",
+    "noResults": "Ingen resultater fundet for '{{term}}'.",
+    "minChars": "Skriv mindst 2 tegn for at søge."
+  },
+  "profile": {
+    "title": "Profil",
+    "language": "Referencesprog",
+    "save": "Gem ændringer",
+    "saved": "Indstillinger gemt!",
+    "deleteAccount": "Slet konto",
+    "cancel": "Annuller",
+    "deleteConfirm": "Er du sikker på, at du vil slette din konto? Denne handling kan ikke fortrydes. Alle dine data vil blive permanent fjernet.",
+    "progress": "Dine fremskridt",
+    "progressSummary": "Du har øvet {{listened}} af {{total}} ord"
+  },
+  "errors": {
+    "audioUnavailable": "Udtale er midlertidigt utilgængelig. Prøv igen om lidt.",
+    "generic": "Noget gik galt. Prøv igen."
+  },
+  "languages": {
+    "en": "English",
+    "da": "Dansk",
+    "it": "Italiano"
+  },
+  "host": {
+    "title": "Vælg din vært",
+    "yourHost": "Din vært",
+    "change": "Skift vært"
+  },
+  "selectHost": {
+    "title": "Vælg din vært",
+    "subtitle": "Vælg en vært for at begynde at lære. Hver vært taler et andet sprog.",
+    "learnItalian": "Lær italiensk",
+    "learnDanish": "Lær dansk",
+    "learnEnglish": "Lær engelsk"
+  },
+  "contribute": {
+    "title": "Tilføj et ord",
+    "word": "Ord ({{lang}})",
+    "translation": "Oversættelse ({{lang}})",
+    "translationRequired": "{{lang}} oversættelse (påkrævet)",
+    "translationOptional": "{{lang}} oversættelse (valgfrit)",
+    "translationHelp": "Tilføjelse af oversættelser på alle sprog hjælper andre elever",
+    "phoneticHint": "Fonetisk hint (valgfrit)",
+    "category": "Kategori",
+    "categoryDefault": "Ukategoriseret",
+    "difficulty": "Sværhedsgrad",
+    "example": "Eksempelsætning (valgfrit)",
+    "exampleTranslation": "Eksempel oversættelse (valgfrit)",
+    "submit": "Tilføj ord",
+    "submitting": "Tilføjer…",
+    "success": "Ord tilføjet!",
+    "duplicate": "Dette ord findes allerede.",
+    "viewExisting": "Se eksisterende ord",
+    "addAnother": "Tilføj et andet ord",
+    "wordRequired": "Ord er påkrævet.",
+    "wordTooLong": "Ord må højst være 100 tegn.",
+    "translationRequired": "Oversættelse er påkrævet.",
+    "atLeastOneTranslation": "Mindst én oversættelse er påkrævet."
+  },
+  "stories": {
+    "title": "Historier",
+    "beginner": "Begynder",
+    "intermediate": "Øvet",
+    "advanced": "Avanceret",
+    "short": "Kort",
+    "medium": "Mellem",
+    "long": "Lang",
+    "readingTime": "{{count}} min læsning",
+    "clickToTranslate": "Klik på et ord for at oversætte det",
+    "translationUnavailable": "Ingen oversættelse fundet",
+    "playNarration": "Afspil fortælling",
+    "pauseNarration": "Pause",
+    "stopNarration": "Stop",
+    "speed": {
+      "very_slow": "Meget langsom",
+      "slow": "Langsom",
+      "normal": "Normal",
+      "fast": "Hurtig",
+      "very_fast": "Meget hurtig"
+    },
+    "narrating": "Afspiller fortælling…",
+    "loadingAudio": "Genererer lyd…",
+    "translation": "Oversættelse",
+    "phoneticHint": "Udtale",
+    "playWord": "Afspil udtale",
+    "backToStories": "Tilbage til historier",
+    "noStories": "Ingen historier tilgængelige endnu.",
+    "speaker": "{{name}} siger"
+  }
+}

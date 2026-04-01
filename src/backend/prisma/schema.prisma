@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String         @id @default(uuid())
+  email            String         @unique
+  passwordHash     String?
+  displayName      String?
+  language         String         @default("en")
+  hostId           String?
+  googleId         String?        @unique
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  progress         UserProgress[]
+  contributedWords Word[]         @relation("ContributedWords")
+}
+
+model Category {
+  id     String         @id @default(uuid())
+  nameEn String
+  nameDa String
+  nameIt String         @default("")
+  order  Int            @default(0)
+  words  WordCategory[]
+}
+
+model Word {
+  id            String         @id @default(uuid())
+  word          String
+  language      String         @default("it") // "it" | "da" | "en"
+  phoneticHint  String
+  translationEn String
+  translationDa String
+  translationIt String         @default("")
+  difficulty    String         // "beginner" | "intermediate" | "advanced"
+  exampleIt     String         @default("")
+  exampleEn     String         @default("")
+  exampleDa     String         @default("")
+  audioPath     String?
+  source        String         @default("seed") // "seed" | "user"
+  contributedBy String?
+  contributor   User?          @relation("ContributedWords", fields: [contributedBy], references: [id], onDelete: SetNull)
+  categories    WordCategory[]
+  progress      UserProgress[]
+
+  @@unique([word, language])
+}
+
+model WordCategory {
+  word       Word     @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  wordId     String
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId String
+
+  @@id([wordId, categoryId])
+}
+
+model UserProgress {
+  id         String   @id @default(uuid())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+  word       Word     @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  wordId     String
+  listenedAt DateTime @default(now())
+
+  @@unique([userId, wordId])
+}

@@ -1,0 +1,136 @@
+{
+  "app": {
+    "title": "Pronuncia Italiana",
+    "subtitle": "Impara la pronuncia italiana"
+  },
+  "nav": {
+    "categories": "Categorie",
+    "search": "Cerca",
+    "profile": "Profilo",
+    "logout": "Esci",
+    "changeHost": "Cambia host",
+    "stories": "Storie"
+  },
+  "auth": {
+    "login": "Accedi",
+    "register": "Crea account",
+    "email": "Email",
+    "password": "Password",
+    "displayName": "Nome visualizzato (facoltativo)",
+    "forgotPassword": "Password dimenticata?",
+    "noAccount": "Non hai un account?",
+    "hasAccount": "Hai già un account?",
+    "loginWithGoogle": "Accedi con Google",
+    "invalidCredentials": "Email o password non validi",
+    "passwordHint": "Min. 8 caratteri, maiuscole, minuscole e un numero",
+    "welcomeTitle": "Benvenuto su Pronuncia Italiana",
+    "welcomeDescription": "Il tuo strumento per padroneggiare la pronuncia italiana. Sfoglia elenchi di parole curati, ascolta l'audio nativo e segui i tuoi progressi."
+  },
+  "categories": {
+    "title": "Categorie",
+    "progress": "{{listened}} / {{total}} esercitati",
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzato",
+    "all": "Tutti i livelli"
+  },
+  "words": {
+    "listened": "Ascoltato",
+    "playAudio": "Riproduci la pronuncia di {{word}}",
+    "noWords": "Nessuna parola trovata in questa categoria.",
+    "noTranslation": "Nessuna traduzione in {{lang}} ancora",
+    "example": "Esempio",
+    "playExample": "Riproduci frase di esempio"
+  },
+  "search": {
+    "placeholder": "Cerca una parola…",
+    "noResults": "Nessun risultato trovato per '{{term}}'.",
+    "minChars": "Digita almeno 2 caratteri per cercare."
+  },
+  "profile": {
+    "title": "Profilo",
+    "language": "Lingua di riferimento",
+    "save": "Salva modifiche",
+    "saved": "Impostazioni salvate!",
+    "deleteAccount": "Elimina account",
+    "cancel": "Annulla",
+    "deleteConfirm": "Sei sicuro di voler eliminare il tuo account? Questa azione non può essere annullata. Tutti i tuoi dati verranno rimossi definitivamente.",
+    "progress": "I tuoi progressi",
+    "progressSummary": "Hai esercitato {{listened}} di {{total}} parole"
+  },
+  "errors": {
+    "audioUnavailable": "Pronuncia temporaneamente non disponibile. Riprova tra poco.",
+    "generic": "Qualcosa è andato storto. Riprova."
+  },
+  "languages": {
+    "en": "English",
+    "da": "Dansk",
+    "it": "Italiano"
+  },
+  "host": {
+    "title": "Scegli il tuo presentatore",
+    "yourHost": "Il tuo presentatore",
+    "change": "Cambia presentatore"
+  },
+  "selectHost": {
+    "title": "Scegli il tuo presentatore",
+    "subtitle": "Scegli un presentatore per iniziare ad imparare. Ogni presentatore parla una lingua diversa.",
+    "learnItalian": "Impara l'italiano",
+    "learnDanish": "Impara il danese",
+    "learnEnglish": "Impara l'inglese"
+  },
+  "contribute": {
+    "title": "Aggiungi una parola",
+    "word": "Parola ({{lang}})",
+    "translation": "Traduzione ({{lang}})",
+    "translationRequired": "Traduzione {{lang}} (obbligatorio)",
+    "translationOptional": "Traduzione {{lang}} (opzionale)",
+    "translationHelp": "Aggiungere traduzioni in tutte le lingue aiuta gli altri studenti",
+    "phoneticHint": "Suggerimento fonetico (opzionale)",
+    "category": "Categoria",
+    "categoryDefault": "Non categorizzato",
+    "difficulty": "Difficoltà",
+    "example": "Frase di esempio (opzionale)",
+    "exampleTranslation": "Traduzione dell'esempio (opzionale)",
+    "submit": "Aggiungi parola",
+    "submitting": "Aggiungendo…",
+    "success": "Parola aggiunta con successo!",
+    "duplicate": "Questa parola esiste già.",
+    "viewExisting": "Vedi parola esistente",
+    "addAnother": "Aggiungi un'altra parola",
+    "wordRequired": "La parola è obbligatoria.",
+    "wordTooLong": "La parola deve avere al massimo 100 caratteri.",
+    "translationRequired": "La traduzione è obbligatoria.",
+    "atLeastOneTranslation": "È richiesta almeno una traduzione."
+  },
+  "stories": {
+    "title": "Storie",
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzato",
+    "short": "Breve",
+    "medium": "Medio",
+    "long": "Lungo",
+    "readingTime": "{{count}} min di lettura",
+    "clickToTranslate": "Clicca su una parola per tradurla",
+    "translationUnavailable": "Nessuna traduzione trovata",
+    "playNarration": "Riproduci narrazione",
+    "pauseNarration": "Pausa",
+    "stopNarration": "Stop",
+    "speed": {
+      "very_slow": "Molto lenta",
+      "slow": "Lenta",
+      "normal": "Normale",
+      "fast": "Veloce",
+      "very_fast": "Molto veloce"
+    },
+    "narrating": "Riproduzione in corso…",
+    "loadingAudio": "Generazione audio…",
+    "translation": "Traduzione",
+    "phoneticHint": "Pronuncia",
+    "playWord": "Riproduci pronuncia",
+    "backToStories": "Torna alle storie",
+    "noStories": "Nessuna storia disponibile.",
+    "speaker": "{{name}} dice"
+  }
+}
