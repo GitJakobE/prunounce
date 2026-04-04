@@ -32,12 +32,15 @@ vi.mock("react-i18next", () => ({
         "auth.register": "Register",
         "auth.welcomeTitle": "Welcome",
         "auth.welcomeDescription": "Learn Italian",
+        "auth.invalidCredentials": "Invalid credentials",
       };
       return map[key] || key;
     },
     i18n: { language: "en", changeLanguage: vi.fn() },
   }),
 }));
+
+import { login as apiLogin } from "../services/api";
 
 vi.mock("../services/api", () => ({
   login: vi.fn().mockResolvedValue({
@@ -88,6 +91,27 @@ describe("LoginPage", () => {
     await waitFor(() => {
       expect(mockSetAuth).toHaveBeenCalledWith("test-token", expect.any(Object));
       expect(mockNavigate).toHaveBeenCalledWith("/");
+    });
+  });
+
+  it("shows error with role='alert' on login failure", async () => {
+    vi.mocked(apiLogin).mockRejectedValueOnce(new Error("fail"));
+    render(
+      <MemoryRouter>
+        <LoginPage />
+      </MemoryRouter>
+    );
+    fireEvent.change(screen.getByLabelText("Email"), {
+      target: { value: "bad@test.com" },
+    });
+    fireEvent.change(screen.getByLabelText("Password"), {
+      target: { value: "wrongpass" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Log In" }));
+
+    await waitFor(() => {
+      const alert = screen.getByRole("alert");
+      expect(alert).toHaveTextContent("Invalid credentials");
     });
   });
 });

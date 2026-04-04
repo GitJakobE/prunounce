@@ -10,14 +10,16 @@ from ..models import Category, User, UserProgress, Word, WordCategory
 from ..database import get_db
 from ..schemas import WordLookupResult
 from ..services.tts import get_audio_path
+from ..services.translation import translate_word
 
 
 router = APIRouter(prefix="/api/dictionary")
 
-SUPPORTED_LANGS = ["en", "da", "it"]
+SUPPORTED_LANGS = ["en", "da", "it", "es"]
 VALID_DIFFICULTIES = ["beginner", "intermediate", "advanced"]
 WORD_MAX_LENGTH = 100
-WORD_PATTERN = re.compile(r"[a-zA-ZÀ-ÿæøåÆØÅ]")
+WORD_PATTERN = re.compile(r"[a-zA-ZÀ-ÿæøåÆØÅñÑ]")
+WORD_REJECT_DIGITS = re.compile(r"\d")
 
 
 def resolve_target_language(host_id: str) -> str:
@@ -25,12 +27,12 @@ def resolve_target_language(host_id: str) -> str:
 
 
 def resolve_ref_lang(query: str | None, target_lang: str, user_id: str | None = None, db: Session | None = None) -> str:
-    if query and query in SUPPORTED_LANGS and query != target_lang:
+    if query and query in SUPPORTED_LANGS:
         return query
     # Read the user's stored reference language preference
     if user_id and db:
         user = db.query(User).filter(User.id == user_id).first()
-        if user and user.language in SUPPORTED_LANGS and user.language != target_lang:
+        if user and user.language in SUPPORTED_LANGS:
             return user.language
     return "da" if target_lang == "en" else "en"
 
@@ -39,7 +41,9 @@ def get_category_name(category: Category, lang: str) -> str:
     if lang == "it":
         return category.name_it or category.name_en
     if lang == "da":
-        return category.name_da
+        return category.name_da or category.name_en
+    if lang == "es":
+        return category.name_es or category.name_en
     return category.name_en
 
 
@@ -48,6 +52,8 @@ def get_translation(word: Word, lang: str) -> str:
         return word.translation_it
     if lang == "da":
         return word.translation_da
+    if lang == "es":
+        return word.translation_es
     return word.translation_en
 
 
@@ -56,6 +62,8 @@ def get_target_example(word: Word) -> str:
         return word.example_da
     if word.language == "en":
         return word.example_en
+    if word.language == "es":
+        return word.example_es
     return word.example_it
 
 
@@ -64,6 +72,8 @@ def get_ref_example(word: Word, lang: str) -> str:
         return word.example_it
     if lang == "da":
         return word.example_da
+    if lang == "es":
+        return word.example_es
     return word.example_en
 
 
@@ -110,13 +120,22 @@ def lookup_word(
     )
 
     if matched is None:
-        return WordLookupResult(word=word, translation=None, phoneticHint=None, wordId=None)
+        # Cascade: try TranslationCache → external translation provider
+        translation, source = translate_word(word, target_lang, ref_lang, db)
+        return WordLookupResult(
+            word=word,
+            translation=translation,
+            phoneticHint=None,
+            wordId=None,
+            source=source,
+        )
 
     return WordLookupResult(
         word=matched.word,
         translation=get_translation(matched, ref_lang),
         phoneticHint=matched.phonetic_hint,
         wordId=matched.id,
+        source="curated",
     )
 
 
@@ -254,6 +273,7 @@ def create_word(
     translation_en_in = payload.get("translationEn")
     translation_da_in = payload.get("translationDa")
     translation_it_in = payload.get("translationIt")
+    translation_es_in = payload.get("translationEs")
     phonetic_hint = payload.get("phoneticHint")
     category_id = payload.get("categoryId")
     difficulty = payload.get("difficulty")
@@ -271,11 +291,13 @@ def create_word(
         )
     if not WORD_PATTERN.search(trimmed_word):
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Word must contain at least one letter.")
+    if WORD_REJECT_DIGITS.search(trimmed_word):
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Word must not contain numbers.")
 
     # Check if any explicit per-language translations were provided
     has_explicit = any(
         isinstance(v, str) and v.strip()
-        for v in [translation_en_in, translation_da_in, translation_it_in]
+        for v in [translation_en_in, translation_da_in, translation_it_in, translation_es_in]
     )
     has_generic = isinstance(translation, str) and bool(translation.strip())
 
@@ -314,16 +336,19 @@ def create_word(
         translation_en = translation_en_in.strip() if isinstance(translation_en_in, str) else ""
         translation_da = translation_da_in.strip() if isinstance(translation_da_in, str) else ""
         translation_it = translation_it_in.strip() if isinstance(translation_it_in, str) else ""
+        translation_es = translation_es_in.strip() if isinstance(translation_es_in, str) else ""
     else:
         translation_en = translation.strip() if ref_lang == "en" else ""
         translation_da = translation.strip() if ref_lang == "da" else ""
         translation_it = translation.strip() if ref_lang == "it" else ""
+        translation_es = translation.strip() if ref_lang == "es" else ""
 
     ex_target = example.strip() if isinstance(example, str) else ""
     ex_ref = example_translation.strip() if isinstance(example_translation, str) else ""
     example_it = ex_target if target_lang == "it" else ex_ref if ref_lang == "it" else ""
     example_en = ex_target if target_lang == "en" else ex_ref if ref_lang == "en" else ""
     example_da = ex_target if target_lang == "da" else ex_ref if ref_lang == "da" else ""
+    example_es = ex_target if target_lang == "es" else ex_ref if ref_lang == "es" else ""
 
     new_word = Word(
         word=normalized_word,
@@ -334,10 +359,12 @@ def create_word(
         translation_en=translation_en,
         translation_da=translation_da,
         translation_it=translation_it,
+        translation_es=translation_es,
         difficulty=diff,
         example_it=example_it,
         example_en=example_en,
         example_da=example_da,
+        example_es=example_es,
     )
     db.add(new_word)
     db.flush()
@@ -352,6 +379,7 @@ def create_word(
                     name_en="Uncategorised",
                     name_da="Ukategoriseret",
                     name_it="Non categorizzato",
+                    name_es="Sin categoría",
                     order=99,
                 )
             )
@@ -381,6 +409,7 @@ def create_word(
         "translationEn": new_word.translation_en,
         "translationDa": new_word.translation_da,
         "translationIt": new_word.translation_it,
+        "translationEs": new_word.translation_es,
         "source": new_word.source,
         "audioGenerating": True,
     }

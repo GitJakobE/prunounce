@@ -17,10 +17,11 @@ Logged-in users can add new words to the shared dictionary. Contributed words be
 |---|---|---|
 | US-UGC1 | As a user, I want to add a new word in the target language so that I and others can practise its pronunciation. | A form allows entering a word, its translation, and optional category; the word appears in the dictionary after submission. |
 | US-UGC2 | As a user who added a word, I want audio to be generated automatically so the word is immediately playable. | Within a few seconds of submission, the word has a playable pronunciation audio clip. |
-| US-UGC3 | As a user, I want to provide a translation in my reference language when adding a word. | The word form requires at least one translation (in the user's current reference language). |
+| US-UGC3 | As a user, I want to provide translations when adding a word, with my reference language required and other languages optional. | The word form shows translation fields for all three supported languages, with the user's reference language marked as required; at least one translation must be provided. |
 | US-UGC4 | As a user, I want to optionally assign a category and difficulty to the word I add. | The form offers optional category selection (from existing categories or "Uncategorised") and difficulty level. |
 | US-UGC5 | As a learner, I want to see user-contributed words alongside curated words so the dictionary feels unified. | Contributed words appear in category listings, search results, and progress tracking just like seeded words. |
 | US-UGC6 | As a user, I want to optionally add an example sentence when contributing a word. | The form includes optional fields for an example sentence in the target language and its translation. |
+| US-UGC7 | As a contributor, I want to see a list of words I have contributed, so I can review what I've added. | A "My Contributions" section in the user profile or dictionary shows the user's contributed words. *(Post-launch — see Backlog PB-1)* |
 
 ## 3. Functional Requirements
 
@@ -28,14 +29,17 @@ Logged-in users can add new words to the shared dictionary. Contributed words be
 - Accessible from the main navigation or a prominent "Add Word" button on the categories page.
 - Required fields:
   - **Word** in the current target language
-  - **Translation** in the user's current reference language
+  - **Translation in the user's reference language** — the form displays translation fields for all three supported languages (English, Danish, Italian), ordered with the user's reference language first. The reference-language field is marked as required; the other two are optional but encouraged.
+  - Helper text encourages contributors to fill translations in all languages to benefit all learner groups.
 - Optional fields:
+  - **Translations in other supported languages** (the two non-reference languages)
   - **Phonetic hint** (free text)
   - **Category** (dropdown of existing categories, defaults to "Uncategorised")
   - **Difficulty** (Beginner / Intermediate / Advanced, defaults to Beginner)
   - **Example sentence** in the target language
   - **Example sentence translation** in the reference language
-- The form must validate that the word field is not empty and does not already exist in the dictionary for the current target language (case-insensitive).
+- Backward compatibility: a legacy single `translation` field is supported and populates the contributor's reference-language column. If both the legacy field and explicit per-language fields are provided, the explicit fields take precedence.
+- The form must validate that the word field is not empty, contains at least one letter, does not contain digits, and does not already exist in the dictionary for the current target language (case-insensitive).
 - On successful submission, the user sees a confirmation and the word is immediately available in the dictionary.
 
 ### 3.2 Audio Generation
@@ -63,14 +67,15 @@ Logged-in users can add new words to the shared dictionary. Contributed words be
 - If TTS audio generation fails (service unavailable), the word is still saved but marked as "audio pending." The system should retry audio generation on the next access attempt.
 - If a user contributes a word with only one translation, the word is visible to users with that reference language. Users with a different reference language see the English fallback or a "translation not available" indicator.
 - Very long words or phrases (> 100 characters) should be rejected with a validation error.
-- Words containing only numbers, special characters, or whitespace should be rejected.
+- Words containing only numbers, special characters, or whitespace must be rejected.
+- Words containing any digits (even mixed with letters, e.g., "word123") must be rejected — words must consist of letters, spaces, hyphens, and apostrophes only.
 
 ## 5. Acceptance Criteria
 
 ```gherkin
 Given I am a logged-in user on the categories page,
 When I click "Add Word",
-Then I see a form with fields for word, translation, and optional category/difficulty/example.
+Then I see a form with fields for word, per-language translations (reference language required, others optional), and optional category/difficulty/example.
 ```
 
 ```gherkin
@@ -97,3 +102,22 @@ Given I added a word with an example sentence,
 When I play the word's audio,
 Then the example sentence audio plays automatically after the word pronunciation.
 ```
+
+```gherkin
+Given I fill in a word that contains digits (e.g., "solskin3705"),
+When I submit the form,
+Then I see a validation error that words must not contain numbers.
+```
+
+```gherkin
+Given I fill in translations for all three languages,
+When I submit the form,
+Then the word is saved with all three translations populated,
+And users in all three reference-language groups see the correct translation.
+```
+
+## 6. Post-Launch Backlog
+
+| ID | Item | Priority |
+|---|---|---|
+| PB-1 | "My Contributions" listing — endpoint and UI to browse words the current user has contributed | Medium |

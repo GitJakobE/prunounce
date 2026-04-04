@@ -57,7 +57,7 @@ def update_profile(
         updated = True
 
     if payload.language is not None:
-        if payload.language not in ["en", "da", "it"]:
+        if payload.language not in ["en", "da", "it", "es"]:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="No valid fields to update")
         current_user.language = payload.language
         updated = True

@@ -8,7 +8,7 @@ from fastapi.staticfiles import StaticFiles
 
 from .config import PUBLIC_DIR, settings
 from .database import Base, engine, ensure_sqlite_schema
-from .routers import audio, auth, dictionary, health, hosts, profile, progress, search, stories
+from .routers import audio, auth, dictionary, health, hosts, profile, progress, reports, search, stories
 
 
 app = FastAPI(title="Pronuncia Italiana API (Python)")
@@ -56,6 +56,7 @@ app.include_router(audio.router)
 app.include_router(hosts.router)
 app.include_router(progress.router)
 app.include_router(stories.router)
+app.include_router(reports.router)
 
 
 @app.get("/")

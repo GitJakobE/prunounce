@@ -24,6 +24,7 @@ LANGUAGE_STORY_VOICES: dict[str, list[str]] = {
     "it": ["it-IT-DiegoNeural", "it-IT-IsabellaNeural", "it-IT-GiuseppeMultilingualNeural"],
     "da": ["da-DK-JeppeNeural", "da-DK-ChristelNeural", "da-DK-JeppeNeural"],
     "en": ["en-GB-ThomasNeural", "en-GB-SoniaNeural", "en-AU-WilliamMultilingualNeural"],
+    "es": ["es-ES-AlvaroNeural", "es-ES-ElviraNeural", "es-MX-JorgeNeural"],
 }
 
 

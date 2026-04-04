@@ -9,11 +9,11 @@ from ..models import Category, User, UserProgress, Word, WordCategory
 
 router = APIRouter(prefix="/api/search")
 
-SUPPORTED_LANGS = ["en", "da", "it"]
+SUPPORTED_LANGS = ["en", "da", "it", "es"]
 
 
 def resolve_ref_lang(query: str | None, target_lang: str) -> str:
-    if query and query in SUPPORTED_LANGS and query != target_lang:
+    if query and query in SUPPORTED_LANGS:
         return query
     return "da" if target_lang == "en" else "en"
 
@@ -46,7 +46,9 @@ def get_category_name(category: Category, lang: str) -> str:
     if lang == "it":
         return category.name_it or category.name_en
     if lang == "da":
-        return category.name_da
+        return category.name_da or category.name_en
+    if lang == "es":
+        return category.name_es or category.name_en
     return category.name_en
 
 

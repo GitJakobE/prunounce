@@ -9,7 +9,8 @@
     "profile": "Profilo",
     "logout": "Esci",
     "changeHost": "Cambia host",
-    "stories": "Storie"
+    "stories": "Storie",
+    "review": "Revisione"
   },
   "auth": {
     "login": "Accedi",
@@ -65,7 +66,8 @@
   "languages": {
     "en": "English",
     "da": "Dansk",
-    "it": "Italiano"
+    "it": "Italiano",
+    "es": "Español"
   },
   "host": {
     "title": "Scegli il tuo presentatore",
@@ -77,7 +79,8 @@
     "subtitle": "Scegli un presentatore per iniziare ad imparare. Ogni presentatore parla una lingua diversa.",
     "learnItalian": "Impara l'italiano",
     "learnDanish": "Impara il danese",
-    "learnEnglish": "Impara l'inglese"
+    "learnEnglish": "Impara l'inglese",
+    "learnSpanish": "Impara lo spagnolo"
   },
   "contribute": {
     "title": "Aggiungi una parola",
@@ -131,6 +134,75 @@
     "playWord": "Riproduci pronuncia",
     "backToStories": "Torna alle storie",
     "noStories": "Nessuna storia disponibile.",
-    "speaker": "{{name}} dice"
+    "speaker": "{{name}} dice",
+    "addStory": "Aggiungi storia",
+    "cancel": "Annulla",
+    "myStories": "Le mie storie",
+    "deleteStory": "Elimina storia",
+    "formTitle": "Titolo",
+    "formTitlePlaceholder": "Dai un titolo alla tua storia…",
+    "formDescription": "Descrizione (facoltativa)",
+    "formDescriptionPlaceholder": "Un breve riassunto della tua storia…",
+    "formDifficulty": "Difficoltà",
+    "formBody": "Testo della storia",
+    "formBodyPlaceholder": "Scrivi la tua storia qui…",
+    "submitStory": "Salva storia",
+    "submitting": "Salvataggio…",
+    "addStoryRequired": "Titolo e testo della storia sono obbligatori.",
+    "addStoryError": "Impossibile salvare la storia. Riprova."
+  },
+  "reports": {
+    "report": "Segnala",
+    "reportIssue": "Segnala un problema",
+    "category": "Tipo di problema",
+    "categories": {
+      "grammar_spelling": "Grammatica / Ortografia",
+      "wrong_translation": "Traduzione sbagliata",
+      "pronunciation": "Problema di pronuncia",
+      "formatting": "Problema di formattazione",
+      "other": "Altro"
+    },
+    "description": "Descrizione",
+    "descriptionPlaceholder": "Descrivi il problema (facoltativo)…",
+    "submit": "Invia segnalazione",
+    "submitting": "Invio in corso…",
+    "submitted": "Segnalazione inviata",
+    "submitError": "Impossibile inviare la segnalazione",
+    "cancel": "Annulla"
+  },
+  "review": {
+    "title": "Revisione contenuti",
+    "allStatuses": "Tutti",
+    "allTypes": "Tutti i tipi",
+    "allCategories": "Tutte le categorie",
+    "allLanguages": "Tutte le lingue",
+    "status": {
+      "new": "Nuovo",
+      "reviewed": "Revisionato",
+      "resolved": "Risolto",
+      "dismissed": "Archiviato"
+    },
+    "type": {
+      "story": "Storia",
+      "word": "Parola"
+    },
+    "columns": {
+      "type": "Tipo",
+      "category": "Categoria",
+      "description": "Descrizione",
+      "status": "Stato",
+      "date": "Data",
+      "actions": "Azioni"
+    },
+    "reportDetail": "Dettagli segnalazione",
+    "resolutionNote": "Nota di risoluzione",
+    "resolutionNotePlaceholder": "Aggiungi una nota (facoltativo)…",
+    "actions": {
+      "markReviewed": "Segna come revisionato",
+      "resolve": "Risolvi",
+      "dismiss": "Archivia"
+    },
+    "showing": "Mostrando {{from}}–{{to}} di {{total}} segnalazioni",
+    "empty": "Nessuna segnalazione corrisponde ai filtri attuali."
   }
 }

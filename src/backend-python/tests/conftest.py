@@ -8,7 +8,7 @@ from sqlalchemy.pool import StaticPool
 
 from app.database import Base, get_db
 from app.main import app
-from app.models import Category, Story, StoryAudio, User, UserProgress, Word, WordCategory
+from app.models import Category, ContentReport, Story, StoryAudio, TranslationCache, User, UserProgress, Word, WordCategory
 
 # In-memory SQLite with StaticPool so all connections share the same database
 test_engine = create_engine(
@@ -38,6 +38,8 @@ def ensure_schema() -> None:
 @pytest.fixture(autouse=True)
 def clean_db() -> Generator[None, None, None]:
     db = TestSessionLocal()
+    db.query(TranslationCache).delete()
+    db.query(ContentReport).delete()
     db.query(StoryAudio).delete()
     db.query(UserProgress).delete()
     db.query(WordCategory).delete()

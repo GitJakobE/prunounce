@@ -46,9 +46,11 @@ Pronuncia must be usable by people with a wide range of abilities, including use
 
 ### 3.4 Forms & Inputs
 
-- Every form field (login, registration, word contribution, search) must have a visible label programmatically associated with the input.
+- Every form field (login, registration, word contribution, search) must have a visible label programmatically associated with the input, or an `aria-label` attribute when a visible label is not feasible (e.g., search inputs with placeholder text).
 - Validation errors must be announced to screen readers via `aria-describedby` or live regions, and must not rely solely on colour to indicate an error.
 - Required fields must be indicated both visually and programmatically (`aria-required="true"` or the `required` attribute).
+- Form submission error messages (e.g., login failures, registration errors) must use `role="alert"` so that screen readers announce them immediately when they appear.
+- The Add Word form must associate each input with its label via `htmlFor`/`id` pairing and must announce validation errors using `aria-describedby` with `role="alert"` elements.
 
 ### 3.5 Colour & Contrast
 
@@ -59,6 +61,7 @@ Pronuncia must be usable by people with a wide range of abilities, including use
 
 ### 3.6 Dynamic Content & Live Regions
 
+- SPA route changes must be announced to screen readers using an `aria-live="polite"` region that reads the heading of the new page after each navigation event.
 - Search-as-you-type results must announce the number of results to screen readers (e.g., "5 results found").
 - Reference language switching must announce completion (e.g., "Language changed to Danish").
 - Progress updates after playing a word must be perceivable by assistive technology without requiring the user to manually check.
@@ -82,7 +85,12 @@ Pronuncia must be usable by people with a wide range of abilities, including use
 
 ## 6. Acceptance Criteria
 
-- [ ] All pages pass automated WCAG 2.1 AA checks (e.g., axe-core with zero violations).
+- [x] Audio playback controls have accessible labels with word name (e.g., "Play pronunciation of _ciao_"), are keyboard-operable, and have visible focus rings.
+- [x] SPA route changes are announced via `aria-live="polite"` region.
+- [x] Add Word form has full label association (`htmlFor`/`id`), required indicators, `aria-describedby` for errors, and `role="alert"` for submission errors.
+- [ ] Login and Register page error messages use `role="alert"` for immediate screen-reader announcement. *(REM-1 — post-launch)*
+- [ ] Search input has an `aria-label` when no visible `<label>` element is present. *(REM-2 — post-launch)*
+- [ ] All pages pass automated WCAG 2.1 AA checks (e.g., axe-core with zero violations). *(REM-6 — pre-launch sweep recommended)*
 - [ ] A manual keyboard-only walkthrough of every core flow (login → host selection → browse categories → play word → search → contribute word → view progress) completes without any keyboard traps or unreachable elements.
 - [ ] A screen-reader walkthrough (NVDA on Windows or VoiceOver on macOS/iOS) of the same core flows is comprehensible — every element is labelled, every state change is announced.
 - [ ] Colour contrast is verified for all host accent colours, buttons, text, and form elements.

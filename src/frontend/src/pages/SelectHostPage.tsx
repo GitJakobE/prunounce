@@ -9,6 +9,7 @@ const LANG_SECTIONS = [
   { lang: "it", headingKey: "selectHost.learnItalian" },
   { lang: "da", headingKey: "selectHost.learnDanish" },
   { lang: "en", headingKey: "selectHost.learnEnglish" },
+  { lang: "es", headingKey: "selectHost.learnSpanish" },
 ];
 
 export default function SelectHostPage() {
@@ -42,6 +43,7 @@ export default function SelectHostPage() {
   function getDescription(host: Host): string {
     if (lang === "it") return host.descriptionIt;
     if (lang === "da") return host.descriptionDa;
+    if (lang === "es") return host.descriptionEs;
     return host.descriptionEn;
   }
 

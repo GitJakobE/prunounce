@@ -47,9 +47,11 @@ class Host(BaseModel):
     descriptionEn: str
     descriptionDa: str
     descriptionIt: str
+    descriptionEs: str
     greetingEn: str
     greetingDa: str
     greetingIt: str
+    greetingEs: str
     color: str
     voice: HostVoice
 
@@ -65,6 +67,7 @@ class StoryListItem(BaseModel):
     estimatedReadingTime: int  # minutes, rounded up
     format: str = "narrative"
     speakers: list[str] | None = None
+    isUserStory: bool = False
 
 
 class NarrationSegment(BaseModel):
@@ -94,10 +97,18 @@ class StoryDetail(BaseModel):
     format: str = "narrative"
     speakers: list[str] | None = None
     segments: list[StorySegment] = []
+    isUserStory: bool = False
 
 
 class StoriesResponse(BaseModel):
     stories: dict[str, list[StoryListItem]]  # keyed by difficulty
+
+
+class CreateStoryInput(BaseModel):
+    title: str = Field(min_length=1, max_length=200)
+    body: str = Field(min_length=1, max_length=10000)
+    difficulty: str = "beginner"
+    description: str = Field(default="", max_length=500)
 
 
 class StoryDetailResponse(BaseModel):
@@ -109,3 +120,41 @@ class WordLookupResult(BaseModel):
     translation: str | None
     phoneticHint: str | None
     wordId: str | None
+    source: str = "curated"  # "curated" | "cached" | "auto-translated" | "none"
+
+
+# ── Content Reports ────────────────────────────────────────────────────────────
+
+REPORT_CONTENT_TYPES = {"story", "word"}
+REPORT_CATEGORIES = {"grammar_spelling", "wrong_translation", "pronunciation", "formatting", "other"}
+REPORT_STATUSES = {"new", "reviewed", "resolved", "dismissed"}
+
+
+class ContentReportCreateRequest(BaseModel):
+    contentType: str
+    contentId: str
+    category: str
+    description: str | None = Field(default=None, max_length=500)
+
+
+class ContentReportUpdateRequest(BaseModel):
+    status: str
+    resolutionNote: str | None = Field(default=None, max_length=500)
+
+
+class ContentReportResponse(BaseModel):
+    id: str
+    userId: str | None
+    contentType: str
+    contentId: str
+    category: str
+    description: str | None
+    status: str
+    resolutionNote: str | None
+    createdAt: str
+    updatedAt: str
+
+
+class ContentReportListResponse(BaseModel):
+    items: list[ContentReportResponse]
+    total: int

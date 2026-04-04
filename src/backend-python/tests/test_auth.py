@@ -113,6 +113,41 @@ def test_register_stores_display_name(client: TestClient) -> None:
     assert res.json()["user"]["displayName"] == "Test User"
 
 
+def test_register_defaults_display_name_to_email_local_part(client: TestClient) -> None:
+    res = client.post(
+        "/api/auth/register",
+        json={"email": "alice@example.com", "password": "Password1", "language": "en"},
+    )
+    assert res.status_code == 200
+    assert res.json()["user"]["displayName"] == "alice"
+
+
+def test_register_empty_display_name_defaults_to_email_local_part(client: TestClient) -> None:
+    res = client.post(
+        "/api/auth/register",
+        json={
+            "email": "emptyname@example.com",
+            "password": "Password1",
+            "displayName": "",
+        },
+    )
+    assert res.status_code == 200
+    assert res.json()["user"]["displayName"] == "emptyname"
+
+
+def test_register_explicit_display_name_used(client: TestClient) -> None:
+    res = client.post(
+        "/api/auth/register",
+        json={
+            "email": "explicit@example.com",
+            "password": "Password1",
+            "displayName": "Bob",
+        },
+    )
+    assert res.status_code == 200
+    assert res.json()["user"]["displayName"] == "Bob"
+
+
 # ---------- Login ----------
 
 

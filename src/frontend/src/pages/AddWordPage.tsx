@@ -15,7 +15,7 @@ export default function AddWordPage() {
     []
   );
 
-  const ALL_LANGS = ["en", "da", "it"] as const;
+  const ALL_LANGS = ["en", "da", "it", "es"] as const;
   const otherLangs = ALL_LANGS.filter((l) => l !== refLang);
   const langOrder = [refLang, ...otherLangs];
 
@@ -24,6 +24,7 @@ export default function AddWordPage() {
     en: "",
     da: "",
     it: "",
+    es: "",
   });
   const [phoneticHint, setPhoneticHint] = useState("");
   const [categoryId, setCategoryId] = useState("");
@@ -85,6 +86,7 @@ export default function AddWordPage() {
         translationEn: translations.en.trim() || undefined,
         translationDa: translations.da.trim() || undefined,
         translationIt: translations.it.trim() || undefined,
+        translationEs: translations.es.trim() || undefined,
         phoneticHint: phoneticHint.trim() || undefined,
         categoryId: categoryId || undefined,
         difficulty,

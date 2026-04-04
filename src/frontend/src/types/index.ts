@@ -15,9 +15,11 @@ export interface Host {
   descriptionEn: string;
   descriptionDa: string;
   descriptionIt: string;
+  descriptionEs: string;
   greetingEn: string;
   greetingDa: string;
   greetingIt: string;
+  greetingEs: string;
   color: string;
 }
 
@@ -61,6 +63,7 @@ export interface StoryListItem {
   estimatedReadingTime: number;
   format?: string;
   speakers?: string[] | null;
+  isUserStory?: boolean;
 }
 
 export interface NarrationSegment {
@@ -86,4 +89,24 @@ export interface WordLookupResult {
   translation: string | null;
   phoneticHint: string | null;
   wordId: string | null;
+}
+
+// Content Reports
+
+export interface ContentReport {
+  id: string;
+  userId: string | null;
+  contentType: "story" | "word";
+  contentId: string;
+  category: string;
+  description: string | null;
+  status: "new" | "reviewed" | "resolved" | "dismissed";
+  resolutionNote: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ContentReportListResponse {
+  items: ContentReport[];
+  total: number;
 }

@@ -103,10 +103,11 @@ export default function ProfilePage() {
         className="bg-white rounded-lg shadow-sm border border-gray-200 p-5 mb-6"
       >
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
             {t("auth.email")}
           </label>
           <input
+            id="email"
             type="email"
             value={user?.email || ""}
             disabled
@@ -146,6 +147,7 @@ export default function ProfilePage() {
             <option value="en">{t("languages.en")}</option>
             <option value="da">{t("languages.da")}</option>
             <option value="it">{t("languages.it")}</option>
+            <option value="es">{t("languages.es")}</option>
           </select>
         </div>
 

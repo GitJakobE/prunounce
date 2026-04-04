@@ -9,7 +9,8 @@
     "profile": "Profil",
     "logout": "Log ud",
     "changeHost": "Skift vært",
-    "stories": "Historier"
+    "stories": "Historier",
+    "review": "Gennemse"
   },
   "auth": {
     "login": "Log ind",
@@ -65,7 +66,8 @@
   "languages": {
     "en": "English",
     "da": "Dansk",
-    "it": "Italiano"
+    "it": "Italiano",
+    "es": "Español"
   },
   "host": {
     "title": "Vælg din vært",
@@ -77,7 +79,8 @@
     "subtitle": "Vælg en vært for at begynde at lære. Hver vært taler et andet sprog.",
     "learnItalian": "Lær italiensk",
     "learnDanish": "Lær dansk",
-    "learnEnglish": "Lær engelsk"
+    "learnEnglish": "Lær engelsk",
+    "learnSpanish": "Lær spansk"
   },
   "contribute": {
     "title": "Tilføj et ord",
@@ -131,6 +134,75 @@
     "playWord": "Afspil udtale",
     "backToStories": "Tilbage til historier",
     "noStories": "Ingen historier tilgængelige endnu.",
-    "speaker": "{{name}} siger"
+    "speaker": "{{name}} siger",
+    "addStory": "Tilføj historie",
+    "cancel": "Annuller",
+    "myStories": "Mine historier",
+    "deleteStory": "Slet historie",
+    "formTitle": "Titel",
+    "formTitlePlaceholder": "Giv din historie en titel…",
+    "formDescription": "Beskrivelse (valgfrit)",
+    "formDescriptionPlaceholder": "Et kort resumé af din historie…",
+    "formDifficulty": "Sværhedsgrad",
+    "formBody": "Historietekst",
+    "formBodyPlaceholder": "Skriv din historie her…",
+    "submitStory": "Gem historie",
+    "submitting": "Gemmer…",
+    "addStoryRequired": "Titel og historietekst er påkrævet.",
+    "addStoryError": "Kunne ikke gemme din historie. Prøv igen."
+  },
+  "reports": {
+    "report": "Rapportér",
+    "reportIssue": "Rapportér et problem",
+    "category": "Problemtype",
+    "categories": {
+      "grammar_spelling": "Grammatik / Stavning",
+      "wrong_translation": "Forkert oversættelse",
+      "pronunciation": "Udtaleproblem",
+      "formatting": "Formateringsproblem",
+      "other": "Andet"
+    },
+    "description": "Beskrivelse",
+    "descriptionPlaceholder": "Beskriv problemet (valgfrit)…",
+    "submit": "Send rapport",
+    "submitting": "Sender…",
+    "submitted": "Rapport sendt",
+    "submitError": "Kunne ikke sende rapport",
+    "cancel": "Annullér"
+  },
+  "review": {
+    "title": "Indholdsgennemgang",
+    "allStatuses": "Alle",
+    "allTypes": "Alle typer",
+    "allCategories": "Alle kategorier",
+    "allLanguages": "Alle sprog",
+    "status": {
+      "new": "Ny",
+      "reviewed": "Gennemgået",
+      "resolved": "Løst",
+      "dismissed": "Afvist"
+    },
+    "type": {
+      "story": "Historie",
+      "word": "Ord"
+    },
+    "columns": {
+      "type": "Type",
+      "category": "Kategori",
+      "description": "Beskrivelse",
+      "status": "Status",
+      "date": "Dato",
+      "actions": "Handlinger"
+    },
+    "reportDetail": "Rapportdetaljer",
+    "resolutionNote": "Løsningsnote",
+    "resolutionNotePlaceholder": "Tilføj en note (valgfrit)…",
+    "actions": {
+      "markReviewed": "Markér gennemgået",
+      "resolve": "Løs",
+      "dismiss": "Afvis"
+    },
+    "showing": "Viser {{from}}–{{to}} af {{total}} rapporter",
+    "empty": "Ingen rapporter matcher de aktuelle filtre."
   }
 }

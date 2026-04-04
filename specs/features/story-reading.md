@@ -24,6 +24,8 @@ Story Reading is a new top-level learning mode alongside the existing word Categ
 | US-S8 | As a learner, I want to hear the pronunciation of a clicked word, so that I can learn individual words while reading. | The translation panel includes a play button that pronounces the clicked word using the host's TTS voice. |
 | US-S9 | As a learner, I want stories themed around real-life situations, so that I learn vocabulary and phrases I can actually use. | Each story is set in a practical, relatable scenario (e.g., ordering food, visiting a market, asking for directions). |
 | US-S10 | As a learner, I want to see at least 3 stories per difficulty level in my target language, so that I have enough content to practise with. | At launch, each target language has at minimum 3 stories per difficulty level (9 stories per language, 27 total). |
+| US-S11 | As a learner, I want short stories to feel genuinely shorter and simpler than long stories, so that choosing a difficulty changes the scope and effort of the reading task. | Beginner, Intermediate, and Advanced stories differ in narrative scope, progression, and information density, not only by approximate word count. |
+| US-S12 | As a learner, I want stories to begin from different kinds of situations, so that the library feels varied instead of repetitive. | The story catalogue includes varied setup patterns, settings, and opening situations within each language instead of repeatedly using the same opening template. |
 
 ## 3. Functional Requirements
 
@@ -49,7 +51,7 @@ Story Reading is a new top-level learning mode alongside the existing word Categ
 ### 3.3 Story Content
 
 - Each story is a curated, themed text written entirely in the target language.
-- Stories must be themed around practical, real-life situations that reinforce useful vocabulary. Example themes:
+- Stories must be themed around practical, real-life situations that reinforce useful vocabulary, while still allowing a mix of dialogue-driven, descriptive, reflective, and event-driven pieces. Example themes:
   - **Beginner:** Introducing yourself at a café, shopping at a market, asking for directions
   - **Intermediate:** A day at a museum, ordering a meal and discussing ingredients, a visit to the doctor
   - **Advanced:** Negotiating at a flea market, telling a folk tale, debating weekend plans with friends
@@ -57,6 +59,13 @@ Story Reading is a new top-level learning mode alongside the existing word Categ
   - **Beginner:** approximately 100–150 words
   - **Intermediate:** approximately 200–300 words
   - **Advanced:** approximately 400–600 words
+- Story length tiers must differ in more than word count:
+  - **Beginner:** one clear scenario, limited cast, one primary objective or exchange, and tightly constrained vocabulary load.
+  - **Intermediate:** at least one meaningful development beyond the opening setup, such as a complication, choice, misunderstanding, or short sequence of events.
+  - **Advanced:** a broader narrative arc with multiple beats, richer description or reflection, and enough development that the story cannot be reduced to a slightly extended beginner pattern.
+- The opening setup of stories must vary across the catalogue. The library must not overuse a single repeated pattern such as repeatedly starting with a near-identical arrival, greeting, or service interaction that only changes surface details.
+- Within each language, stories across a difficulty tier should cover a mix of setup types, for example: arriving somewhere, solving a small problem, preparing for an event, recounting something that already happened, discovering something unexpected, or helping another person.
+- At launch, the minimum set of 3 stories per difficulty level per language must represent at least 3 distinct setups per level rather than three close variations of the same premise.
 - Each story must have a title in the target language.
 - Each story must have a short description/theme summary in all supported reference languages.
 - At launch: **3 stories per difficulty level per target language** (9 stories per language × 3 languages = 27 stories total).
@@ -79,7 +88,7 @@ Story Reading is a new top-level learning mode alongside the existing word Categ
   - **A phonetic hint** (simplified pronunciation guide)
   - **A play button** that pronounces the word using the user's selected host's TTS voice
 - Word lookup uses the existing dictionary as the primary source. If the word exists in the dictionary, its stored translation and phonetic hint are displayed.
-- If a clicked word is not found in the dictionary (e.g., a conjugated form or uncommon word), the panel should display a "Translation not available" message.
+- If a clicked word is not found in the curated dictionary, the system must attempt an on-the-fly translation and audio generation as described in [on-the-fly-word-lookup.md](on-the-fly-word-lookup.md) (REQ-18). Auto-translated results must be visually distinguished from curated entries. Only if on-the-fly lookup also fails should the panel display a "Translation temporarily unavailable" message.
 - The play button in the panel must follow the same audio behaviour as word pronunciation elsewhere in the app (< 1 s latency, cached per host+word, stops other playing audio).
 
 ### 3.6 Host Narration (Read Aloud)
@@ -114,6 +123,7 @@ Story Reading is a new top-level learning mode alongside the existing word Categ
   - The story title (in the target language)
   - A short description in each supported reference language
   - The full story text (in the target language)
+- Seeded story content must include enough editorial metadata or review context for content authors to confirm that each story's setup type and narrative scope are distinct from other stories in the same language-level group.
 - The seed process must be idempotent — re-running it must not create duplicate stories.
 - Story seed files should be version-controlled.
 
@@ -132,6 +142,7 @@ Story Reading is a new top-level learning mode alongside the existing word Categ
 - Hyphenated words or contractions should be looked up as a whole first; if not found, look up each part separately.
 - If the user switches hosts (and therefore target language) while reading a story, they should be returned to the Stories library for the new language.
 - Very long stories must remain performant — word click targets must not degrade on stories with 600+ words.
+- If two seeded stories in the same language and difficulty share substantially the same opening premise, setting, and progression shape, they should be treated as a content-quality issue rather than acceptable variety.
 
 ## 5. Acceptance Criteria
 
@@ -139,6 +150,8 @@ Story Reading is a new top-level learning mode alongside the existing word Categ
 - [ ] The Stories section shows stories grouped by Beginner, Intermediate, and Advanced difficulty.
 - [ ] At launch, each target language has at least 3 stories per difficulty level (9 per language).
 - [ ] Selecting a story opens a reading view with the full text in the target language.
+- [ ] Beginner, Intermediate, and Advanced stories are observably different in scope and progression, not only in total word count.
+- [ ] Within each target language and difficulty level, the launch set avoids repeated opening setups and includes distinct story premises.
 - [ ] Every word in the story text is individually clickable.
 - [ ] Clicking a word populates the translation panel with the word's translation in the user's currently selected reference language (not a hardcoded default), a phonetic hint, and a play button.
 - [ ] Switching the reference language via the language switcher immediately affects subsequent word lookups — new clicks show translations in the newly selected language.

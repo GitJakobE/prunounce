@@ -1,0 +1,208 @@
+{
+  "app": {
+    "title": "Pronuncia Italiana",
+    "subtitle": "Aprende la pronunciación italiana"
+  },
+  "nav": {
+    "categories": "Categorías",
+    "search": "Buscar",
+    "profile": "Perfil",
+    "logout": "Cerrar sesión",
+    "changeHost": "Cambiar presentador",
+    "stories": "Historias",
+    "review": "Revisión"
+  },
+  "auth": {
+    "login": "Iniciar sesión",
+    "register": "Crear cuenta",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "displayName": "Nombre para mostrar (opcional)",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes cuenta?",
+    "hasAccount": "¿Ya tienes cuenta?",
+    "loginWithGoogle": "Iniciar sesión con Google",
+    "invalidCredentials": "Correo electrónico o contraseña no válidos",
+    "passwordHint": "Mín. 8 caracteres, mayúsculas, minúsculas y un número",
+    "welcomeTitle": "Bienvenido a Pronuncia Italiana",
+    "welcomeDescription": "Tu herramienta para dominar la pronunciación italiana. Explora listas de palabras, escucha audio nativo y sigue tu progreso."
+  },
+  "categories": {
+    "title": "Categorías",
+    "progress": "{{listened}} / {{total}} practicadas",
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzado",
+    "all": "Todos los niveles"
+  },
+  "words": {
+    "listened": "Escuchado",
+    "playAudio": "Reproducir pronunciación de {{word}}",
+    "noWords": "No se encontraron palabras en esta categoría.",
+    "noTranslation": "Sin traducción al {{lang}} todavía",
+    "example": "Ejemplo",
+    "playExample": "Reproducir frase de ejemplo"
+  },
+  "search": {
+    "placeholder": "Buscar una palabra…",
+    "noResults": "No se encontraron resultados para '{{term}}'.",
+    "minChars": "Escribe al menos 2 caracteres para buscar."
+  },
+  "profile": {
+    "title": "Perfil",
+    "language": "Idioma de referencia",
+    "save": "Guardar cambios",
+    "saved": "¡Configuración guardada!",
+    "deleteAccount": "Eliminar cuenta",
+    "cancel": "Cancelar",
+    "deleteConfirm": "¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer. Todos tus datos serán eliminados permanentemente.",
+    "progress": "Tu progreso",
+    "progressSummary": "Has practicado {{listened}} de {{total}} palabras"
+  },
+  "errors": {
+    "audioUnavailable": "Pronunciación temporalmente no disponible. Inténtalo de nuevo en breve.",
+    "generic": "Algo salió mal. Inténtalo de nuevo."
+  },
+  "languages": {
+    "en": "English",
+    "da": "Dansk",
+    "it": "Italiano",
+    "es": "Español"
+  },
+  "host": {
+    "title": "Elige tu presentador",
+    "yourHost": "Tu presentador",
+    "change": "Cambiar presentador"
+  },
+  "selectHost": {
+    "title": "Elige tu presentador",
+    "subtitle": "Elige un presentador para empezar a aprender. Cada presentador habla un idioma diferente.",
+    "learnItalian": "Aprende italiano",
+    "learnDanish": "Aprende danés",
+    "learnEnglish": "Aprende inglés",
+    "learnSpanish": "Aprende español"
+  },
+  "contribute": {
+    "title": "Añadir una palabra",
+    "word": "Palabra ({{lang}})",
+    "translation": "Traducción ({{lang}})",
+    "translationRequired": "Traducción {{lang}} (obligatoria)",
+    "translationOptional": "Traducción {{lang}} (opcional)",
+    "translationHelp": "Añadir traducciones en todos los idiomas ayuda a otros estudiantes",
+    "phoneticHint": "Pista fonética (opcional)",
+    "category": "Categoría",
+    "categoryDefault": "Sin categoría",
+    "difficulty": "Dificultad",
+    "example": "Frase de ejemplo (opcional)",
+    "exampleTranslation": "Traducción del ejemplo (opcional)",
+    "submit": "Añadir palabra",
+    "submitting": "Añadiendo…",
+    "success": "¡Palabra añadida con éxito!",
+    "duplicate": "Esta palabra ya existe.",
+    "viewExisting": "Ver palabra existente",
+    "addAnother": "Añadir otra palabra",
+    "wordRequired": "La palabra es obligatoria.",
+    "wordTooLong": "La palabra debe tener 100 caracteres o menos.",
+    "translationRequired": "La traducción es obligatoria.",
+    "atLeastOneTranslation": "Se requiere al menos una traducción."
+  },
+  "stories": {
+    "title": "Historias",
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzado",
+    "short": "Corta",
+    "medium": "Media",
+    "long": "Larga",
+    "readingTime": "{{count}} min de lectura",
+    "clickToTranslate": "Haz clic en una palabra para traducirla",
+    "translationUnavailable": "No se encontró traducción",
+    "playNarration": "Reproducir narración",
+    "pauseNarration": "Pausar",
+    "stopNarration": "Detener",
+    "speed": {
+      "very_slow": "Muy lenta",
+      "slow": "Lenta",
+      "normal": "Normal",
+      "fast": "Rápida",
+      "very_fast": "Muy rápida"
+    },
+    "narrating": "Reproduciendo narración…",
+    "loadingAudio": "Generando audio…",
+    "translation": "Traducción",
+    "phoneticHint": "Pronunciación",
+    "playWord": "Reproducir pronunciación",
+    "backToStories": "Volver a historias",
+    "noStories": "No hay historias disponibles todavía.",
+    "speaker": "{{name}} dice",
+    "addStory": "Añadir historia",
+    "cancel": "Cancelar",
+    "myStories": "Mis historias",
+    "deleteStory": "Eliminar historia",
+    "formTitle": "Título",
+    "formTitlePlaceholder": "Dale un título a tu historia…",
+    "formDescription": "Descripción (opcional)",
+    "formDescriptionPlaceholder": "Un breve resumen de tu historia…",
+    "formDifficulty": "Dificultad",
+    "formBody": "Texto de la historia",
+    "formBodyPlaceholder": "Escribe tu historia aquí…",
+    "submitStory": "Guardar historia",
+    "submitting": "Guardando…",
+    "addStoryRequired": "El título y el texto de la historia son obligatorios.",
+    "addStoryError": "No se pudo guardar la historia. Inténtalo de nuevo."
+  },
+  "reports": {
+    "report": "Reportar",
+    "reportIssue": "Reportar un problema",
+    "category": "Tipo de problema",
+    "categories": {
+      "grammar_spelling": "Gramática / Ortografía",
+      "wrong_translation": "Traducción incorrecta",
+      "pronunciation": "Problema de pronunciación",
+      "formatting": "Problema de formato",
+      "other": "Otro"
+    },
+    "description": "Descripción",
+    "descriptionPlaceholder": "Describe el problema (opcional)…",
+    "submit": "Enviar reporte",
+    "submitting": "Enviando…",
+    "submitted": "Reporte enviado",
+    "submitError": "No se pudo enviar el reporte",
+    "cancel": "Cancelar"
+  },
+  "review": {
+    "title": "Revisión de contenido",
+    "allStatuses": "Todos",
+    "allTypes": "Todos los tipos",
+    "allCategories": "Todas las categorías",
+    "allLanguages": "Todos los idiomas",
+    "status": {
+      "new": "Nuevo",
+      "reviewed": "Revisado",
+      "resolved": "Resuelto",
+      "dismissed": "Descartado"
+    },
+    "type": {
+      "story": "Historia",
+      "word": "Palabra"
+    },
+    "columns": {
+      "type": "Tipo",
+      "category": "Categoría",
+      "description": "Descripción",
+      "status": "Estado",
+      "date": "Fecha",
+      "actions": "Acciones"
+    },
+    "reportDetail": "Detalles del reporte",
+    "resolutionNote": "Nota de resolución",
+    "resolutionNotePlaceholder": "Añadir una nota (opcional)…",
+    "actions": {
+      "markReviewed": "Marcar como revisado",
+      "resolve": "Resolver",
+      "dismiss": "Descartar"
+    },
+    "showing": "Mostrando {{from}}–{{to}} de {{total}} reportes",
+    "empty": "No hay reportes que coincidan con los filtros actuales."
+  }
+}

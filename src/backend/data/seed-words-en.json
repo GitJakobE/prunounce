@@ -1,172 +1,1993 @@
 {
   "language": "en",
   "words": [
-    { "word": "hello", "phoneticHint": "heh-LOH", "translationEn": "hello", "translationDa": "hej", "translationIt": "ciao", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "goodbye", "phoneticHint": "good-BYE", "translationEn": "goodbye", "translationDa": "farvel", "translationIt": "arrivederci", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "good morning", "phoneticHint": "good MOR-ning", "translationEn": "good morning", "translationDa": "godmorgen", "translationIt": "buongiorno", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "good evening", "phoneticHint": "good EEV-ning", "translationEn": "good evening", "translationDa": "godaften", "translationIt": "buonasera", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "good night", "phoneticHint": "good NITE", "translationEn": "good night", "translationDa": "godnat", "translationIt": "buonanotte", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "please", "phoneticHint": "pleez", "translationEn": "please", "translationDa": "vær så venlig", "translationIt": "per favore", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "thank you", "phoneticHint": "THANK yoo", "translationEn": "thank you", "translationDa": "tak", "translationIt": "grazie", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "you're welcome", "phoneticHint": "yoor WEL-kum", "translationEn": "you're welcome", "translationDa": "selv tak", "translationIt": "prego", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "excuse me", "phoneticHint": "eks-KYOOZ mee", "translationEn": "excuse me", "translationDa": "undskyld", "translationIt": "scusi", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "sorry", "phoneticHint": "SOR-ee", "translationEn": "sorry", "translationDa": "undskyld", "translationIt": "mi dispiace", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "yes", "phoneticHint": "yes", "translationEn": "yes", "translationDa": "ja", "translationIt": "sì", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "no", "phoneticHint": "noh", "translationEn": "no", "translationDa": "nej", "translationIt": "no", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "how are you", "phoneticHint": "how ar YOO", "translationEn": "how are you", "translationDa": "hvordan har du det", "translationIt": "come stai", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "nice to meet you", "phoneticHint": "NISE too meet yoo", "translationEn": "nice to meet you", "translationDa": "rart at møde dig", "translationIt": "piacere di conoscerti", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "cheers", "phoneticHint": "cheerz", "translationEn": "cheers", "translationDa": "skål", "translationIt": "salute", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "well done", "phoneticHint": "wel DUN", "translationEn": "well done", "translationDa": "godt klaret", "translationIt": "ben fatto", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "see you later", "phoneticHint": "see yoo LAY-ter", "translationEn": "see you later", "translationDa": "vi ses senere", "translationIt": "ci vediamo dopo", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "brilliant", "phoneticHint": "BRIL-yunt", "translationEn": "brilliant / great", "translationDa": "fantastisk", "translationIt": "fantastico", "difficulty": "intermediate", "categories": ["greetings"] },
-    { "word": "lovely", "phoneticHint": "LUV-lee", "translationEn": "lovely", "translationDa": "dejlig", "translationIt": "adorabile", "difficulty": "beginner", "categories": ["greetings"] },
-    { "word": "one", "phoneticHint": "wun", "translationEn": "one", "translationDa": "én", "translationIt": "uno", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "two", "phoneticHint": "too", "translationEn": "two", "translationDa": "to", "translationIt": "due", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "three", "phoneticHint": "three", "translationEn": "three", "translationDa": "tre", "translationIt": "tre", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "four", "phoneticHint": "for", "translationEn": "four", "translationDa": "fire", "translationIt": "quattro", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "five", "phoneticHint": "five", "translationEn": "five", "translationDa": "fem", "translationIt": "cinque", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "six", "phoneticHint": "siks", "translationEn": "six", "translationDa": "seks", "translationIt": "sei", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "seven", "phoneticHint": "SEV-un", "translationEn": "seven", "translationDa": "syv", "translationIt": "sette", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "eight", "phoneticHint": "ayt", "translationEn": "eight", "translationDa": "otte", "translationIt": "otto", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "nine", "phoneticHint": "nine", "translationEn": "nine", "translationDa": "ni", "translationIt": "nove", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "ten", "phoneticHint": "ten", "translationEn": "ten", "translationDa": "ti", "translationIt": "dieci", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "twenty", "phoneticHint": "TWEN-tee", "translationEn": "twenty", "translationDa": "tyve", "translationIt": "venti", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "fifty", "phoneticHint": "FIF-tee", "translationEn": "fifty", "translationDa": "halvtreds", "translationIt": "cinquanta", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "hundred", "phoneticHint": "HUN-dred", "translationEn": "hundred", "translationDa": "hundrede", "translationIt": "cento", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "thousand", "phoneticHint": "THOU-zund", "translationEn": "thousand", "translationDa": "tusind", "translationIt": "mille", "difficulty": "intermediate", "categories": ["numbers"] },
-    { "word": "first", "phoneticHint": "furst", "translationEn": "first", "translationDa": "første", "translationIt": "primo", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "second", "phoneticHint": "SEK-und", "translationEn": "second", "translationDa": "anden", "translationIt": "secondo", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "half", "phoneticHint": "hahf", "translationEn": "half", "translationDa": "halvdelen", "translationIt": "metà", "difficulty": "beginner", "categories": ["numbers"] },
-    { "word": "bread", "phoneticHint": "bred", "translationEn": "bread", "translationDa": "brød", "translationIt": "pane", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "butter", "phoneticHint": "BUT-er", "translationEn": "butter", "translationDa": "smør", "translationIt": "burro", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "cheese", "phoneticHint": "cheez", "translationEn": "cheese", "translationDa": "ost", "translationIt": "formaggio", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "milk", "phoneticHint": "milk", "translationEn": "milk", "translationDa": "mælk", "translationIt": "latte", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "water", "phoneticHint": "WAW-ter", "translationEn": "water", "translationDa": "vand", "translationIt": "acqua", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "coffee", "phoneticHint": "KOF-ee", "translationEn": "coffee", "translationDa": "kaffe", "translationIt": "caffè", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "tea", "phoneticHint": "tee", "translationEn": "tea", "translationDa": "te", "translationIt": "tè", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "beer", "phoneticHint": "beer", "translationEn": "beer", "translationDa": "øl", "translationIt": "birra", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "wine", "phoneticHint": "wine", "translationEn": "wine", "translationDa": "vin", "translationIt": "vino", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "chicken", "phoneticHint": "CHIK-en", "translationEn": "chicken", "translationDa": "kylling", "translationIt": "pollo", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "fish", "phoneticHint": "fish", "translationEn": "fish", "translationDa": "fisk", "translationIt": "pesce", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "cake", "phoneticHint": "kayk", "translationEn": "cake", "translationDa": "kage", "translationIt": "torta", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "fruit", "phoneticHint": "froot", "translationEn": "fruit", "translationDa": "frugt", "translationIt": "frutta", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "vegetables", "phoneticHint": "VEJ-tuh-bulz", "translationEn": "vegetables", "translationDa": "grøntsager", "translationIt": "verdure", "difficulty": "intermediate", "categories": ["food"] },
-    { "word": "potato", "phoneticHint": "puh-TAY-toh", "translationEn": "potato", "translationDa": "kartoffel", "translationIt": "patata", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "soup", "phoneticHint": "soop", "translationEn": "soup", "translationDa": "suppe", "translationIt": "zuppa", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "breakfast", "phoneticHint": "BREK-fust", "translationEn": "breakfast", "translationDa": "morgenmad", "translationIt": "colazione", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "lunch", "phoneticHint": "lunch", "translationEn": "lunch", "translationDa": "frokost", "translationIt": "pranzo", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "dinner", "phoneticHint": "DIN-er", "translationEn": "dinner", "translationDa": "aftensmad", "translationIt": "cena", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "dessert", "phoneticHint": "dih-ZURT", "translationEn": "dessert", "translationDa": "dessert", "translationIt": "dolce", "difficulty": "beginner", "categories": ["food"] },
-    { "word": "airport", "phoneticHint": "AIR-port", "translationEn": "airport", "translationDa": "lufthavn", "translationIt": "aeroporto", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "station", "phoneticHint": "STAY-shun", "translationEn": "station", "translationDa": "station", "translationIt": "stazione", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "train", "phoneticHint": "trayn", "translationEn": "train", "translationDa": "tog", "translationIt": "treno", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "bus", "phoneticHint": "bus", "translationEn": "bus", "translationDa": "bus", "translationIt": "autobus", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "bicycle", "phoneticHint": "BY-sik-ul", "translationEn": "bicycle", "translationDa": "cykel", "translationIt": "bicicletta", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "hotel", "phoneticHint": "hoh-TEL", "translationEn": "hotel", "translationDa": "hotel", "translationIt": "albergo", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "street", "phoneticHint": "street", "translationEn": "street", "translationDa": "gade", "translationIt": "strada", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "left", "phoneticHint": "left", "translationEn": "left", "translationDa": "venstre", "translationIt": "sinistra", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "right", "phoneticHint": "rite", "translationEn": "right", "translationDa": "højre", "translationIt": "destra", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "straight ahead", "phoneticHint": "strayt uh-HED", "translationEn": "straight ahead", "translationDa": "ligeud", "translationIt": "dritto", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "map", "phoneticHint": "map", "translationEn": "map", "translationDa": "kort", "translationIt": "mappa", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "ticket", "phoneticHint": "TIK-it", "translationEn": "ticket", "translationDa": "billet", "translationIt": "biglietto", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "journey", "phoneticHint": "JUR-nee", "translationEn": "journey", "translationDa": "rejse", "translationIt": "viaggio", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "arrival", "phoneticHint": "uh-RY-vul", "translationEn": "arrival", "translationDa": "ankomst", "translationIt": "arrivo", "difficulty": "intermediate", "categories": ["travel"] },
-    { "word": "departure", "phoneticHint": "dih-PAR-chur", "translationEn": "departure", "translationDa": "afgang", "translationIt": "partenza", "difficulty": "intermediate", "categories": ["travel"] },
-    { "word": "passport", "phoneticHint": "PASS-port", "translationEn": "passport", "translationDa": "pas", "translationIt": "passaporto", "difficulty": "beginner", "categories": ["travel"] },
-    { "word": "price", "phoneticHint": "prise", "translationEn": "price", "translationDa": "pris", "translationIt": "prezzo", "difficulty": "beginner", "categories": ["shopping"] },
-    { "word": "money", "phoneticHint": "MUN-ee", "translationEn": "money", "translationDa": "penge", "translationIt": "soldi", "difficulty": "beginner", "categories": ["shopping"] },
-    { "word": "shop", "phoneticHint": "shop", "translationEn": "shop", "translationDa": "butik", "translationIt": "negozio", "difficulty": "beginner", "categories": ["shopping"] },
-    { "word": "to buy", "phoneticHint": "too BY", "translationEn": "to buy", "translationDa": "at købe", "translationIt": "comprare", "difficulty": "beginner", "categories": ["shopping"] },
-    { "word": "cheap", "phoneticHint": "cheep", "translationEn": "cheap", "translationDa": "billig", "translationIt": "economico", "difficulty": "beginner", "categories": ["shopping"] },
-    { "word": "expensive", "phoneticHint": "eks-PEN-siv", "translationEn": "expensive", "translationDa": "dyr", "translationIt": "caro", "difficulty": "beginner", "categories": ["shopping"] },
-    { "word": "discount", "phoneticHint": "DIS-count", "translationEn": "discount", "translationDa": "rabat", "translationIt": "sconto", "difficulty": "intermediate", "categories": ["shopping"] },
-    { "word": "bill", "phoneticHint": "bil", "translationEn": "bill / check", "translationDa": "regning", "translationIt": "conto", "difficulty": "beginner", "categories": ["shopping"] },
-    { "word": "cash", "phoneticHint": "kash", "translationEn": "cash", "translationDa": "kontant", "translationIt": "contanti", "difficulty": "beginner", "categories": ["shopping"] },
-    { "word": "card", "phoneticHint": "kard", "translationEn": "card", "translationDa": "kort", "translationIt": "carta", "difficulty": "beginner", "categories": ["shopping"] },
-    { "word": "receipt", "phoneticHint": "rih-SEET", "translationEn": "receipt", "translationDa": "kvittering", "translationIt": "scontrino", "difficulty": "intermediate", "categories": ["shopping"] },
-    { "word": "sale", "phoneticHint": "sayl", "translationEn": "sale", "translationDa": "tilbud", "translationIt": "offerta", "difficulty": "beginner", "categories": ["shopping"] },
-    { "word": "mother", "phoneticHint": "MUTH-er", "translationEn": "mother", "translationDa": "mor", "translationIt": "madre", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "father", "phoneticHint": "FAH-ther", "translationEn": "father", "translationDa": "far", "translationIt": "padre", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "sister", "phoneticHint": "SIS-ter", "translationEn": "sister", "translationDa": "søster", "translationIt": "sorella", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "brother", "phoneticHint": "BRUH-ther", "translationEn": "brother", "translationDa": "bror", "translationIt": "fratello", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "child", "phoneticHint": "chyld", "translationEn": "child", "translationDa": "barn", "translationIt": "bambino", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "grandmother", "phoneticHint": "GRAND-muth-er", "translationEn": "grandmother", "translationDa": "bedstemor", "translationIt": "nonna", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "grandfather", "phoneticHint": "GRAND-fah-ther", "translationEn": "grandfather", "translationDa": "bedstefar", "translationIt": "nonno", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "husband", "phoneticHint": "HUZ-band", "translationEn": "husband", "translationDa": "mand", "translationIt": "marito", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "wife", "phoneticHint": "wife", "translationEn": "wife", "translationDa": "kone", "translationIt": "moglie", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "friend", "phoneticHint": "frend", "translationEn": "friend", "translationDa": "ven", "translationIt": "amico", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "neighbour", "phoneticHint": "NAY-bur", "translationEn": "neighbour", "translationDa": "nabo", "translationIt": "vicino", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "colleague", "phoneticHint": "KOL-eeg", "translationEn": "colleague", "translationDa": "kollega", "translationIt": "collega", "difficulty": "intermediate", "categories": ["family"] },
-    { "word": "baby", "phoneticHint": "BAY-bee", "translationEn": "baby", "translationDa": "baby", "translationIt": "neonato", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "cousin", "phoneticHint": "KUZ-in", "translationEn": "cousin", "translationDa": "fætter / kusine", "translationIt": "cugino / cugina", "difficulty": "intermediate", "categories": ["family"] },
-    { "word": "uncle", "phoneticHint": "UN-kul", "translationEn": "uncle", "translationDa": "onkel", "translationIt": "zio", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "aunt", "phoneticHint": "ant", "translationEn": "aunt", "translationDa": "tante", "translationIt": "zia", "difficulty": "beginner", "categories": ["family"] },
-    { "word": "time", "phoneticHint": "time", "translationEn": "time", "translationDa": "tid", "translationIt": "tempo", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "hour", "phoneticHint": "OW-er", "translationEn": "hour", "translationDa": "time", "translationIt": "ora", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "minute", "phoneticHint": "MIN-it", "translationEn": "minute", "translationDa": "minut", "translationIt": "minuto", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "today", "phoneticHint": "tuh-DAY", "translationEn": "today", "translationDa": "i dag", "translationIt": "oggi", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "tomorrow", "phoneticHint": "tuh-MOR-oh", "translationEn": "tomorrow", "translationDa": "i morgen", "translationIt": "domani", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "yesterday", "phoneticHint": "YES-ter-day", "translationEn": "yesterday", "translationDa": "i går", "translationIt": "ieri", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "Monday", "phoneticHint": "MUN-day", "translationEn": "Monday", "translationDa": "mandag", "translationIt": "lunedì", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "Tuesday", "phoneticHint": "TOOZ-day", "translationEn": "Tuesday", "translationDa": "tirsdag", "translationIt": "martedì", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "Wednesday", "phoneticHint": "WENZ-day", "translationEn": "Wednesday", "translationDa": "onsdag", "translationIt": "mercoledì", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "Thursday", "phoneticHint": "THURZ-day", "translationEn": "Thursday", "translationDa": "torsdag", "translationIt": "giovedì", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "Friday", "phoneticHint": "FRY-day", "translationEn": "Friday", "translationDa": "fredag", "translationIt": "venerdì", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "Saturday", "phoneticHint": "SAT-er-day", "translationEn": "Saturday", "translationDa": "lørdag", "translationIt": "sabato", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "Sunday", "phoneticHint": "SUN-day", "translationEn": "Sunday", "translationDa": "søndag", "translationIt": "domenica", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "morning", "phoneticHint": "MOR-ning", "translationEn": "morning", "translationDa": "morgen", "translationIt": "mattina", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "evening", "phoneticHint": "EEV-ning", "translationEn": "evening", "translationDa": "aften", "translationIt": "sera", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "night", "phoneticHint": "nite", "translationEn": "night", "translationDa": "nat", "translationIt": "notte", "difficulty": "beginner", "categories": ["time"] },
-    { "word": "sun", "phoneticHint": "sun", "translationEn": "sun", "translationDa": "sol", "translationIt": "sole", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "rain", "phoneticHint": "rayn", "translationEn": "rain", "translationDa": "regn", "translationIt": "pioggia", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "snow", "phoneticHint": "snoh", "translationEn": "snow", "translationDa": "sne", "translationIt": "neve", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "wind", "phoneticHint": "wind", "translationEn": "wind", "translationDa": "vind", "translationIt": "vento", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "cloud", "phoneticHint": "klowd", "translationEn": "cloud", "translationDa": "sky", "translationIt": "nuvola", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "cold", "phoneticHint": "kohld", "translationEn": "cold", "translationDa": "koldt", "translationIt": "freddo", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "warm", "phoneticHint": "worm", "translationEn": "warm / hot", "translationDa": "varmt", "translationIt": "caldo", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "tree", "phoneticHint": "tree", "translationEn": "tree", "translationDa": "træ", "translationIt": "albero", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "flower", "phoneticHint": "FLOW-er", "translationEn": "flower", "translationDa": "blomst", "translationIt": "fiore", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "sea", "phoneticHint": "see", "translationEn": "sea / ocean", "translationDa": "hav", "translationIt": "mare", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "lake", "phoneticHint": "layk", "translationEn": "lake", "translationDa": "sø", "translationIt": "lago", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "beach", "phoneticHint": "beech", "translationEn": "beach", "translationDa": "strand", "translationIt": "spiaggia", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "mountain", "phoneticHint": "MOWN-tin", "translationEn": "mountain", "translationDa": "bjerg", "translationIt": "montagna", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "forest", "phoneticHint": "FOR-ist", "translationEn": "forest", "translationDa": "skov", "translationIt": "foresta", "difficulty": "beginner", "categories": ["weather"] },
-    { "word": "doctor", "phoneticHint": "DOK-ter", "translationEn": "doctor", "translationDa": "læge", "translationIt": "medico", "difficulty": "beginner", "categories": ["health"] },
-    { "word": "pharmacy", "phoneticHint": "FAR-muh-see", "translationEn": "pharmacy", "translationDa": "apotek", "translationIt": "farmacia", "difficulty": "beginner", "categories": ["health"] },
-    { "word": "hospital", "phoneticHint": "HOS-pit-ul", "translationEn": "hospital", "translationDa": "sygehus", "translationIt": "ospedale", "difficulty": "beginner", "categories": ["health"] },
-    { "word": "head", "phoneticHint": "hed", "translationEn": "head", "translationDa": "hoved", "translationIt": "testa", "difficulty": "beginner", "categories": ["health"] },
-    { "word": "hand", "phoneticHint": "hand", "translationEn": "hand", "translationDa": "hånd", "translationIt": "mano", "difficulty": "beginner", "categories": ["health"] },
-    { "word": "foot", "phoneticHint": "foot", "translationEn": "foot", "translationDa": "fod", "translationIt": "piede", "difficulty": "beginner", "categories": ["health"] },
-    { "word": "eye", "phoneticHint": "eye", "translationEn": "eye", "translationDa": "øje", "translationIt": "occhio", "difficulty": "beginner", "categories": ["health"] },
-    { "word": "ear", "phoneticHint": "eer", "translationEn": "ear", "translationDa": "øre", "translationIt": "orecchio", "difficulty": "beginner", "categories": ["health"] },
-    { "word": "help", "phoneticHint": "help", "translationEn": "help", "translationDa": "hjælp", "translationIt": "aiuto", "difficulty": "beginner", "categories": ["health"] },
-    { "word": "sick", "phoneticHint": "sik", "translationEn": "sick / ill", "translationDa": "syg", "translationIt": "malato", "difficulty": "beginner", "categories": ["health"] },
-    { "word": "healthy", "phoneticHint": "HEL-thee", "translationEn": "healthy", "translationDa": "sund", "translationIt": "sano", "difficulty": "beginner", "categories": ["health"] },
-    { "word": "pain", "phoneticHint": "payn", "translationEn": "pain", "translationDa": "smerte", "translationIt": "dolore", "difficulty": "intermediate", "categories": ["health"] },
-    { "word": "medicine", "phoneticHint": "MED-uh-sin", "translationEn": "medicine", "translationDa": "medicin", "translationIt": "medicina", "difficulty": "intermediate", "categories": ["health"] },
-    { "word": "allergy", "phoneticHint": "AL-er-jee", "translationEn": "allergy", "translationDa": "allergi", "translationIt": "allergia", "difficulty": "intermediate", "categories": ["health"] },
-    { "word": "tooth", "phoneticHint": "tooth", "translationEn": "tooth", "translationDa": "tand", "translationIt": "dente", "difficulty": "beginner", "categories": ["health"] },
-    { "word": "to be", "phoneticHint": "too bee", "translationEn": "to be", "translationDa": "at være", "translationIt": "essere", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to have", "phoneticHint": "too hav", "translationEn": "to have", "translationDa": "at have", "translationIt": "avere", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to go", "phoneticHint": "too goh", "translationEn": "to go", "translationDa": "at gå", "translationIt": "andare", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to come", "phoneticHint": "too kum", "translationEn": "to come", "translationDa": "at komme", "translationIt": "venire", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to eat", "phoneticHint": "too eet", "translationEn": "to eat", "translationDa": "at spise", "translationIt": "mangiare", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to drink", "phoneticHint": "too drink", "translationEn": "to drink", "translationDa": "at drikke", "translationIt": "bere", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to speak", "phoneticHint": "too speek", "translationEn": "to speak", "translationDa": "at tale", "translationIt": "parlare", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to understand", "phoneticHint": "too un-der-STAND", "translationEn": "to understand", "translationDa": "at forstå", "translationIt": "capire", "difficulty": "intermediate", "categories": ["verbs"] },
-    { "word": "to see", "phoneticHint": "too see", "translationEn": "to see", "translationDa": "at se", "translationIt": "vedere", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to hear", "phoneticHint": "too heer", "translationEn": "to hear", "translationDa": "at høre", "translationIt": "sentire", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to know", "phoneticHint": "too noh", "translationEn": "to know", "translationDa": "at vide", "translationIt": "sapere", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to make", "phoneticHint": "too mayk", "translationEn": "to make / do", "translationDa": "at lave", "translationIt": "fare", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to take", "phoneticHint": "too tayk", "translationEn": "to take", "translationDa": "at tage", "translationIt": "prendere", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to give", "phoneticHint": "too giv", "translationEn": "to give", "translationDa": "at give", "translationIt": "dare", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to say", "phoneticHint": "too say", "translationEn": "to say", "translationDa": "at sige", "translationIt": "dire", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to think", "phoneticHint": "too think", "translationEn": "to think", "translationDa": "at tænke", "translationIt": "pensare", "difficulty": "intermediate", "categories": ["verbs"] },
-    { "word": "to read", "phoneticHint": "too reed", "translationEn": "to read", "translationDa": "at læse", "translationIt": "leggere", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to write", "phoneticHint": "too rite", "translationEn": "to write", "translationDa": "at skrive", "translationIt": "scrivere", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to love", "phoneticHint": "too luv", "translationEn": "to love", "translationDa": "at elske", "translationIt": "amare", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to work", "phoneticHint": "too wurk", "translationEn": "to work", "translationDa": "at arbejde", "translationIt": "lavorare", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to sleep", "phoneticHint": "too sleep", "translationEn": "to sleep", "translationDa": "at sove", "translationIt": "dormire", "difficulty": "beginner", "categories": ["verbs"] },
-    { "word": "to learn", "phoneticHint": "too lurn", "translationEn": "to learn", "translationDa": "at lære", "translationIt": "imparare", "difficulty": "beginner", "categories": ["verbs"] }
+    {
+      "word": "hello",
+      "phoneticHint": "heh-LOH",
+      "translationEn": "hello",
+      "translationDa": "hej",
+      "translationIt": "ciao",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "hola"
+    },
+    {
+      "word": "goodbye",
+      "phoneticHint": "good-BYE",
+      "translationEn": "goodbye",
+      "translationDa": "farvel",
+      "translationIt": "arrivederci",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "adiós"
+    },
+    {
+      "word": "good morning",
+      "phoneticHint": "good MOR-ning",
+      "translationEn": "good morning",
+      "translationDa": "godmorgen",
+      "translationIt": "buongiorno",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "buenos días"
+    },
+    {
+      "word": "good evening",
+      "phoneticHint": "good EEV-ning",
+      "translationEn": "good evening",
+      "translationDa": "godaften",
+      "translationIt": "buonasera",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "buenas tardes"
+    },
+    {
+      "word": "good night",
+      "phoneticHint": "good NITE",
+      "translationEn": "good night",
+      "translationDa": "godnat",
+      "translationIt": "buonanotte",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "buenas noches"
+    },
+    {
+      "word": "please",
+      "phoneticHint": "pleez",
+      "translationEn": "please",
+      "translationDa": "vær så venlig",
+      "translationIt": "per favore",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "por favor"
+    },
+    {
+      "word": "thank you",
+      "phoneticHint": "THANK yoo",
+      "translationEn": "thank you",
+      "translationDa": "tak",
+      "translationIt": "grazie",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "gracias"
+    },
+    {
+      "word": "you're welcome",
+      "phoneticHint": "yoor WEL-kum",
+      "translationEn": "you're welcome",
+      "translationDa": "selv tak",
+      "translationIt": "prego",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "de nada"
+    },
+    {
+      "word": "excuse me",
+      "phoneticHint": "eks-KYOOZ mee",
+      "translationEn": "excuse me",
+      "translationDa": "undskyld",
+      "translationIt": "scusi",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "disculpe"
+    },
+    {
+      "word": "sorry",
+      "phoneticHint": "SOR-ee",
+      "translationEn": "sorry",
+      "translationDa": "undskyld",
+      "translationIt": "mi dispiace",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "lo siento"
+    },
+    {
+      "word": "yes",
+      "phoneticHint": "yes",
+      "translationEn": "yes",
+      "translationDa": "ja",
+      "translationIt": "sì",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "sí"
+    },
+    {
+      "word": "no",
+      "phoneticHint": "noh",
+      "translationEn": "no",
+      "translationDa": "nej",
+      "translationIt": "no",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "no"
+    },
+    {
+      "word": "how are you",
+      "phoneticHint": "how ar YOO",
+      "translationEn": "how are you",
+      "translationDa": "hvordan har du det",
+      "translationIt": "come stai",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "¿cómo estás?"
+    },
+    {
+      "word": "nice to meet you",
+      "phoneticHint": "NISE too meet yoo",
+      "translationEn": "nice to meet you",
+      "translationDa": "rart at møde dig",
+      "translationIt": "piacere di conoscerti",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "mucho gusto"
+    },
+    {
+      "word": "cheers",
+      "phoneticHint": "cheerz",
+      "translationEn": "cheers",
+      "translationDa": "skål",
+      "translationIt": "salute",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "¡salud!"
+    },
+    {
+      "word": "well done",
+      "phoneticHint": "wel DUN",
+      "translationEn": "well done",
+      "translationDa": "godt klaret",
+      "translationIt": "ben fatto",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "bien hecho"
+    },
+    {
+      "word": "see you later",
+      "phoneticHint": "see yoo LAY-ter",
+      "translationEn": "see you later",
+      "translationDa": "vi ses senere",
+      "translationIt": "ci vediamo dopo",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "hasta luego"
+    },
+    {
+      "word": "brilliant",
+      "phoneticHint": "BRIL-yunt",
+      "translationEn": "brilliant / great",
+      "translationDa": "fantastisk",
+      "translationIt": "fantastico",
+      "difficulty": "intermediate",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "genial"
+    },
+    {
+      "word": "lovely",
+      "phoneticHint": "LUV-lee",
+      "translationEn": "lovely",
+      "translationDa": "dejlig",
+      "translationIt": "adorabile",
+      "difficulty": "beginner",
+      "categories": [
+        "greetings"
+      ],
+      "translationEs": "encantador"
+    },
+    {
+      "word": "one",
+      "phoneticHint": "wun",
+      "translationEn": "one",
+      "translationDa": "én",
+      "translationIt": "uno",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "uno"
+    },
+    {
+      "word": "two",
+      "phoneticHint": "too",
+      "translationEn": "two",
+      "translationDa": "to",
+      "translationIt": "due",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "dos"
+    },
+    {
+      "word": "three",
+      "phoneticHint": "three",
+      "translationEn": "three",
+      "translationDa": "tre",
+      "translationIt": "tre",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "tres"
+    },
+    {
+      "word": "four",
+      "phoneticHint": "for",
+      "translationEn": "four",
+      "translationDa": "fire",
+      "translationIt": "quattro",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "cuatro"
+    },
+    {
+      "word": "five",
+      "phoneticHint": "five",
+      "translationEn": "five",
+      "translationDa": "fem",
+      "translationIt": "cinque",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "cinco"
+    },
+    {
+      "word": "six",
+      "phoneticHint": "siks",
+      "translationEn": "six",
+      "translationDa": "seks",
+      "translationIt": "sei",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "seis"
+    },
+    {
+      "word": "seven",
+      "phoneticHint": "SEV-un",
+      "translationEn": "seven",
+      "translationDa": "syv",
+      "translationIt": "sette",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "siete"
+    },
+    {
+      "word": "eight",
+      "phoneticHint": "ayt",
+      "translationEn": "eight",
+      "translationDa": "otte",
+      "translationIt": "otto",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "ocho"
+    },
+    {
+      "word": "nine",
+      "phoneticHint": "nine",
+      "translationEn": "nine",
+      "translationDa": "ni",
+      "translationIt": "nove",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "nueve"
+    },
+    {
+      "word": "ten",
+      "phoneticHint": "ten",
+      "translationEn": "ten",
+      "translationDa": "ti",
+      "translationIt": "dieci",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "diez"
+    },
+    {
+      "word": "twenty",
+      "phoneticHint": "TWEN-tee",
+      "translationEn": "twenty",
+      "translationDa": "tyve",
+      "translationIt": "venti",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "veinte"
+    },
+    {
+      "word": "fifty",
+      "phoneticHint": "FIF-tee",
+      "translationEn": "fifty",
+      "translationDa": "halvtreds",
+      "translationIt": "cinquanta",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "cincuenta"
+    },
+    {
+      "word": "hundred",
+      "phoneticHint": "HUN-dred",
+      "translationEn": "hundred",
+      "translationDa": "hundrede",
+      "translationIt": "cento",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "cien"
+    },
+    {
+      "word": "thousand",
+      "phoneticHint": "THOU-zund",
+      "translationEn": "thousand",
+      "translationDa": "tusind",
+      "translationIt": "mille",
+      "difficulty": "intermediate",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "mil"
+    },
+    {
+      "word": "first",
+      "phoneticHint": "furst",
+      "translationEn": "first",
+      "translationDa": "første",
+      "translationIt": "primo",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "primero"
+    },
+    {
+      "word": "second",
+      "phoneticHint": "SEK-und",
+      "translationEn": "second",
+      "translationDa": "anden",
+      "translationIt": "secondo",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "segundo"
+    },
+    {
+      "word": "half",
+      "phoneticHint": "hahf",
+      "translationEn": "half",
+      "translationDa": "halvdelen",
+      "translationIt": "metà",
+      "difficulty": "beginner",
+      "categories": [
+        "numbers"
+      ],
+      "translationEs": "mitad"
+    },
+    {
+      "word": "bread",
+      "phoneticHint": "bred",
+      "translationEn": "bread",
+      "translationDa": "brød",
+      "translationIt": "pane",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "pan"
+    },
+    {
+      "word": "butter",
+      "phoneticHint": "BUT-er",
+      "translationEn": "butter",
+      "translationDa": "smør",
+      "translationIt": "burro",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "mantequilla"
+    },
+    {
+      "word": "cheese",
+      "phoneticHint": "cheez",
+      "translationEn": "cheese",
+      "translationDa": "ost",
+      "translationIt": "formaggio",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "queso"
+    },
+    {
+      "word": "milk",
+      "phoneticHint": "milk",
+      "translationEn": "milk",
+      "translationDa": "mælk",
+      "translationIt": "latte",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "leche"
+    },
+    {
+      "word": "water",
+      "phoneticHint": "WAW-ter",
+      "translationEn": "water",
+      "translationDa": "vand",
+      "translationIt": "acqua",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "agua"
+    },
+    {
+      "word": "coffee",
+      "phoneticHint": "KOF-ee",
+      "translationEn": "coffee",
+      "translationDa": "kaffe",
+      "translationIt": "caffè",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "café"
+    },
+    {
+      "word": "tea",
+      "phoneticHint": "tee",
+      "translationEn": "tea",
+      "translationDa": "te",
+      "translationIt": "tè",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "té"
+    },
+    {
+      "word": "beer",
+      "phoneticHint": "beer",
+      "translationEn": "beer",
+      "translationDa": "øl",
+      "translationIt": "birra",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "cerveza"
+    },
+    {
+      "word": "wine",
+      "phoneticHint": "wine",
+      "translationEn": "wine",
+      "translationDa": "vin",
+      "translationIt": "vino",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "vino"
+    },
+    {
+      "word": "chicken",
+      "phoneticHint": "CHIK-en",
+      "translationEn": "chicken",
+      "translationDa": "kylling",
+      "translationIt": "pollo",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "pollo"
+    },
+    {
+      "word": "fish",
+      "phoneticHint": "fish",
+      "translationEn": "fish",
+      "translationDa": "fisk",
+      "translationIt": "pesce",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "pescado"
+    },
+    {
+      "word": "cake",
+      "phoneticHint": "kayk",
+      "translationEn": "cake",
+      "translationDa": "kage",
+      "translationIt": "torta",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "pastel"
+    },
+    {
+      "word": "fruit",
+      "phoneticHint": "froot",
+      "translationEn": "fruit",
+      "translationDa": "frugt",
+      "translationIt": "frutta",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "fruta"
+    },
+    {
+      "word": "vegetables",
+      "phoneticHint": "VEJ-tuh-bulz",
+      "translationEn": "vegetables",
+      "translationDa": "grøntsager",
+      "translationIt": "verdure",
+      "difficulty": "intermediate",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "verduras"
+    },
+    {
+      "word": "potato",
+      "phoneticHint": "puh-TAY-toh",
+      "translationEn": "potato",
+      "translationDa": "kartoffel",
+      "translationIt": "patata",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "patata"
+    },
+    {
+      "word": "soup",
+      "phoneticHint": "soop",
+      "translationEn": "soup",
+      "translationDa": "suppe",
+      "translationIt": "zuppa",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "sopa"
+    },
+    {
+      "word": "breakfast",
+      "phoneticHint": "BREK-fust",
+      "translationEn": "breakfast",
+      "translationDa": "morgenmad",
+      "translationIt": "colazione",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "desayuno"
+    },
+    {
+      "word": "lunch",
+      "phoneticHint": "lunch",
+      "translationEn": "lunch",
+      "translationDa": "frokost",
+      "translationIt": "pranzo",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "almuerzo"
+    },
+    {
+      "word": "dinner",
+      "phoneticHint": "DIN-er",
+      "translationEn": "dinner",
+      "translationDa": "aftensmad",
+      "translationIt": "cena",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "cena"
+    },
+    {
+      "word": "dessert",
+      "phoneticHint": "dih-ZURT",
+      "translationEn": "dessert",
+      "translationDa": "dessert",
+      "translationIt": "dolce",
+      "difficulty": "beginner",
+      "categories": [
+        "food"
+      ],
+      "translationEs": "postre"
+    },
+    {
+      "word": "airport",
+      "phoneticHint": "AIR-port",
+      "translationEn": "airport",
+      "translationDa": "lufthavn",
+      "translationIt": "aeroporto",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "aeropuerto"
+    },
+    {
+      "word": "station",
+      "phoneticHint": "STAY-shun",
+      "translationEn": "station",
+      "translationDa": "station",
+      "translationIt": "stazione",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "estación"
+    },
+    {
+      "word": "train",
+      "phoneticHint": "trayn",
+      "translationEn": "train",
+      "translationDa": "tog",
+      "translationIt": "treno",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "tren"
+    },
+    {
+      "word": "bus",
+      "phoneticHint": "bus",
+      "translationEn": "bus",
+      "translationDa": "bus",
+      "translationIt": "autobus",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "autobús"
+    },
+    {
+      "word": "bicycle",
+      "phoneticHint": "BY-sik-ul",
+      "translationEn": "bicycle",
+      "translationDa": "cykel",
+      "translationIt": "bicicletta",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "bicicleta"
+    },
+    {
+      "word": "hotel",
+      "phoneticHint": "hoh-TEL",
+      "translationEn": "hotel",
+      "translationDa": "hotel",
+      "translationIt": "albergo",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "hotel"
+    },
+    {
+      "word": "street",
+      "phoneticHint": "street",
+      "translationEn": "street",
+      "translationDa": "gade",
+      "translationIt": "strada",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "calle"
+    },
+    {
+      "word": "left",
+      "phoneticHint": "left",
+      "translationEn": "left",
+      "translationDa": "venstre",
+      "translationIt": "sinistra",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "izquierda"
+    },
+    {
+      "word": "right",
+      "phoneticHint": "rite",
+      "translationEn": "right",
+      "translationDa": "højre",
+      "translationIt": "destra",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "derecha"
+    },
+    {
+      "word": "straight ahead",
+      "phoneticHint": "strayt uh-HED",
+      "translationEn": "straight ahead",
+      "translationDa": "ligeud",
+      "translationIt": "dritto",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "todo recto"
+    },
+    {
+      "word": "map",
+      "phoneticHint": "map",
+      "translationEn": "map",
+      "translationDa": "kort",
+      "translationIt": "mappa",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "mapa"
+    },
+    {
+      "word": "ticket",
+      "phoneticHint": "TIK-it",
+      "translationEn": "ticket",
+      "translationDa": "billet",
+      "translationIt": "biglietto",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "billete"
+    },
+    {
+      "word": "journey",
+      "phoneticHint": "JUR-nee",
+      "translationEn": "journey",
+      "translationDa": "rejse",
+      "translationIt": "viaggio",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "viaje"
+    },
+    {
+      "word": "arrival",
+      "phoneticHint": "uh-RY-vul",
+      "translationEn": "arrival",
+      "translationDa": "ankomst",
+      "translationIt": "arrivo",
+      "difficulty": "intermediate",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "llegada"
+    },
+    {
+      "word": "departure",
+      "phoneticHint": "dih-PAR-chur",
+      "translationEn": "departure",
+      "translationDa": "afgang",
+      "translationIt": "partenza",
+      "difficulty": "intermediate",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "salida"
+    },
+    {
+      "word": "passport",
+      "phoneticHint": "PASS-port",
+      "translationEn": "passport",
+      "translationDa": "pas",
+      "translationIt": "passaporto",
+      "difficulty": "beginner",
+      "categories": [
+        "travel"
+      ],
+      "translationEs": "pasaporte"
+    },
+    {
+      "word": "price",
+      "phoneticHint": "prise",
+      "translationEn": "price",
+      "translationDa": "pris",
+      "translationIt": "prezzo",
+      "difficulty": "beginner",
+      "categories": [
+        "shopping"
+      ],
+      "translationEs": "precio"
+    },
+    {
+      "word": "money",
+      "phoneticHint": "MUN-ee",
+      "translationEn": "money",
+      "translationDa": "penge",
+      "translationIt": "soldi",
+      "difficulty": "beginner",
+      "categories": [
+        "shopping"
+      ],
+      "translationEs": "dinero"
+    },
+    {
+      "word": "shop",
+      "phoneticHint": "shop",
+      "translationEn": "shop",
+      "translationDa": "butik",
+      "translationIt": "negozio",
+      "difficulty": "beginner",
+      "categories": [
+        "shopping"
+      ],
+      "translationEs": "tienda"
+    },
+    {
+      "word": "to buy",
+      "phoneticHint": "too BY",
+      "translationEn": "to buy",
+      "translationDa": "at købe",
+      "translationIt": "comprare",
+      "difficulty": "beginner",
+      "categories": [
+        "shopping"
+      ],
+      "translationEs": "comprar"
+    },
+    {
+      "word": "cheap",
+      "phoneticHint": "cheep",
+      "translationEn": "cheap",
+      "translationDa": "billig",
+      "translationIt": "economico",
+      "difficulty": "beginner",
+      "categories": [
+        "shopping"
+      ],
+      "translationEs": "barato"
+    },
+    {
+      "word": "expensive",
+      "phoneticHint": "eks-PEN-siv",
+      "translationEn": "expensive",
+      "translationDa": "dyr",
+      "translationIt": "caro",
+      "difficulty": "beginner",
+      "categories": [
+        "shopping"
+      ],
+      "translationEs": "caro"
+    },
+    {
+      "word": "discount",
+      "phoneticHint": "DIS-count",
+      "translationEn": "discount",
+      "translationDa": "rabat",
+      "translationIt": "sconto",
+      "difficulty": "intermediate",
+      "categories": [
+        "shopping"
+      ],
+      "translationEs": "descuento"
+    },
+    {
+      "word": "bill",
+      "phoneticHint": "bil",
+      "translationEn": "bill / check",
+      "translationDa": "regning",
+      "translationIt": "conto",
+      "difficulty": "beginner",
+      "categories": [
+        "shopping"
+      ],
+      "translationEs": "cuenta"
+    },
+    {
+      "word": "cash",
+      "phoneticHint": "kash",
+      "translationEn": "cash",
+      "translationDa": "kontant",
+      "translationIt": "contanti",
+      "difficulty": "beginner",
+      "categories": [
+        "shopping"
+      ],
+      "translationEs": "efectivo"
+    },
+    {
+      "word": "card",
+      "phoneticHint": "kard",
+      "translationEn": "card",
+      "translationDa": "kort",
+      "translationIt": "carta",
+      "difficulty": "beginner",
+      "categories": [
+        "shopping"
+      ],
+      "translationEs": "tarjeta"
+    },
+    {
+      "word": "receipt",
+      "phoneticHint": "rih-SEET",
+      "translationEn": "receipt",
+      "translationDa": "kvittering",
+      "translationIt": "scontrino",
+      "difficulty": "intermediate",
+      "categories": [
+        "shopping"
+      ],
+      "translationEs": "recibo"
+    },
+    {
+      "word": "sale",
+      "phoneticHint": "sayl",
+      "translationEn": "sale",
+      "translationDa": "tilbud",
+      "translationIt": "offerta",
+      "difficulty": "beginner",
+      "categories": [
+        "shopping"
+      ],
+      "translationEs": "oferta"
+    },
+    {
+      "word": "mother",
+      "phoneticHint": "MUTH-er",
+      "translationEn": "mother",
+      "translationDa": "mor",
+      "translationIt": "madre",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "madre"
+    },
+    {
+      "word": "father",
+      "phoneticHint": "FAH-ther",
+      "translationEn": "father",
+      "translationDa": "far",
+      "translationIt": "padre",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "padre"
+    },
+    {
+      "word": "sister",
+      "phoneticHint": "SIS-ter",
+      "translationEn": "sister",
+      "translationDa": "søster",
+      "translationIt": "sorella",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "hermana"
+    },
+    {
+      "word": "brother",
+      "phoneticHint": "BRUH-ther",
+      "translationEn": "brother",
+      "translationDa": "bror",
+      "translationIt": "fratello",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "hermano"
+    },
+    {
+      "word": "child",
+      "phoneticHint": "chyld",
+      "translationEn": "child",
+      "translationDa": "barn",
+      "translationIt": "bambino",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "niño"
+    },
+    {
+      "word": "grandmother",
+      "phoneticHint": "GRAND-muth-er",
+      "translationEn": "grandmother",
+      "translationDa": "bedstemor",
+      "translationIt": "nonna",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "abuela"
+    },
+    {
+      "word": "grandfather",
+      "phoneticHint": "GRAND-fah-ther",
+      "translationEn": "grandfather",
+      "translationDa": "bedstefar",
+      "translationIt": "nonno",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "abuelo"
+    },
+    {
+      "word": "husband",
+      "phoneticHint": "HUZ-band",
+      "translationEn": "husband",
+      "translationDa": "mand",
+      "translationIt": "marito",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "esposo"
+    },
+    {
+      "word": "wife",
+      "phoneticHint": "wife",
+      "translationEn": "wife",
+      "translationDa": "kone",
+      "translationIt": "moglie",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "esposa"
+    },
+    {
+      "word": "friend",
+      "phoneticHint": "frend",
+      "translationEn": "friend",
+      "translationDa": "ven",
+      "translationIt": "amico",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "amigo"
+    },
+    {
+      "word": "neighbour",
+      "phoneticHint": "NAY-bur",
+      "translationEn": "neighbour",
+      "translationDa": "nabo",
+      "translationIt": "vicino",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "vecino"
+    },
+    {
+      "word": "colleague",
+      "phoneticHint": "KOL-eeg",
+      "translationEn": "colleague",
+      "translationDa": "kollega",
+      "translationIt": "collega",
+      "difficulty": "intermediate",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "colega"
+    },
+    {
+      "word": "baby",
+      "phoneticHint": "BAY-bee",
+      "translationEn": "baby",
+      "translationDa": "baby",
+      "translationIt": "neonato",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "bebé"
+    },
+    {
+      "word": "cousin",
+      "phoneticHint": "KUZ-in",
+      "translationEn": "cousin",
+      "translationDa": "fætter / kusine",
+      "translationIt": "cugino / cugina",
+      "difficulty": "intermediate",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "primo"
+    },
+    {
+      "word": "uncle",
+      "phoneticHint": "UN-kul",
+      "translationEn": "uncle",
+      "translationDa": "onkel",
+      "translationIt": "zio",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "tío"
+    },
+    {
+      "word": "aunt",
+      "phoneticHint": "ant",
+      "translationEn": "aunt",
+      "translationDa": "tante",
+      "translationIt": "zia",
+      "difficulty": "beginner",
+      "categories": [
+        "family"
+      ],
+      "translationEs": "tía"
+    },
+    {
+      "word": "time",
+      "phoneticHint": "time",
+      "translationEn": "time",
+      "translationDa": "tid",
+      "translationIt": "tempo",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ]
+    },
+    {
+      "word": "hour",
+      "phoneticHint": "OW-er",
+      "translationEn": "hour",
+      "translationDa": "time",
+      "translationIt": "ora",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ],
+      "translationEs": "hora"
+    },
+    {
+      "word": "minute",
+      "phoneticHint": "MIN-it",
+      "translationEn": "minute",
+      "translationDa": "minut",
+      "translationIt": "minuto",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ],
+      "translationEs": "minuto"
+    },
+    {
+      "word": "today",
+      "phoneticHint": "tuh-DAY",
+      "translationEn": "today",
+      "translationDa": "i dag",
+      "translationIt": "oggi",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ],
+      "translationEs": "hoy"
+    },
+    {
+      "word": "tomorrow",
+      "phoneticHint": "tuh-MOR-oh",
+      "translationEn": "tomorrow",
+      "translationDa": "i morgen",
+      "translationIt": "domani",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ],
+      "translationEs": "mañana"
+    },
+    {
+      "word": "yesterday",
+      "phoneticHint": "YES-ter-day",
+      "translationEn": "yesterday",
+      "translationDa": "i går",
+      "translationIt": "ieri",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ],
+      "translationEs": "ayer"
+    },
+    {
+      "word": "Monday",
+      "phoneticHint": "MUN-day",
+      "translationEn": "Monday",
+      "translationDa": "mandag",
+      "translationIt": "lunedì",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ],
+      "translationEs": "lunes"
+    },
+    {
+      "word": "Tuesday",
+      "phoneticHint": "TOOZ-day",
+      "translationEn": "Tuesday",
+      "translationDa": "tirsdag",
+      "translationIt": "martedì",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ],
+      "translationEs": "martes"
+    },
+    {
+      "word": "Wednesday",
+      "phoneticHint": "WENZ-day",
+      "translationEn": "Wednesday",
+      "translationDa": "onsdag",
+      "translationIt": "mercoledì",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ],
+      "translationEs": "miércoles"
+    },
+    {
+      "word": "Thursday",
+      "phoneticHint": "THURZ-day",
+      "translationEn": "Thursday",
+      "translationDa": "torsdag",
+      "translationIt": "giovedì",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ],
+      "translationEs": "jueves"
+    },
+    {
+      "word": "Friday",
+      "phoneticHint": "FRY-day",
+      "translationEn": "Friday",
+      "translationDa": "fredag",
+      "translationIt": "venerdì",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ],
+      "translationEs": "viernes"
+    },
+    {
+      "word": "Saturday",
+      "phoneticHint": "SAT-er-day",
+      "translationEn": "Saturday",
+      "translationDa": "lørdag",
+      "translationIt": "sabato",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ],
+      "translationEs": "sábado"
+    },
+    {
+      "word": "Sunday",
+      "phoneticHint": "SUN-day",
+      "translationEn": "Sunday",
+      "translationDa": "søndag",
+      "translationIt": "domenica",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ],
+      "translationEs": "domingo"
+    },
+    {
+      "word": "morning",
+      "phoneticHint": "MOR-ning",
+      "translationEn": "morning",
+      "translationDa": "morgen",
+      "translationIt": "mattina",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ]
+    },
+    {
+      "word": "evening",
+      "phoneticHint": "EEV-ning",
+      "translationEn": "evening",
+      "translationDa": "aften",
+      "translationIt": "sera",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ]
+    },
+    {
+      "word": "night",
+      "phoneticHint": "nite",
+      "translationEn": "night",
+      "translationDa": "nat",
+      "translationIt": "notte",
+      "difficulty": "beginner",
+      "categories": [
+        "time"
+      ]
+    },
+    {
+      "word": "sun",
+      "phoneticHint": "sun",
+      "translationEn": "sun",
+      "translationDa": "sol",
+      "translationIt": "sole",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ],
+      "translationEs": "sol"
+    },
+    {
+      "word": "rain",
+      "phoneticHint": "rayn",
+      "translationEn": "rain",
+      "translationDa": "regn",
+      "translationIt": "pioggia",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ],
+      "translationEs": "lluvia"
+    },
+    {
+      "word": "snow",
+      "phoneticHint": "snoh",
+      "translationEn": "snow",
+      "translationDa": "sne",
+      "translationIt": "neve",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ],
+      "translationEs": "nieve"
+    },
+    {
+      "word": "wind",
+      "phoneticHint": "wind",
+      "translationEn": "wind",
+      "translationDa": "vind",
+      "translationIt": "vento",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ],
+      "translationEs": "viento"
+    },
+    {
+      "word": "cloud",
+      "phoneticHint": "klowd",
+      "translationEn": "cloud",
+      "translationDa": "sky",
+      "translationIt": "nuvola",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ],
+      "translationEs": "nube"
+    },
+    {
+      "word": "cold",
+      "phoneticHint": "kohld",
+      "translationEn": "cold",
+      "translationDa": "koldt",
+      "translationIt": "freddo",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ],
+      "translationEs": "frío"
+    },
+    {
+      "word": "warm",
+      "phoneticHint": "worm",
+      "translationEn": "warm / hot",
+      "translationDa": "varmt",
+      "translationIt": "caldo",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ]
+    },
+    {
+      "word": "tree",
+      "phoneticHint": "tree",
+      "translationEn": "tree",
+      "translationDa": "træ",
+      "translationIt": "albero",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ],
+      "translationEs": "árbol"
+    },
+    {
+      "word": "flower",
+      "phoneticHint": "FLOW-er",
+      "translationEn": "flower",
+      "translationDa": "blomst",
+      "translationIt": "fiore",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ],
+      "translationEs": "flor"
+    },
+    {
+      "word": "sea",
+      "phoneticHint": "see",
+      "translationEn": "sea / ocean",
+      "translationDa": "hav",
+      "translationIt": "mare",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ],
+      "translationEs": "mar"
+    },
+    {
+      "word": "lake",
+      "phoneticHint": "layk",
+      "translationEn": "lake",
+      "translationDa": "sø",
+      "translationIt": "lago",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ],
+      "translationEs": "lago"
+    },
+    {
+      "word": "beach",
+      "phoneticHint": "beech",
+      "translationEn": "beach",
+      "translationDa": "strand",
+      "translationIt": "spiaggia",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ],
+      "translationEs": "playa"
+    },
+    {
+      "word": "mountain",
+      "phoneticHint": "MOWN-tin",
+      "translationEn": "mountain",
+      "translationDa": "bjerg",
+      "translationIt": "montagna",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ],
+      "translationEs": "montaña"
+    },
+    {
+      "word": "forest",
+      "phoneticHint": "FOR-ist",
+      "translationEn": "forest",
+      "translationDa": "skov",
+      "translationIt": "foresta",
+      "difficulty": "beginner",
+      "categories": [
+        "weather"
+      ]
+    },
+    {
+      "word": "doctor",
+      "phoneticHint": "DOK-ter",
+      "translationEn": "doctor",
+      "translationDa": "læge",
+      "translationIt": "medico",
+      "difficulty": "beginner",
+      "categories": [
+        "health"
+      ],
+      "translationEs": "médico"
+    },
+    {
+      "word": "pharmacy",
+      "phoneticHint": "FAR-muh-see",
+      "translationEn": "pharmacy",
+      "translationDa": "apotek",
+      "translationIt": "farmacia",
+      "difficulty": "beginner",
+      "categories": [
+        "health"
+      ],
+      "translationEs": "farmacia"
+    },
+    {
+      "word": "hospital",
+      "phoneticHint": "HOS-pit-ul",
+      "translationEn": "hospital",
+      "translationDa": "sygehus",
+      "translationIt": "ospedale",
+      "difficulty": "beginner",
+      "categories": [
+        "health"
+      ],
+      "translationEs": "hospital"
+    },
+    {
+      "word": "head",
+      "phoneticHint": "hed",
+      "translationEn": "head",
+      "translationDa": "hoved",
+      "translationIt": "testa",
+      "difficulty": "beginner",
+      "categories": [
+        "health"
+      ],
+      "translationEs": "cabeza"
+    },
+    {
+      "word": "hand",
+      "phoneticHint": "hand",
+      "translationEn": "hand",
+      "translationDa": "hånd",
+      "translationIt": "mano",
+      "difficulty": "beginner",
+      "categories": [
+        "health"
+      ],
+      "translationEs": "mano"
+    },
+    {
+      "word": "foot",
+      "phoneticHint": "foot",
+      "translationEn": "foot",
+      "translationDa": "fod",
+      "translationIt": "piede",
+      "difficulty": "beginner",
+      "categories": [
+        "health"
+      ],
+      "translationEs": "pie"
+    },
+    {
+      "word": "eye",
+      "phoneticHint": "eye",
+      "translationEn": "eye",
+      "translationDa": "øje",
+      "translationIt": "occhio",
+      "difficulty": "beginner",
+      "categories": [
+        "health"
+      ],
+      "translationEs": "ojo"
+    },
+    {
+      "word": "ear",
+      "phoneticHint": "eer",
+      "translationEn": "ear",
+      "translationDa": "øre",
+      "translationIt": "orecchio",
+      "difficulty": "beginner",
+      "categories": [
+        "health"
+      ]
+    },
+    {
+      "word": "help",
+      "phoneticHint": "help",
+      "translationEn": "help",
+      "translationDa": "hjælp",
+      "translationIt": "aiuto",
+      "difficulty": "beginner",
+      "categories": [
+        "health"
+      ]
+    },
+    {
+      "word": "sick",
+      "phoneticHint": "sik",
+      "translationEn": "sick / ill",
+      "translationDa": "syg",
+      "translationIt": "malato",
+      "difficulty": "beginner",
+      "categories": [
+        "health"
+      ]
+    },
+    {
+      "word": "healthy",
+      "phoneticHint": "HEL-thee",
+      "translationEn": "healthy",
+      "translationDa": "sund",
+      "translationIt": "sano",
+      "difficulty": "beginner",
+      "categories": [
+        "health"
+      ],
+      "translationEs": "sano"
+    },
+    {
+      "word": "pain",
+      "phoneticHint": "payn",
+      "translationEn": "pain",
+      "translationDa": "smerte",
+      "translationIt": "dolore",
+      "difficulty": "intermediate",
+      "categories": [
+        "health"
+      ],
+      "translationEs": "dolor"
+    },
+    {
+      "word": "medicine",
+      "phoneticHint": "MED-uh-sin",
+      "translationEn": "medicine",
+      "translationDa": "medicin",
+      "translationIt": "medicina",
+      "difficulty": "intermediate",
+      "categories": [
+        "health"
+      ]
+    },
+    {
+      "word": "allergy",
+      "phoneticHint": "AL-er-jee",
+      "translationEn": "allergy",
+      "translationDa": "allergi",
+      "translationIt": "allergia",
+      "difficulty": "intermediate",
+      "categories": [
+        "health"
+      ]
+    },
+    {
+      "word": "tooth",
+      "phoneticHint": "tooth",
+      "translationEn": "tooth",
+      "translationDa": "tand",
+      "translationIt": "dente",
+      "difficulty": "beginner",
+      "categories": [
+        "health"
+      ],
+      "translationEs": "diente"
+    },
+    {
+      "word": "to be",
+      "phoneticHint": "too bee",
+      "translationEn": "to be",
+      "translationDa": "at være",
+      "translationIt": "essere",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "ser / estar"
+    },
+    {
+      "word": "to have",
+      "phoneticHint": "too hav",
+      "translationEn": "to have",
+      "translationDa": "at have",
+      "translationIt": "avere",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "tener"
+    },
+    {
+      "word": "to go",
+      "phoneticHint": "too goh",
+      "translationEn": "to go",
+      "translationDa": "at gå",
+      "translationIt": "andare",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "ir"
+    },
+    {
+      "word": "to come",
+      "phoneticHint": "too kum",
+      "translationEn": "to come",
+      "translationDa": "at komme",
+      "translationIt": "venire",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "venir"
+    },
+    {
+      "word": "to eat",
+      "phoneticHint": "too eet",
+      "translationEn": "to eat",
+      "translationDa": "at spise",
+      "translationIt": "mangiare",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "comer"
+    },
+    {
+      "word": "to drink",
+      "phoneticHint": "too drink",
+      "translationEn": "to drink",
+      "translationDa": "at drikke",
+      "translationIt": "bere",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "beber"
+    },
+    {
+      "word": "to speak",
+      "phoneticHint": "too speek",
+      "translationEn": "to speak",
+      "translationDa": "at tale",
+      "translationIt": "parlare",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "hablar"
+    },
+    {
+      "word": "to understand",
+      "phoneticHint": "too un-der-STAND",
+      "translationEn": "to understand",
+      "translationDa": "at forstå",
+      "translationIt": "capire",
+      "difficulty": "intermediate",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "entender"
+    },
+    {
+      "word": "to see",
+      "phoneticHint": "too see",
+      "translationEn": "to see",
+      "translationDa": "at se",
+      "translationIt": "vedere",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "ver"
+    },
+    {
+      "word": "to hear",
+      "phoneticHint": "too heer",
+      "translationEn": "to hear",
+      "translationDa": "at høre",
+      "translationIt": "sentire",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ]
+    },
+    {
+      "word": "to know",
+      "phoneticHint": "too noh",
+      "translationEn": "to know",
+      "translationDa": "at vide",
+      "translationIt": "sapere",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "saber"
+    },
+    {
+      "word": "to make",
+      "phoneticHint": "too mayk",
+      "translationEn": "to make / do",
+      "translationDa": "at lave",
+      "translationIt": "fare",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ]
+    },
+    {
+      "word": "to take",
+      "phoneticHint": "too tayk",
+      "translationEn": "to take",
+      "translationDa": "at tage",
+      "translationIt": "prendere",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ]
+    },
+    {
+      "word": "to give",
+      "phoneticHint": "too giv",
+      "translationEn": "to give",
+      "translationDa": "at give",
+      "translationIt": "dare",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "dar"
+    },
+    {
+      "word": "to say",
+      "phoneticHint": "too say",
+      "translationEn": "to say",
+      "translationDa": "at sige",
+      "translationIt": "dire",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "decir"
+    },
+    {
+      "word": "to think",
+      "phoneticHint": "too think",
+      "translationEn": "to think",
+      "translationDa": "at tænke",
+      "translationIt": "pensare",
+      "difficulty": "intermediate",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "pensar"
+    },
+    {
+      "word": "to read",
+      "phoneticHint": "too reed",
+      "translationEn": "to read",
+      "translationDa": "at læse",
+      "translationIt": "leggere",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "leer"
+    },
+    {
+      "word": "to write",
+      "phoneticHint": "too rite",
+      "translationEn": "to write",
+      "translationDa": "at skrive",
+      "translationIt": "scrivere",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "escribir"
+    },
+    {
+      "word": "to love",
+      "phoneticHint": "too luv",
+      "translationEn": "to love",
+      "translationDa": "at elske",
+      "translationIt": "amare",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ]
+    },
+    {
+      "word": "to work",
+      "phoneticHint": "too wurk",
+      "translationEn": "to work",
+      "translationDa": "at arbejde",
+      "translationIt": "lavorare",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "trabajar"
+    },
+    {
+      "word": "to sleep",
+      "phoneticHint": "too sleep",
+      "translationEn": "to sleep",
+      "translationDa": "at sove",
+      "translationIt": "dormire",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ],
+      "translationEs": "dormir"
+    },
+    {
+      "word": "to learn",
+      "phoneticHint": "too lurn",
+      "translationEn": "to learn",
+      "translationDa": "at lære",
+      "translationIt": "imparare",
+      "difficulty": "beginner",
+      "categories": [
+        "verbs"
+      ]
+    }
   ]
 }

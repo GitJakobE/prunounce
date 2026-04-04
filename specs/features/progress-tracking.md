@@ -34,6 +34,7 @@ The system records which words a user has listened to and displays their learnin
 
 ### 3.3 Category-Level Progress
 - Each category in the category listing must display a progress summary showing the number of words practised out of the total in that category.
+- Category names must be displayed in the user's reference language, not hardcoded to English.
 - Optionally, a progress bar or percentage can supplement the count.
 
 ### 3.4 Difficulty-Level Progress
@@ -43,6 +44,7 @@ The system records which words a user has listened to and displays their learnin
 ### 3.5 Global Progress Summary
 - A summary view (e.g., on the main page or profile page) shows the user's total progress across all categories for the current target language.
 - Example: "156 / 250 words practised in Italian."
+- Category names in the progress view must be displayed in the user's reference language (e.g., Italian-reference users see "Saluti e basi" instead of "Greetings & Basics").
 
 ### 3.6 Per-Language Isolation
 - Progress is tracked and displayed independently for each target language.

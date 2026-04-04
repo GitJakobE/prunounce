@@ -17,6 +17,8 @@ def get_target_example(word: Word) -> str:
         return word.example_da
     if word.language == "en":
         return word.example_en
+    if word.language == "es":
+        return word.example_es
     return word.example_it
 
 

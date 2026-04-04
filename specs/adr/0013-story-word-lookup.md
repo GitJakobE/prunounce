@@ -1,8 +1,9 @@
 # ADR-0013: Story Word Tokenisation & Dictionary Lookup
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-03-29
 - **Deciders:** Development team
+- **Extended by:** [ADR-0027](0027-story-lookup-cascade-and-otf-audio.md) for on-the-fly translation fallback
 - **Requirements:** REQ-14 (Story Reading), REQ-2 (Word dictionary), REQ-5 (Word search)
 
 ## Context and Problem Statement

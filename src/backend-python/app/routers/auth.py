@@ -42,7 +42,7 @@ def register(payload: RegisterInput, db: Session = Depends(get_db)) -> dict:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=return_error)
 
     language = payload.language or "en"
-    if language not in ["en", "da", "it"]:
+    if language not in ["en", "da", "it", "es"]:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail={"errors": [{"msg": "Invalid value", "path": "language"}]})
 
     existing = db.query(User).filter(User.email == payload.email.lower()).first()
@@ -52,11 +52,15 @@ def register(payload: RegisterInput, db: Session = Depends(get_db)) -> dict:
             detail="An account with this email already exists. Try logging in or resetting your password.",
         )
 
+    display_name = payload.displayName
+    if not display_name or not display_name.strip():
+        display_name = payload.email.split("@")[0]
+
     user = User(
         email=payload.email.lower(),
         password_hash=hash_password(payload.password),
         language=language,
-        display_name=payload.displayName,
+        display_name=display_name,
     )
     db.add(user)
     db.commit()

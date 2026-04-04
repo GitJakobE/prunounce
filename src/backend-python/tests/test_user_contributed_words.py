@@ -158,6 +158,17 @@ def test_create_word_no_letters(client: TestClient) -> None:
     assert res.status_code == 400
 
 
+def test_create_word_letters_with_digits(client: TestClient) -> None:
+    token = register_and_token(client, "ugcdigits@example.com")
+
+    res = client.post(
+        "/api/dictionary/words",
+        json={"word": "solskin3705", "translation": "sunshine"},
+        headers={"Authorization": f"Bearer {token}"},
+    )
+    assert res.status_code == 400
+
+
 def test_create_word_invalid_difficulty(client: TestClient) -> None:
     token = register_and_token(client, "ugcinvdiff@example.com")
 

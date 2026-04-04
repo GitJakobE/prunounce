@@ -1,9 +1,12 @@
 """Tests for GET /api/dictionary/lookup (Task 029 – word lookup endpoint)."""
 
+from unittest.mock import patch
+
 import pytest
 from fastapi.testclient import TestClient
 
 from app.models import Word
+from app.services.translation import PROVIDER
 
 from .conftest import TestSessionLocal as SessionLocal
 
@@ -72,6 +75,7 @@ class TestWordLookup:
         assert data["translation"] == "hello"  # reference lang is English for Italian host
         assert data["wordId"] == word_id
         assert data["phoneticHint"] == "test-hint"
+        assert data["source"] == "curated"
 
     def test_case_insensitive_match(self, client: TestClient, clean_db: None) -> None:
         _seed_word(word="ciao")
@@ -90,7 +94,8 @@ class TestWordLookup:
         assert res.status_code == 200
         assert res.json()["word"] == "città"
 
-    def test_not_found_returns_null_fields(self, client: TestClient, clean_db: None) -> None:
+    @patch.object(PROVIDER, "translate", return_value=None)
+    def test_not_found_returns_null_fields(self, mock_translate, client: TestClient, clean_db: None) -> None:
         token = _register_and_token(client, "lookup-notfound@example.com", host_id="marco")
 
         res = client.get("/api/dictionary/lookup?word=zzznonsenseword", headers=_auth(token))
@@ -100,7 +105,8 @@ class TestWordLookup:
         assert data["phoneticHint"] is None
         assert data["wordId"] is None
 
-    def test_language_filter_by_host(self, client: TestClient, clean_db: None) -> None:
+    @patch.object(PROVIDER, "translate", return_value=None)
+    def test_language_filter_by_host(self, mock_translate, client: TestClient, clean_db: None) -> None:
         # Danish word must NOT be returned for an Italian host
         _seed_word(word="hej", language="da", translation_en="hello")
         _seed_word(word="ciao", language="it", translation_en="hello")

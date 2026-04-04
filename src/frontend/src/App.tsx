@@ -13,6 +13,7 @@ import ProfilePage from "./pages/ProfilePage";
 import AddWordPage from "./pages/AddWordPage";
 import StoriesPage from "./pages/StoriesPage";
 import StoryReadingPage from "./pages/StoryReadingPage";
+import ReviewDashboardPage from "./pages/ReviewDashboardPage";
 import "./i18n";
 
 function RequireHost({ children }: { children: React.ReactNode }) {
@@ -57,6 +58,7 @@ export default function App() {
             <Route path="/stories/:id" element={<StoryReadingPage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/add-word" element={<AddWordPage />} />
+            <Route path="/review/reports" element={<ReviewDashboardPage />} />
             <Route path="/profile" element={<ProfilePage />} />
           </Route>
 

@@ -1,4 +1,4 @@
-import type { StoryListItem, StoryDetail, WordLookupResult } from "../types";
+import type { StoryListItem, StoryDetail, WordLookupResult, ContentReport, ContentReportListResponse } from "../types";
 
 const API_BASE = "/api";
 
@@ -115,9 +115,11 @@ export function getHosts() {
       descriptionEn: string;
       descriptionDa: string;
       descriptionIt: string;
+      descriptionEs: string;
       greetingEn: string;
       greetingDa: string;
       greetingIt: string;
+      greetingEs: string;
       color: string;
     }[];
   }>("/hosts");
@@ -201,6 +203,7 @@ export interface ContributeWordPayload {
   translationEn?: string;
   translationDa?: string;
   translationIt?: string;
+  translationEs?: string;
   phoneticHint?: string;
   categoryId?: string;
   difficulty?: string;
@@ -231,6 +234,24 @@ export function getStory(storyId: string) {
   return request<{ story: StoryDetail }>(`/stories/${encodeURIComponent(storyId)}`);
 }
 
+export function createStory(data: {
+  title: string;
+  body: string;
+  difficulty?: string;
+  description?: string;
+}) {
+  return request<{ story: StoryDetail }>("/stories", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export function deleteStory(storyId: string) {
+  return request<void>(`/stories/${encodeURIComponent(storyId)}`, {
+    method: "DELETE",
+  });
+}
+
 export function lookupWord(word: string, lang?: string) {
   const params = new URLSearchParams({ word });
   if (lang) params.set("lang", lang);
@@ -240,4 +261,43 @@ export function lookupWord(word: string, lang?: string) {
 export function storyAudioUrl(storyId: string, speed: string): string {
   const token = getToken();
   return `${API_BASE}/stories/${encodeURIComponent(storyId)}/audio?speed=${encodeURIComponent(speed)}&token=${token}`;
+}
+
+// Content Reports
+export function createReport(data: {
+  contentType: "story" | "word";
+  contentId: string;
+  category: string;
+  description?: string;
+}) {
+  return request<ContentReport>("/reports", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export function getReports(params?: {
+  status?: string;
+  content_type?: string;
+  category?: string;
+  language?: string;
+  limit?: number;
+  offset?: number;
+}) {
+  const searchParams = new URLSearchParams();
+  if (params?.status) searchParams.set("status", params.status);
+  if (params?.content_type) searchParams.set("content_type", params.content_type);
+  if (params?.category) searchParams.set("category", params.category);
+  if (params?.language) searchParams.set("language", params.language);
+  if (params?.limit) searchParams.set("limit", String(params.limit));
+  if (params?.offset) searchParams.set("offset", String(params.offset));
+  const qs = searchParams.toString();
+  return request<ContentReportListResponse>(`/reports${qs ? `?${qs}` : ""}`);
+}
+
+export function updateReport(reportId: string, data: { status: string; resolutionNote?: string }) {
+  return request<ContentReport>(`/reports/${encodeURIComponent(reportId)}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+  });
 }

@@ -67,17 +67,19 @@ Existing dictionaries and translation tools are not optimised for quick, audio-f
 - [REQ-3] **Audio pronunciation** — Every word has a pronunciation audio clip in the target language, generated via Microsoft Edge TTS with language-appropriate neural voices. Clicking a word plays its pronunciation immediately (< 1 s latency). Audio is cached after first generation. After the word pronunciation, an example sentence using that word in context is played automatically.
 - [REQ-4] **User authentication** — Users register with email/password. All content is gated behind login. Sessions persist across visits. Users can delete their account and all associated data (GDPR).
 - [REQ-5] **Word search & lookup** — A global search bar lets users type a word in the target language or their reference language. Matching results display inline with translation and a play button. Search is case-insensitive and tolerant of missing diacritical marks.
-- [REQ-6] **Progress tracking** — The system records which words a user has listened to. Words already played show a visual indicator. A summary view shows per-category completion (e.g., "12 / 25 practised").
+- [REQ-6] **Progress tracking** — The system records which words a user has listened to. Words already played show a visual indicator. A summary view shows per-category completion (e.g., “12 / 25 practised”). Category names in the progress view must be displayed in the user’s reference language.
 - [REQ-7] **Host personas** — Each supported language has four host personas, each with a distinct name, portrait image, personality, TTS voice, and greeting. The user's chosen host determines both their guide and their target language. Hosts are the central identity of the experience.
 - [REQ-8] **Host-first landing experience** — After login, the first screen the user sees is a host selection page showcasing all available hosts grouped by language. Selecting a host sets both the target language and the persona. The chosen host can be switched at any time via a control in the top-right corner of every page.
-- [REQ-9] **User-contributed words** — Logged-in users can add new words to the shared dictionary. Each submission includes the word in the target language, a translation in at least one reference language, and an optional category. TTS audio is auto-generated for new words that don't already have cached audio. User-contributed words are visible to all users.
+- [REQ-9] **User-contributed words** — Logged-in users can add new words to the shared dictionary. Each submission includes the word in the target language and a translation in at least one supported language (the contributor’s reference language is required; the other two languages are optional but encouraged). Words must contain only letters, spaces, hyphens, and apostrophes — digits are rejected. TTS audio is auto-generated for new words that don’t already have cached audio. User-contributed words are visible to all users.
 - [REQ-10] **Contextual example sentences** — Every word entry includes an example sentence in the target language that uses the word in natural context, along with translations into each reference language. The example is displayed on the word card and its audio plays automatically after the word pronunciation.
 - [REQ-11] **Content seeding** — The initial word dictionary is loaded from structured seed files containing words, phonetic hints, categories, difficulties, example sentences, and translations for each supported language. The seed process is idempotent.
 - [REQ-12] **Data persistence** — User accounts, preferences (including host selection and language choices), progress, contributed words, and the word dictionary are stored persistently, surviving server restarts and accessible across devices.
 - [REQ-13] **API surface** — The frontend communicates with the backend through APIs covering: authentication, user profile, dictionary browsing, word contribution, search, audio retrieval, story listing/retrieval, and host persona listing. All responses include appropriate error information.
-- [REQ-14] **Story Reading** — Users can browse and read curated stories in the target language, organised by difficulty level (Beginner, Intermediate, Advanced), with at least 3 stories per level per language at launch. The host reads stories aloud at five selectable speeds with karaoke-style text highlighting. Clicking any word in the story opens a translation panel showing the reference-language translation, phonetic hint, and a play button for that word's pronunciation.
+- [REQ-14] **Story Reading** — Users can browse and read curated stories in the target language, organised by difficulty level (Beginner, Intermediate, Advanced), with at least 3 stories per level per language at launch. The host reads stories aloud at five selectable speeds with karaoke-style text highlighting. Clicking any word in the story opens a translation panel showing the reference-language translation, phonetic hint, and a play button for that word's pronunciation. Story length tiers must produce materially different reading experiences rather than scaled versions of the same template, and the story library must span varied setups, settings, and narrative patterns so stories do not all begin from the same premise.
 - [REQ-15] **Story Dialogue Formatting** — Conversational stories must be formatted in a play/script style with named speaker labels for each line of dialogue, so learners can follow who is saying what. The system supports both narrative and dialogue story types, with vocal differentiation during host narration.
 - [REQ-16] **Content Quality Assurance** — All seeded and contributed content must pass automated quality checks (spelling, grammar, translation completeness, word coverage, pronunciation integrity) before publication. Users can report content errors (wrong translation, grammar mistake, pronunciation issue) from the learning interface, and reported issues are tracked through a review workflow.
+- [REQ-17] **Security Hardening** — The system must enforce secure defaults for secret management, token handling, and request processing. Required secrets must be validated at startup. Authentication tokens must not be exposed in logs or browser history beyond what is technically unavoidable. Request payloads must be size-limited. Security-relevant HTTP headers must be present in all responses.
+- [REQ-18] **On-the-Fly Word Lookup & Audio** — When a user clicks a word in a story that is not in the curated dictionary, the system must attempt to translate it on-the-fly using an external translation source and generate pronunciation audio via TTS if no cached audio exists. Results must be cached for subsequent use. Auto-translated results must be visually distinguished from curated dictionary entries. First-click latency for uncached words must not exceed 3 seconds; cached results must respond within 1 second.
 
 ## 5. User Stories
 
@@ -148,6 +150,16 @@ so that I can practise reading comprehension with connected text.
 ```
 
 ```gherkin
+As a learner, I want short stories to feel genuinely shorter and simpler than long stories,
+so that choosing a level changes the scope and effort of the reading task.
+```
+
+```gherkin
+As a learner, I want stories to begin from different kinds of situations,
+so that the library feels varied instead of repetitive.
+```
+
+```gherkin
 As a learner, I want my host to read a story aloud at a speed I choose,
 so that I can listen and follow along at a comfortable pace.
 ```
@@ -199,6 +211,11 @@ so that I and other learners can practise its pronunciation.
 ```gherkin
 As a user who added a new word, I want audio to be generated automatically,
 so that the word is immediately usable for pronunciation practice.
+```
+
+```gherkin
+As a contributor, I want to provide translations in all three languages when adding a word,
+so that learners in every language group benefit from my contribution.
 ```
 
 ```gherkin
@@ -259,6 +276,8 @@ so that my personal information is removed in compliance with GDPR.
 | Story Reading | [story-reading.md](features/story-reading.md) | REQ-14 |
 | Story Dialogue Formatting | [story-dialogue-formatting.md](features/story-dialogue-formatting.md) | REQ-15 |
 | Content Quality Assurance | [content-quality-review.md](features/content-quality-review.md) | REQ-16 |
+| Security hardening | [security-hardening.md](features/security-hardening.md) | REQ-17 |
+| On-the-fly word lookup & audio | [on-the-fly-word-lookup.md](features/on-the-fly-word-lookup.md) | REQ-18 |
 | Accessibility & inclusive design | [accessibility.md](features/accessibility.md) | Cross-cutting |
 | Responsive design & mobile usability | [responsive-design.md](features/responsive-design.md) | Cross-cutting |
 
@@ -278,7 +297,7 @@ so that my personal information is removed in compliance with GDPR.
 | [ADR-0010](adr/0010-backend-python-migration.md) | Backend Migration: FastAPI + SQLAlchemy 2.0 | Accepted | REQ-12, REQ-13 |
 | [ADR-0011](adr/0011-story-data-model.md) | Story Data Model (future feature) | Proposed | REQ-14 |
 | [ADR-0012](adr/0012-story-narration-tts.md) | Story Narration TTS (future feature) | Proposed | REQ-14 |
-| [ADR-0013](adr/0013-story-word-lookup.md) | Story Word Lookup (future feature) | Proposed | REQ-14 |
+| [ADR-0013](adr/0013-story-word-lookup.md) | Story Word Lookup (future feature) | Accepted, extended by ADR-0027 | REQ-14 |
 | [ADR-0016](adr/0016-tts-provider-edge-tts.md) | TTS: Microsoft Edge TTS with Per-Host Voices | Accepted | REQ-3, REQ-7, F-AUDIO |
 | [ADR-0017](adr/0017-content-seeding.md) | Content Seeding: JSON Files + Idempotent Script | Accepted | REQ-2, REQ-10, REQ-11 |
 | [ADR-0018](adr/0018-user-content-trust-model.md) | UGC: Community Trust Model with Input Validation | Accepted | REQ-9, F-UGC |
@@ -287,6 +306,10 @@ so that my personal information is removed in compliance with GDPR.
 | [ADR-0021](adr/0021-accessibility-testing.md) | Accessibility Testing: axe-core + Manual Audit | Accepted | F-A11Y |
 | [ADR-0022](adr/0022-search-implementation.md) | Search: In-Memory Normalize-and-Rank | Accepted | REQ-5, F-SEARCH |
 | [ADR-0023](adr/0023-host-image-pipeline.md) | Host Images: AI-Generated Static Assets | Accepted | REQ-7, F-HOSTS |
+| [ADR-0024](adr/0024-seeded-audio-generation-strategy.md) | Audio: Hybrid Pre-Generate + Lazy Fallback | Accepted | REQ-3, F-AUDIO |
+| [ADR-0025](adr/0025-on-the-fly-translation-provider.md) | Translation: deep-translator with Google Free | Proposed | REQ-18, F-OTFLOOKUP |
+| [ADR-0026](adr/0026-on-the-fly-translation-caching.md) | Caching: TranslationCache Table + Existing Audio Cache | Proposed | REQ-18, F-OTFLOOKUP |
+| [ADR-0027](adr/0027-story-lookup-cascade-and-otf-audio.md) | Lookup Cascade & Text-Based Audio Endpoint | Proposed | REQ-18, REQ-14, F-OTFLOOKUP |
 
 ### Quality Assurance
 
@@ -294,3 +317,16 @@ so that my personal information is removed in compliance with GDPR.
 |---|---|
 | [User Review Panel](user-review-panel.md) | Six representative personas used to evaluate every major change before release |
 | [Review Feedback](reviews/) | Per-session feedback files logged by the review panel (one file per major change) |
+
+### Post-Launch Backlog
+
+Items identified during technical review that do not block launch but should be addressed in a follow-up sprint.
+
+| ID | Item | Severity | Related |
+|---|---|---|---|
+| PB-1 | "My Contributions" listing — endpoint and UI for users to browse their own contributed words | Minor | F-UGC, REQ-9 |
+| PB-2 | `displayName` optional at registration — profile may display as blank; consider requiring or defaulting | Minor | REQ-4 |
+| PB-3 | Login / Register error messages lack `role="alert"` — screen readers may not announce auth failures promptly | Minor | F-A11Y, REQ-4 |
+| PB-4 | Search input lacks `aria-label` — screen readers may not identify the search field | Minor | F-A11Y, F-SEARCH, REQ-5 |
+| PB-5 | Responsive breakpoints not verified with real browser — recommend Playwright visual regression check | Minor | F-RESPONSIVE |
+| PB-6 | axe-core automated accessibility sweep not performed — recommended before or shortly after launch | Minor | F-A11Y |

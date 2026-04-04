@@ -9,8 +9,10 @@ import {
   Volume2,
   Loader2,
   X,
+  Flag,
+  Check,
 } from "lucide-react";
-import { getStory, lookupWord, storyAudioUrl, audioUrl } from "../services/api";
+import { getStory, lookupWord, storyAudioUrl, audioUrl, createReport } from "../services/api";
 import { useAuth } from "../components/AuthProvider";
 import type { StoryDetail, WordLookupResult, StorySegment } from "../types";
 
@@ -55,6 +57,14 @@ export default function StoryReadingPage() {
   const [speed, setSpeed] = useState<Speed>("normal");
   const [narrationState, setNarrationState] = useState<"idle" | "loading" | "playing" | "paused">("idle");
   const narrationRef = useRef<HTMLAudioElement | null>(null);
+
+  // Report
+  const [showReportForm, setShowReportForm] = useState(false);
+  const [reportCategory, setReportCategory] = useState("grammar_spelling");
+  const [reportDescription, setReportDescription] = useState("");
+  const [reportSubmitting, setReportSubmitting] = useState(false);
+  const [reportSubmitted, setReportSubmitted] = useState(false);
+  const [reportError, setReportError] = useState<string | null>(null);
 
   // ── Load story ──────────────────────────────────────────────────────────────
 
@@ -154,6 +164,30 @@ export default function StoryReadingPage() {
     [narrationState, stopNarration]
   );
 
+  // ── Report submission ───────────────────────────────────────────────────────
+
+  const handleReportSubmit = useCallback(async () => {
+    if (!id) return;
+    setReportSubmitting(true);
+    setReportError(null);
+    try {
+      await createReport({
+        contentType: "story",
+        contentId: id,
+        category: reportCategory,
+        description: reportDescription || undefined,
+      });
+      setReportSubmitted(true);
+      setShowReportForm(false);
+      setReportDescription("");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : t("reports.submitError");
+      setReportError(message);
+    } finally {
+      setReportSubmitting(false);
+    }
+  }, [id, reportCategory, reportDescription, t]);
+
   // ── Tokenised body ──────────────────────────────────────────────────────────
 
   const isDialogue = story?.format === "dialogue" || story?.format === "mixed";
@@ -205,8 +239,78 @@ export default function StoryReadingPage() {
             <span className={`text-xs px-2 py-0.5 rounded-full font-medium shrink-0 ${difficultyColor}`}>
               {t(`stories.${story.difficulty}`)}
             </span>
+            <div className="ml-auto">
+              {reportSubmitted ? (
+                <span className="inline-flex items-center gap-1 text-sm text-green-700">
+                  <Check size={14} />
+                  {t("reports.submitted")}
+                </span>
+              ) : (
+                <button
+                  onClick={() => setShowReportForm(!showReportForm)}
+                  className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-red-500 transition-colors focus:outline-none focus:ring-2 focus:ring-red-300 rounded px-2 py-1"
+                  title={t("reports.reportIssue")}
+                >
+                  <Flag size={14} />
+                  {t("reports.report")}
+                </button>
+              )}
+            </div>
           </div>
           <p className="text-sm text-gray-500">{story.description}</p>
+
+          {/* Report form */}
+          {showReportForm && (
+            <div className="mt-3 border border-red-200 bg-red-50 rounded-lg p-4">
+              <h3 className="text-sm font-semibold text-gray-900 mb-2">{t("reports.reportIssue")}</h3>
+              <div className="space-y-3">
+                <div>
+                  <label className="block text-xs text-gray-600 mb-1">{t("reports.category")}</label>
+                  <select
+                    value={reportCategory}
+                    onChange={(e) => setReportCategory(e.target.value)}
+                    className="w-full text-sm border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-300"
+                  >
+                    <option value="grammar_spelling">{t("reports.categories.grammar_spelling")}</option>
+                    <option value="wrong_translation">{t("reports.categories.wrong_translation")}</option>
+                    <option value="pronunciation">{t("reports.categories.pronunciation")}</option>
+                    <option value="formatting">{t("reports.categories.formatting")}</option>
+                    <option value="other">{t("reports.categories.other")}</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs text-gray-600 mb-1">{t("reports.description")}</label>
+                  <textarea
+                    value={reportDescription}
+                    onChange={(e) => setReportDescription(e.target.value)}
+                    maxLength={500}
+                    rows={3}
+                    placeholder={t("reports.descriptionPlaceholder")}
+                    className="w-full text-sm border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-300 resize-none"
+                  />
+                  <span className="text-xs text-gray-400">{reportDescription.length}/500</span>
+                </div>
+                {reportError && (
+                  <p className="text-sm text-red-600">{reportError}</p>
+                )}
+                <div className="flex gap-2">
+                  <button
+                    onClick={handleReportSubmit}
+                    disabled={reportSubmitting}
+                    className="px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-medium hover:bg-red-700 transition-colors disabled:opacity-60 focus:outline-none focus:ring-2 focus:ring-red-400"
+                  >
+                    {reportSubmitting ? t("reports.submitting") : t("reports.submit")}
+                  </button>
+                  <button
+                    onClick={() => { setShowReportForm(false); setReportError(null); }}
+                    className="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-300"
+                  >
+                    {t("reports.cancel")}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Narration controls */}

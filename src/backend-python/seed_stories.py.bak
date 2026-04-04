@@ -1,0 +1,1163 @@
+"""
+Seed story data for the Story Reading feature.
+Run with: poetry run python seed_stories.py
+"""
+import json
+import sys
+import uuid
+
+sys.path.insert(0, ".")
+
+from app.database import SessionLocal, engine, Base, ensure_sqlite_schema
+from app.models import Story
+from app.services.story_audio import STORY_SPEED_TO_RATE, upsert_story_audio
+
+Base.metadata.create_all(bind=engine)
+ensure_sqlite_schema()
+
+STORIES = [
+    # ── ITALIAN BEGINNER ────────────────────────────────────────────────────
+    # ── short ──
+    {
+        "slug": "it-beginner-cafe",
+        "language": "it",
+        "difficulty": "beginner",
+        "length": "short",
+        "title": "Al caffè",
+        "description_en": "Order a coffee and a pastry in a typical Italian café.",
+        "description_da": "Bestil en kaffe og en kage på en typisk italiensk café.",
+        "description_it": "Ordina un caffè e un pasticcino in un tipico bar italiano.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Cliente", "Barista"]),
+        "setup_type": "Arrival/Transaction",
+        "setup_summary": "A customer enters a café and orders a coffee and a cornetto from the barista.",
+        "body": (
+            "Cliente: Buongiorno! Vorrei un caffè, per favore.\n"
+            "Barista: Certo, subito. Vuole anche qualcosa da mangiare?\n"
+            "Cliente: Sì, un cornetto, grazie.\n"
+            "Barista: Benissimo. Desidera zucchero nel caffè?\n"
+            "Cliente: No, grazie, lo prendo amaro.\n"
+            "Barista: Va bene. Ecco il suo caffè e il cornetto.\n"
+            "Cliente: Quanto costa?\n"
+            "Barista: Un euro e cinquanta, per favore.\n"
+            "Cliente: Ecco a lei. Arrivederci!\n"
+            "Barista: Arrivederci e buona giornata!"
+        ),
+        "order": 1,
+    },
+    {
+        "slug": "it-beginner-gelato",
+        "language": "it",
+        "difficulty": "beginner",
+        "length": "short",        "title": "La sorpresa del gelato",
+        "description_en": "Discover an unusual gelato flavour at a street gelateria.",
+        "description_da": "Opdag en usædvanlig gelato-smag hos en isbutik.",
+        "description_it": "Scopri un gusto di gelato insolito in una gelateria.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Bambina", "Mamma", "Gelataia"]),
+        "setup_type": "Discovery/Unexpected",
+        "setup_summary": "A child discovers an unusual basil gelato flavour and convinces a hesitant parent to try it.",
+        "body": (
+            "Bambina: Mamma, guarda! Questo posto ha il gelato al basilico!\n"
+            "Mamma: Al basilico? Ma è strano, no?\n"
+            "Bambina: Posso provarlo? Sembra interessante.\n"
+            "Mamma: Non so. Perché non prendi il cioccolato, come sempre?\n"
+            "Bambina: Perché voglio provare qualcosa di nuovo!\n"
+            "Gelataia: Buongiorno! Cosa vi posso dare?\n"
+            "Mamma: La bambina vuole il gelato al basilico.\n"
+            "Gelataia: È il nostro gusto speciale di oggi. A tutti piace molto.\n"
+            "Bambina: Vedi, mamma? Lo prendo!\n"
+            "Mamma: Va bene. Io prendo la fragola.\n"
+            "Gelataia: Un basilico e una fragola. Ecco a voi!\n"
+            "Bambina: Mamma, assaggia il mio! È buonissimo!\n"
+            "Mamma: Hai ragione! È fresco e dolce. Che bella sorpresa.\n"
+            "Bambina: Domani torniamo?\n"
+            "Mamma: Sì, perché no!"
+        ),
+        "order": 2,
+    },
+    {
+        "slug": "it-beginner-presentazione",
+        "language": "it",
+        "difficulty": "beginner",
+        "length": "short",        "title": "Mi presento",
+        "description_en": "Introduce yourself to a new neighbour.",
+        "description_da": "Præsenter dig for en ny nabo.",
+        "description_it": "Presentati a un nuovo vicino di casa.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Sofia", "Marco"]),
+        "setup_type": "Dialogue-Driven",
+        "setup_summary": "Two neighbours meet in their apartment building and exchange greetings and personal information.",
+        "body": (
+            "Sofia: Ciao! Sei nuovo nel palazzo?\n"
+            "Marco: Sì, mi chiamo Marco. Sono arrivato ieri.\n"
+            "Sofia: Piacere, io sono Sofia. Abito al secondo piano.\n"
+            "Marco: Piacere mio, Sofia. Io abito al terzo.\n"
+            "Sofia: Di dove sei, Marco?\n"
+            "Marco: Sono di Roma, ma lavoro qui a Milano da un mese.\n"
+            "Sofia: Che bello! Lavori vicino?\n"
+            "Marco: Sì, in centro. Prendo la metro ogni mattina.\n"
+            "Sofia: Ottimo. Se hai bisogno di qualcosa, suona pure.\n"
+            "Marco: Grazie mille, Sofia. Sei molto gentile.\n"
+            "Sofia: Prego! A presto, Marco."
+        ),
+        "order": 3,
+    },
+    # ── ITALIAN INTERMEDIATE ─────────────────────────────────────────────────
+    {
+        "slug": "it-intermediate-ristorante",
+        "language": "it",
+        "difficulty": "intermediate",
+        "length": "short",        "title": "A cena fuori",
+        "description_en": "An evening out at an Italian restaurant with friends.",
+        "description_da": "En aften ude på en italiensk restaurant med venner.",
+        "description_it": "Una serata in un ristorante italiano con gli amici.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Cameriere", "Luca", "Giulia"]),
+        "setup_type": "Arrival/Transaction",
+        "setup_summary": "Friends arrive at a restaurant, order food and drinks with a waiter providing recommendations and service.",
+        "body": (
+            "Cameriere: Buonasera. Avete prenotato?\n"
+            "Luca: Sì, abbiamo una prenotazione a nome Rossi per quattro persone.\n"
+            "Cameriere: Perfetto. Prego, accomodatevi. Ecco il menu.\n"
+            "Giulia: Grazie. Cosa ci consiglia stasera?\n"
+            "Cameriere: La specialità della casa è il risotto ai funghi porcini. Lo abbiamo preparato fresco.\n"
+            "Luca: Perfetto, lo prendo io.\n"
+            "Giulia: Per me, invece, la pasta al pomodoro. Sono vegetariana.\n"
+            "Cameriere: Certo, nessun problema. E da bere?\n"
+            "Luca: Una bottiglia di vino rosso della casa, grazie.\n"
+            "Cameriere: Un momento. Volete anche dell'acqua naturale o frizzante?\n"
+            "Giulia: Naturale, per favore.\n"
+            "Cameriere: Benissimo. Vi porto tutto subito."
+        ),
+        "order": 1,
+    },
+    {
+        "slug": "it-intermediate-medico",
+        "language": "it",
+        "difficulty": "intermediate",
+        "length": "short",        "title": "Dal medico",
+        "description_en": "A visit to the doctor for a routine check-up.",
+        "description_da": "Et besøg hos lægen til en rutinekontrol.",
+        "description_it": "Una visita dal medico per un controllo di routine.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Paziente", "Dottoressa"]),
+        "setup_type": "Problem-Solving",
+        "setup_summary": "A patient describes cold-like symptoms; the doctor asks clarifying questions, examines them, and prescribes rest and medication.",
+        "body": (
+            "Paziente: Buongiorno, dottoressa.\n"
+            "Dottoressa: Buongiorno. Si accomodi. Come sta?\n"
+            "Paziente: Non benissimo. Ho mal di testa da tre giorni e mi sento stanco.\n"
+            "Dottoressa: Capisco. Ha anche la febbre?\n"
+            "Paziente: Ieri sera avevo trentasette e otto, ma stamattina è scesa.\n"
+            "Dottoressa: Ha tosse o difficoltà respiratorie?\n"
+            "Paziente: Una leggera tosse, ma non grave.\n"
+            "Dottoressa: Ha preso qualcosa per il dolore?\n"
+            "Paziente: Solo paracetamolo. Ha aiutato un po'.\n"
+            "Dottoressa: Bene. Le misuro la pressione.\n"
+            "Paziente: Va bene?\n"
+            "Dottoressa: Sì, è nella norma. Probabilmente è un'influenza lieve. Le prescrivo tre giorni di riposo e un antinfiammatorio.\n"
+            "Paziente: Grazie, dottoressa."
+        ),
+        "order": 2,
+    },
+    {
+        "slug": "it-intermediate-ricordo",
+        "language": "it",
+        "difficulty": "intermediate",
+        "length": "short",        "title": "Un ricordo d'estate",
+        "description_en": "Two friends look at old photos and recall a chaotic summer road trip through Puglia.",
+        "description_da": "To venner ser på gamle fotos og mindes en kaotisk sommerrejse gennem Puglia.",
+        "description_it": "Due amici guardano vecchie foto e ricordano un caotico viaggio estivo in Puglia.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Chiara", "Andrea"]),
+        "setup_type": "Narrative/Descriptive",
+        "setup_summary": "Two friends look at old photos and recall a chaotic but memorable summer road trip through Puglia, including a broken car and a generous waiter.",
+        "body": (
+            "Chiara: Guarda questa foto! Te la ricordi?\n"
+            "Andrea: Certo! Eravamo in Puglia, vicino a Polignano a Mare. L'estate di due anni fa.\n"
+            "Chiara: Faceva un caldo incredibile quel giorno. Almeno trentacinque gradi.\n"
+            "Andrea: E la macchina a noleggio non aveva l'aria condizionata!\n"
+            "Chiara: Era terribile. Abbiamo guidato con i finestrini aperti per tre ore.\n"
+            "Andrea: Ma quando siamo arrivati al mare, ne è valsa la pena.\n"
+            "Chiara: L'acqua era così limpida. Non avevo mai visto un colore così.\n"
+            "Andrea: E tu hai insistito per fare il bagno subito, senza neanche cercare un parcheggio vero.\n"
+            "Chiara: Abbiamo lasciato la macchina in un campo di ulivi!\n"
+            "Andrea: Il proprietario è uscito e ha urlato qualcosa in dialetto.\n"
+            "Chiara: Ma poi ha riso e ci ha indicato dove parcheggiare.\n"
+            "Andrea: Ricordi il ristorante dove abbiamo cenato?\n"
+            "Chiara: Quello sulla terrazza con vista sul mare? Il pesce era straordinario.\n"
+            "Andrea: E il cameriere ci ha offerto il limoncello alla fine.\n"
+            "Chiara: Perché abbiamo detto che era il nostro ultimo giorno.\n"
+            "Andrea: Ha detto: \"Allora dovete tornare!\" con quel sorriso enorme.\n"
+            "Chiara: Che viaggio. Caotico ma perfetto.\n"
+            "Andrea: Dovremmo rifarlo quest'estate.\n"
+            "Chiara: Ma questa volta con una macchina con l'aria condizionata?\n"
+            "Andrea: Assolutamente. E forse prenotare un parcheggio.\n"
+            "Chiara: È una promessa?\n"
+            "Andrea: È una promessa."
+        ),
+        "order": 3,
+    },
+    # ── ITALIAN ADVANCED ─────────────────────────────────────────────────────
+    {
+        "slug": "it-advanced-banca",
+        "language": "it",
+        "difficulty": "advanced",
+        "length": "short",        "title": "In banca",
+        "description_en": "Opening a bank account and setting up online banking.",
+        "description_da": "Åbn en bankkonto og opsæt netbank.",
+        "description_it": "Aprire un conto corrente e attivare l'home banking.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Cliente", "Impiegato"]),
+        "setup_type": "Arrival/Transaction",
+        "setup_summary": "A first-time customer visits a bank to open a current account, compares three account tiers, and completes the paperwork.",
+        "body": (
+            "Cliente: Buongiorno. Vorrei aprire un conto corrente.\n"
+            "Impiegato: Benvenuto. Si accomodi. Ha già un rapporto con la nostra banca?\n"
+            "Cliente: No, è la prima volta. Ho bisogno di un conto per accredito stipendio e pagamenti online.\n"
+            "Impiegato: Ottimo. Le illustro le nostre opzioni. Abbiamo tre tipi di conto: base, standard e premium.\n"
+            "Impiegato: Il conto base prevede canone zero se accredita lo stipendio e ha un limite di tre prelievi gratuiti al mese.\n"
+            "Impiegato: Il conto standard costa cinque euro al mese e include prelievi illimitati e una carta di credito.\n"
+            "Cliente: Qual è la differenza principale tra standard e premium?\n"
+            "Impiegato: Il premium offre anche gestione degli investimenti e assistenza dedicata ventiquattr'ore su ventiquattro.\n"
+            "Cliente: Per il momento il conto standard va benissimo.\n"
+            "Impiegato: Perfetto. Avrò bisogno del suo documento d'identità, codice fiscale e una bolletta recente per la residenza.\n"
+            "Cliente: Eccoli. Ho tutto con me.\n"
+            "Impiegato: Ottimo. Compilo io il modulo. Firmi qui e qui.\n"
+            "Impiegato: L'accesso all'home banking sarà attivo entro ventiquattr'ore.\n"
+            "Impiegato: Riceverà la carta entro cinque giorni lavorativi.\n"
+            "Cliente: Grazie. Ha un numero a cui posso rivolgermi in caso di problemi?\n"
+            "Impiegato: Certo. Questo è il mio biglietto da visita con il mio numero diretto.\n"
+            "Cliente: Perfetto. Grazie per la disponibilità."
+        ),
+        "order": 1,
+    },
+    {
+        "slug": "it-advanced-affitto",
+        "language": "it",
+        "difficulty": "advanced",
+        "length": "short",        "title": "Cercare casa in affitto",
+        "description_en": "Negotiating a rental contract with a landlord.",
+        "description_da": "Forhandle en lejekontrakt med en udlejer.",
+        "description_it": "Trattare un contratto d'affitto con un proprietario.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Inquilino", "Proprietario"]),
+        "setup_type": "Problem-Solving",
+        "setup_summary": "A tenant and landlord negotiate an apartment rental, addressing questions about pet policies, deposits, maintenance, and contract terms.",
+        "body": (
+            "Inquilino: Ho visto l'annuncio online per l'appartamento in Via Roma.\n"
+            "Proprietario: Sì, è ancora disponibile. Quando vuole venire a vederlo?\n"
+            "Inquilino: Sarei libero domani mattina, se possibile.\n"
+            "Proprietario: Domani alle dieci va bene.\n"
+            "Inquilino: Perfetto. Quanto è la superficie?\n"
+            "Proprietario: Settanta metri quadri: due camere, un bagno, cucina abitabile e balcone.\n"
+            "Inquilino: Che piano è?\n"
+            "Proprietario: Terzo, con ascensore. L'esposizione è a sud, molto luminoso.\n"
+            "Proprietario: L'affitto mensile è di ottocentocinquanta euro, più spese condominiali di circa ottanta euro.\n"
+            "Inquilino: Include il riscaldamento?\n"
+            "Proprietario: No, il riscaldamento è autonomo. I consumi dipendono dall'uso.\n"
+            "Inquilino: È trattabile il canone?\n"
+            "Proprietario: Di poco. Se firma un contratto triennale, posso scendere a ottocentoventi.\n"
+            "Inquilino: La caparra a quanto ammonta?\n"
+            "Proprietario: Due mesi d'affitto, restituiti alla fine se l'immobile è in buone condizioni.\n"
+            "Inquilino: Devo pensarci. Le faccio sapere domani dopo la visita.\n"
+            "Proprietario: Certo, nessuna fretta. A domani."
+        ),
+        "order": 2,
+    },
+    {
+        "slug": "it-advanced-lettera",
+        "language": "it",
+        "difficulty": "advanced",
+        "length": "short",        "title": "La lettera della nonna",
+        "description_en": "A granddaughter finds her grandmother's old letters in the attic, sparking a family conversation about identity and belonging.",
+        "description_da": "En barnebarn finder sin bedstemors gamle breve på loftet og udløser en familiesamtale om identitet og tilhørsforhold.",
+        "description_it": "Una nipote trova le vecchie lettere della nonna in soffitta, aprendo una conversazione familiare su identità e appartenenza.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Elena", "Roberto"]),
+        "setup_type": "Narrative/Descriptive",
+        "setup_summary": "While cleaning the family attic, a granddaughter finds her grandmother's old immigration letters to Sicily, prompting a multi-generational conversation about identity and belonging.",
+        "body": (
+            "Elena: Papà, guarda cosa ho trovato in soffitta. Una vecchia scatola di latta piena di lettere.\n"
+            "Roberto: Fammi vedere. Questa è la scrittura della nonna!\n"
+            "Elena: Sono tutte indirizzate a una certa Teresa. Chi era?\n"
+            "Roberto: Teresa era la sorella della nonna. È rimasta in Sicilia quando la nonna si è trasferita a Milano negli anni sessanta.\n"
+            "Elena: Non ne avevo mai sentito parlare. Posso leggerne una?\n"
+            "Roberto: Certo. Prova quella con la data più vecchia.\n"
+            "Elena: \"Cara Teresa, è passata una settimana dal mio arrivo a Milano. La città è enorme e rumorosa, piena di persone che camminano in fretta senza guardarsi. Nessuno saluta gli sconosciuti come facciamo noi al paese. Mi manca il profumo del gelsomino nel cortile di casa nostra. Mi manca la tua voce la mattina.\"\n"
+            "Roberto: La nonna raccontava sempre quanto le mancava la Sicilia, soprattutto nei primi anni. Diceva che Milano era bella ma fredda, non solo per il clima.\n"
+            "Elena: Continuo. \"Ho trovato lavoro in una sartoria vicino al Duomo. La proprietaria, la signora Marchetti, è severa ma giusta. Il primo giorno mi ha detto che devo perdere l'accento siciliano se voglio parlare con i clienti. Io ho risposto che il mio accento è la mia storia e non intendo perderlo. Non l'ha preso bene. Ma il giorno dopo mi ha portato un caffè e un sorriso. Forse mi ha capita.\"\n"
+            "Roberto: Questa è proprio la nonna. Non si arrendeva mai.\n"
+            "Elena: Senti quest'ultimo paragrafo. \"La sera mi siedo alla finestra e guardo i tetti di Milano. Sono diversi dai nostri: più grigi, più piatti, senza il colore delle tegole. Ma ieri ho visto un tramonto bellissimo, e per un momento i tetti sembravano d'oro. Ho pensato: forse anche qui posso trovare qualcosa di bello. Non sarà casa, Teresa, ma forse diventerà un altro tipo di casa.\"\n"
+            "Roberto: Sai, la nonna non ha mai smesso di scrivere queste lettere. Anche quando Teresa non rispondeva più.\n"
+            "Elena: Perché non rispondeva?\n"
+            "Roberto: Era malata negli ultimi anni. Ma la nonna continuava a scrivere lo stesso. Diceva che scrivere era il suo modo di ricordare chi era e da dove veniva.\n"
+            "Elena: Papà, io non sapevo quasi niente di questa storia. Perché non ce l'hai mai raccontata?\n"
+            "Roberto: La nonna non voleva. Diceva che voi nipoti dovevate guardare avanti, non indietro.\n"
+            "Elena: Ma queste lettere sono incredibili. Raccontano chi era davvero, prima di essere la nonna.\n"
+            "Roberto: Hai ragione. Forse è il momento di leggerle tutte insieme, come famiglia.\n"
+            "Elena: Mi piacerebbe molto. Potremmo anche trascriverle prima che l'inchiostro sbiadisca ancora di più.\n"
+            "Roberto: La nonna avrebbe apprezzato. Diceva sempre che le storie sono la cosa più importante che possiamo lasciare a chi viene dopo di noi.\n"
+            "Elena: Quante lettere ci sono nella scatola?\n"
+            "Roberto: Qui ce ne saranno almeno cinquanta. Forse di più. Coprono quasi vent'anni.\n"
+            "Elena: Vent'anni di lettere. È come un diario, ma scritto per un'altra persona.\n"
+            "Roberto: Esattamente. La nonna diceva che scrivere a Teresa la aiutava a capire se stessa. Ogni lettera era un pezzo della sua vita che non voleva perdere.\n"
+            "Elena: Allora iniziamo stasera. Io metto in ordine le lettere per data.\n"
+            "Roberto: Perfetto. Preparo il caffè. Sarà una lunga serata.\n"
+            "Elena: La migliore da tanto tempo."
+        ),
+        "order": 3,
+    },
+
+    # ── DANISH BEGINNER ──────────────────────────────────────────────────────
+    {
+        "slug": "da-beginner-kaffe",
+        "language": "da",
+        "difficulty": "beginner",
+        "length": "short",        "title": "På caféen",
+        "description_en": "Order coffee and cake at a Danish café.",
+        "description_da": "Bestil kaffe og kage på en dansk café.",
+        "description_it": "Ordina caffè e dolce in un bar danese.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Kunde", "Barista"]),
+        "setup_type": "Arrival/Transaction",
+        "setup_summary": "A customer orders coffee and a slice of cake at a Danish café and pays the bill.",
+        "body": (
+            "Barista: Goddag! Hvad må det være?\n"
+            "Kunde: Jeg vil gerne have en kop kaffe, tak.\n"
+            "Barista: Med mælk?\n"
+            "Kunde: Ja tak, lidt mælk.\n"
+            "Barista: Ønsker du noget at spise?\n"
+            "Kunde: Ja, et stykke chokoladekage.\n"
+            "Barista: Det er tres kroner i alt.\n"
+            "Kunde: Værsgo. Her er tres kroner.\n"
+            "Barista: Tak! Vi råber op, når din ordre er klar.\n"
+            "Kunde: Mange tak. Ses!"
+        ),
+        "order": 1,
+    },
+    {
+        "slug": "da-beginner-hund",
+        "language": "da",
+        "difficulty": "beginner",
+        "length": "short",        "title": "Den lille hund",
+        "description_en": "Find a lost dog in the park and help it get home.",
+        "description_da": "Find en forsvundet hund i parken og hjælp den hjem.",
+        "description_it": "Trovare un cane smarrito nel parco e aiutarlo a tornare a casa.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Emma", "Mand", "Ejer"]),
+        "setup_type": "Discovery/Unexpected",
+        "setup_summary": "A jogger discovers a small lost dog in the park and, with a stranger's help, reads its collar tag to call the owner.",
+        "body": (
+            "Emma: Åh! Se den lille hund! Den er helt alene.\n"
+            "Mand: Undskyld, er det din hund?\n"
+            "Emma: Nej, jeg fandt den her i parken. Den ser bange ud.\n"
+            "Mand: Den har et halsbånd. Lad mig se.\n"
+            "Emma: Hvad står der?\n"
+            "Mand: Der står Bella. Og der er et telefonnummer.\n"
+            "Emma: Jeg ringer med det samme. Hej, er det Bellas ejer?\n"
+            "Ejer: Ja! Bella! Hvor er hun?\n"
+            "Emma: Vi er i parken, ved den store bænk.\n"
+            "Ejer: Jeg kommer med det samme! Tusind tak!\n"
+            "Emma: Hun kommer snart, Bella. Alt er godt.\n"
+            "Mand: Det var godt, vi så halsbåndet.\n"
+            "Emma: Ja. Bella er heldig.\n"
+            "Ejer: Bella! Der er du! Tusind tak!\n"
+            "Emma: Det var ingenting. Bella er en sød hund."
+        ),
+        "order": 2,
+    },
+    {
+        "slug": "da-beginner-vejret",
+        "language": "da",
+        "difficulty": "beginner",
+        "length": "short",        "title": "Hvad er vejret?",
+        "description_en": "Talk about the weather with a colleague.",
+        "description_da": "Snak om vejret med en kollega.",
+        "description_it": "Parlare del tempo con un collega.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Anna", "Lars"]),
+        "setup_type": "Dialogue-Driven",
+        "setup_summary": "Two colleagues discuss the cold weather and agree to share an umbrella to stay dry on their commute.",
+        "body": (
+            "Anna: God morgen! Hvordan har du det?\n"
+            "Lars: Godt, tak. Men det er koldt i dag!\n"
+            "Anna: Ja, det er kun fem grader.\n"
+            "Lars: Det er ikke sjovt at cykle i det vejr.\n"
+            "Anna: Nej, jeg tog bussen i dag.\n"
+            "Lars: Det var klogt. Er der regn i udsigt?\n"
+            "Anna: Vejr-appen siger, at det regner til middag.\n"
+            "Lars: Åh nej. Jeg glemte min paraply derhjemme!\n"
+            "Anna: Tag min. Jeg har en ekstra.\n"
+            "Lars: Det er meget venligt af dig. Tak!"
+        ),
+        "order": 3,
+    },
+    # ── DANISH INTERMEDIATE ──────────────────────────────────────────────────
+    {
+        "slug": "da-intermediate-laege",
+        "language": "da",
+        "difficulty": "intermediate",
+        "length": "short",        "title": "Hos lægen",
+        "description_en": "A visit to the doctor about a cold.",
+        "description_da": "Et besøg hos lægen på grund af en forkølelse.",
+        "description_it": "Una visita dal medico per un raffreddore.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Patient", "Læge"]),
+        "setup_type": "Problem-Solving",
+        "setup_summary": "A patient describes cold symptoms; the doctor examines them, identifies a viral infection, and provides self-care advice.",
+        "body": (
+            "Læge: Goddag. Hvad kan jeg hjælpe dig med?\n"
+            "Patient: Jeg har været forkølet i en uge. Jeg hoster meget og har ondt i halsen.\n"
+            "Læge: Har du også feber?\n"
+            "Patient: Ja, i går havde jeg otteogtredive grader.\n"
+            "Læge: Har du taget noget imod feberen?\n"
+            "Patient: Ja, paracetamol. Det hjælper lidt.\n"
+            "Læge: Lad mig kigge i din hals. Sig aah.\n"
+            "Patient: Aah.\n"
+            "Læge: Halsen er lidt rød, men det ligner ikke en halsbetændelse. Det er sandsynligvis en viral infektion.\n"
+            "Patient: Hvad skal jeg gøre?\n"
+            "Læge: Hvil dig, drik masser af vand og tag paracetamol efter behov.\n"
+            "Læge: Hvis du har det bedre om tre dage, behøver du ikke komme igen.\n"
+            "Patient: Hvornår skal jeg være bekymret?\n"
+            "Læge: Hvis feberen stiger over niogtredive en halv, eller du får svært ved at trække vejret, skal du ringe til os.\n"
+            "Patient: Mange tak, doktor."
+        ),
+        "order": 1,
+    },
+    {
+        "slug": "da-intermediate-rejse",
+        "language": "da",
+        "difficulty": "intermediate",
+        "length": "short",        "title": "Planlæg en rejse",
+        "description_en": "Planning a holiday trip with a travel agent.",
+        "description_da": "Planlæg en ferietur med et rejsebureau.",
+        "description_it": "Pianificare una vacanza con un agente di viaggio.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Kunde", "Rejsekonsulent"]),
+        "setup_type": "Event/Preparation",
+        "setup_summary": "A family planning a summer holiday in Tuscany works with a travel agent to select accommodations, activities, and meals.",
+        "body": (
+            "Kunde: Goddag. Jeg vil gerne bestille en ferie til Italien.\n"
+            "Rejsekonsulent: Hvad slags ferie søger du? Strandhotel, bytur eller noget tredje?\n"
+            "Kunde: Vi er to voksne og en teenager. Vi vil gerne se lidt kultur, men også slappe af.\n"
+            "Rejsekonsulent: Toscana er oplagt. I kan kombinere kulturelle oplevelser i Firenze med afslapning på landet.\n"
+            "Kunde: Lyder fantastisk. Hvornår rejser vi?\n"
+            "Rejsekonsulent: Vi har to uger i juli til rådighed.\n"
+            "Kunde: Juli er højsæson. Er det dyrt?\n"
+            "Rejsekonsulent: Jeg vil anbefale at booke tidligt. For tre personer, med fly fra København og en agriturismo i syv nætter, plus hoteller i Firenze og Siena, regner vi cirka femogtyvtusinde til otteogtyvetusinde kroner.\n"
+            "Kunde: Det er inden for budgettet. Inkluderer det morgenmad?\n"
+            "Rejsekonsulent: Morgenmad er inkluderet på agriturismoen. Hotellerne tilbyder det som tilkøb.\n"
+            "Kunde: Vi tager det med. Hvad er næste skridt?\n"
+            "Rejsekonsulent: Jeg laver et konkret tilbud og sender det til dig inden fredag.\n"
+            "Kunde: Perfekt. Tak for hjælpen!"
+        ),
+        "order": 2,
+    },
+    {
+        "slug": "da-intermediate-foto",
+        "language": "da",
+        "difficulty": "intermediate",
+        "length": "short",        "title": "Det gamle fotografi",
+        "description_en": "A daughter finds a faded photograph and her father tells the story of a memorable family sailing trip.",
+        "description_da": "En datter finder et falmet fotografi, og hendes far fortæller historien om en mindeværdig familiesejltur.",
+        "description_it": "Una figlia trova una fotografia sbiadita e il padre racconta la storia di una memorabile gita in barca a vela.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Signe", "Henrik"]),
+        "setup_type": "Narrative/Descriptive",
+        "setup_summary": "A daughter finds a faded photograph in a book and her father describes the memorable day it was taken during a family sailing trip where the engine failed.",
+        "body": (
+            "Signe: Far, hvem er det på det her billede? Jeg fandt det i en bog på hylden.\n"
+            "Henrik: Vis mig. Åh, det er vores familie. Det billede er fra sommeren nitten hundrede og femoghalvfems.\n"
+            "Signe: Du ser så ung ud! Hvor var I?\n"
+            "Henrik: Vi sejlede ved Samsø. Din bedstefar havde lejet en lille sejlbåd for weekenden.\n"
+            "Signe: Du ser våd ud på billedet. Hvad skete der?\n"
+            "Henrik: Motoren gik i stå midt på fjorden! Vi drev rundt i tyve minutter.\n"
+            "Signe: Var I ikke bange?\n"
+            "Henrik: Din bedstefar var helt rolig. Han sagde: Når motoren ikke virker, bruger vi sejlene. Problemet var, at ingen af os vidste, hvordan man sejlede ordentligt.\n"
+            "Signe: Hvad gjorde I så?\n"
+            "Henrik: Din bedstemor tog kommandoen. Hun havde sejlet som barn og huskede det meste. Hun fik os sikkert i havn.\n"
+            "Signe: Bedstemor? Hende kender jeg kun som den stille kvinde, der altid læser i haven.\n"
+            "Henrik: Hun var fuld af overraskelser. Den aften lavede hun fisk over bål på stranden, og vi sov i teltet.\n"
+            "Signe: Det lyder fantastisk. Hvorfor har du aldrig fortalt det her?\n"
+            "Henrik: Det er sjovt. Nogle minder gemmer sig, indtil man finder det rigtige billede.\n"
+            "Signe: Jeg vil gerne sejle en dag. Kan du lære mig det?\n"
+            "Henrik: Det kan jeg ikke, men måske kan vi lære det sammen.\n"
+            "Signe: Aftale."
+        ),
+        "order": 3,
+    },
+    # ── DANISH ADVANCED ──────────────────────────────────────────────────────
+    {
+        "slug": "da-advanced-bank",
+        "language": "da",
+        "difficulty": "advanced",
+        "length": "short",        "title": "I banken",
+        "description_en": "Opening a bank account and setting up digital services.",
+        "description_da": "Åbn en bankkonto og opsæt digitale tjenester.",
+        "description_it": "Aprire un conto in banca e attivare servizi digitali.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Kunde", "Rådgiver"]),
+        "setup_type": "Arrival/Transaction",
+        "setup_summary": "A first-time customer opens a bank account, compares three account tiers, and sets up digital services including MobilePay.",
+        "body": (
+            "Kunde: Goddag. Jeg vil gerne oprette en konto.\n"
+            "Rådgiver: Selvfølgelig. Er du kunde hos os i forvejen?\n"
+            "Kunde: Nej, dette er min første konto her.\n"
+            "Rådgiver: Fint nok. Vi har tre typer konti: basiskonto, standardkonto og premiumpakke.\n"
+            "Rådgiver: Basiskontoen er gebyrfri, hvis du har din løn stående hos os.\n"
+            "Rådgiver: Standardkontoen koster fyrre kroner om måneden og inkluderer gratis hævninger og et Visa-kreditkort.\n"
+            "Kunde: Hvad er forskellen til premium?\n"
+            "Rådgiver: Premiumpakken giver adgang til investeringsrådgivning og prioriteret kundeservice.\n"
+            "Kunde: Standardkontoen passer bedst til mig.\n"
+            "Rådgiver: Perfekt. Jeg har brug for dit kørekort eller pas, dit NemID og et nyligt brev, der bekræfter din adresse.\n"
+            "Kunde: Her er mit pas og mit sundhedskort. Hvad med NemID?\n"
+            "Rådgiver: Du skal aktivere det her på stedet via vores system. Det tager fem minutter.\n"
+            "Kunde: Kan jeg allerede bruge MobilePay i dag?\n"
+            "Rådgiver: Ja, du kan tilknytte kortet til MobilePay, så snart du har fået det. Kortet ankommer inden for tre hverdage.\n"
+            "Kunde: Fremragende. Og netbanken?\n"
+            "Rådgiver: Den aktiveres automatisk. Du modtager en velkomstsms med en kode i dag.\n"
+            "Kunde: Mange tak. Det var nemmere end forventet!"
+        ),
+        "order": 1,
+    },
+    {
+        "slug": "da-advanced-lejekontrakt",
+        "language": "da",
+        "difficulty": "advanced",
+        "length": "short",        "title": "Lejekontrakt",
+        "description_en": "Reviewing and signing a rental agreement.",
+        "description_da": "Gennemgå og underskriv en lejekontrakt.",
+        "description_it": "Esaminare e firmare un contratto d'affitto.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Lejer", "Udlejer"]),
+        "setup_type": "Problem-Solving",
+        "setup_summary": "A tenant and landlord review a rental contract, negotiating pet policies, deposit terms, maintenance responsibilities, and early termination.",
+        "body": (
+            "Lejer: Jeg har kigget kontrakten igennem, og jeg har et par spørgsmål.\n"
+            "Udlejer: Selvfølgelig. Hvad drejer det sig om?\n"
+            "Lejer: I paragraf tre står der, at jeg ikke må holde husdyr. Men vi har en lille kat.\n"
+            "Udlejer: Det er et restriktivt vilkår. Vi kan tilføje en undtagelse for små stuegående kæledyr, hvis ejerforeningen accepterer det. Jeg undersøger det.\n"
+            "Lejer: Godt. Og vedrørende depositum: kontrakten angiver tre måneders husleje. Er det til forhandling?\n"
+            "Udlejer: Standardvilkåret er tre måneder ifølge lejeloven. Vi kan ikke gå under, men du kan betale i rater over tre måneder, hvis det letter det.\n"
+            "Lejer: Det hjælper. Hvad med vedligeholdelse? Hvem betaler hvad?\n"
+            "Udlejer: Indvendig vedligeholdelse er lejers ansvar, det vil sige maling og småreparationer. Større reparationer af rør og elinstallationer dækkes af udlejer.\n"
+            "Lejer: Hvad sker der, hvis jeg ønsker at opsige kontrakten før tid?\n"
+            "Udlejer: Opsigelsesvarslet er tre måneder. Fraflytter du inden kontraktens udløb, skal du betale leje i opsigelsesperioden, medmindre vi finder en ny lejer hurtigere.\n"
+            "Lejer: Alt i alt synes jeg, vilkårene er rimelige. Kan vi underskrive i dag?\n"
+            "Udlejer: Ja. Jeg printer to eksemplarer. Vi underskriver begge, og du får dit eksemplar med det samme.\n"
+            "Lejer: Perfekt."
+        ),
+        "order": 2,
+    },
+    {
+        "slug": "da-advanced-nytaar",
+        "language": "da",
+        "difficulty": "advanced",
+        "length": "short",        "title": "Nytårsaften",
+        "description_en": "Three friends preparing a New Year's dinner reflect on the past year's ups and downs.",
+        "description_da": "Tre venner, der forbereder nytårsmiddag, reflekterer over årets op- og nedture.",
+        "description_it": "Tre amici che preparano la cena di Capodanno riflettono sugli alti e bassi dell'anno passato.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Sofie", "Mikkel", "Frederik"]),
+        "setup_type": "Narrative/Descriptive",
+        "setup_summary": "Three friends preparing a New Year's dinner reflect on the past year's ups and downs, navigating personal revelations about career changes, a breakup, and finding gratitude in difficulty.",
+        "body": (
+            "Sofie: Mikkel, passes på saucen, mens jeg dækker bordet?\n"
+            "Mikkel: Selvfølgelig. Hvornår kommer Frederik?\n"
+            "Sofie: Han sagde klokken sytten. Så vi har en halv time endnu.\n"
+            "Mikkel: Godt. Kan du huske sidste nytår? Vi stod i dit gamle køkken, det der var halvt så stort som det her.\n"
+            "Sofie: Og du brændte risen an!\n"
+            "Mikkel: Det var rismælken, der kogte over. Ikke risen. Stor forskel.\n"
+            "Sofie: Resultatet var det samme. Vi bestilte pizza klokken elleve om aftenen.\n"
+            "Frederik: Hej! Døren var åben. Godt nytår på forskud!\n"
+            "Sofie: Frederik! Kom ind. Sæt flaskerne i køkkenet.\n"
+            "Mikkel: Vi talte lige om sidste nytårs middagskatastrofe.\n"
+            "Frederik: Åh ja. Den bedste pizza, jeg nogensinde har fået. Klokken halv tolv med champagne til.\n"
+            "Sofie: I år bliver det anderledes. Alt er planlagt ned til mindste detalje.\n"
+            "Mikkel: Berømt sidste ord. Men lad os i hvert fald prøve.\n"
+            "Frederik: Hvad er menuen?\n"
+            "Sofie: Laks med citron og frisk dild, nye kartofler og en grøn salat med valnødder. Simpelt men godt.\n"
+            "Frederik: Det dufter allerede fantastisk herinde.\n"
+            "Mikkel: Sofie, sig det nu, som det er. Du har øvet hele ugen.\n"
+            "Sofie: Kun to gange! Men ja, jeg ville gerne have, at det blev ordentligt i år. Det har været et mærkeligt år for os alle tre.\n"
+            "Frederik: Mærkeligt er vist en underdrivelse. Jeg skiftede job i marts, du flyttede hertil i maj, og Mikkel...\n"
+            "Mikkel: Jeg og Line gik fra hinanden i september. Det var en svær periode, men det var den rigtige beslutning.\n"
+            "Sofie: Hvordan har du det med det nu, helt ærligt?\n"
+            "Mikkel: Bedre end forventet. Jeg har lært, at man godt kan savne noget og stadig vide, at det var rigtigt at slippe det. De første uger var hårde. Men i oktober begyndte jeg at løbe om morgenen, og det hjalp mere, end jeg troede.\n"
+            "Frederik: Det kræver mod at sige det højt. Jeg beundrer det.\n"
+            "Sofie: Enig. Og hvad med dig, Frederik? Trives du i det nye job?\n"
+            "Frederik: Det er hårdt. Mere ansvar, nye kolleger, nye systemer. Alt er nyt på én gang. Men jeg føler mig mere til stede end i lang tid. I det gamle job kørte dagene bare forbi uden at jeg lagde mærke til dem.\n"
+            "Sofie: Det kan jeg godt mærke på dig. Du virker roligere og mere fokuseret.\n"
+            "Mikkel: Okay, før vi bliver alt for sentimentale: skal vi skåle?\n"
+            "Frederik: For hvad præcist?\n"
+            "Mikkel: For et år, der var svært, men som bragte os herhen. Sammen, med bedre mad end sidste år, og med mod nok til at ændre det, der ikke virkede.\n"
+            "Sofie: Det kan vi godt skåle for. Skål!\n"
+            "Frederik: Skål!\n"
+            "Mikkel: Skål. Og godt nytår til os alle tre.\n"
+            "Sofie: Nu skal laksen ud. Frederik, kan du tænde lysene?\n"
+            "Frederik: Med fornøjelse. Det her bliver en god aften.\n"
+            "Mikkel: Det er det allerede."
+        ),
+        "order": 3,
+    },
+
+    # ── ENGLISH BEGINNER ─────────────────────────────────────────────────────
+    {
+        "slug": "en-beginner-coffee-shop",
+        "language": "en",
+        "difficulty": "beginner",
+        "length": "short",        "title": "At the coffee shop",
+        "description_en": "Order a drink and a snack at a coffee shop.",
+        "description_da": "Bestil en drink og en snack på en kaffebar.",
+        "description_it": "Ordinare una bevanda e uno spuntino in una caffetteria.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Barista", "Sarah"]),
+        "setup_type": "Arrival/Transaction",
+        "setup_summary": "A customer orders a latte with vanilla syrup and a blueberry muffin from a barista and pays the bill.",
+        "body": (
+            "Barista: Hello! What can I get for you today?\n"
+            "Sarah: Hi! Can I have a medium latte, please?\n"
+            "Barista: Of course. Would you like any syrup in that?\n"
+            "Sarah: Yes, vanilla, please.\n"
+            "Barista: Sure. Anything to eat?\n"
+            "Sarah: Yes, a blueberry muffin, please.\n"
+            "Barista: Great choice. What's your name?\n"
+            "Sarah: Sarah.\n"
+            "Barista: That will be six dollars and fifty cents, please.\n"
+            "Sarah: Here you go.\n"
+            "Barista: Thanks! We'll call your name when it's ready.\n"
+            "Sarah: Thank you!"
+        ),
+        "order": 1,
+    },
+    {
+        "slug": "en-beginner-grocery",
+        "language": "en",
+        "difficulty": "beginner",
+        "length": "short",        "title": "At the grocery store",
+        "description_en": "Find items and pay at the grocery store.",
+        "description_da": "Find varer og betal i supermarkedet.",
+        "description_it": "Trovare articoli e pagare al supermercato.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Customer", "Employee"]),
+        "setup_type": "Arrival/Transaction",
+        "setup_summary": "A shopper asks a grocery store employee for help locating bread, almond milk, and fruit, then checks out by card.",
+        "body": (
+            "Customer: Excuse me, where can I find the bread?\n"
+            "Employee: It's in aisle four, on the left side.\n"
+            "Customer: Thank you. And do you have almond milk?\n"
+            "Employee: Yes, it's with the dairy alternatives, in aisle two.\n"
+            "Customer: Great. I also need some apples.\n"
+            "Employee: Fresh fruit is at the back of the store.\n"
+            "Customer: Perfect. That's everything I need.\n"
+            "Employee: Are you ready to check out?\n"
+            "Customer: Yes, please. Do you take card?\n"
+            "Employee: Of course. Tap or insert?\n"
+            "Customer: Tap, please.\n"
+            "Employee: All done. Have a great day!"
+        ),
+        "order": 2,
+    },
+    {
+        "slug": "en-beginner-directions",
+        "language": "en",
+        "difficulty": "beginner",
+        "length": "short",        "title": "Asking for directions",
+        "description_en": "Ask a local how to get to the train station.",
+        "description_da": "Spørg en lokal om vej til togstationen.",
+        "description_it": "Chiedere indicazioni per la stazione ferroviaria.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Visitor", "Local"]),
+        "setup_type": "Discovery/Unexpected",
+        "setup_summary": "A visitor discovers they are heading the wrong way; a local offers clear directions to the train station via traffic lights and landmarks.",
+        "body": (
+            "Visitor: Excuse me! Can you help me?\n"
+            "Local: Sure, what do you need?\n"
+            "Visitor: I'm looking for the train station. Am I going the right way?\n"
+            "Local: Actually, no. You're going the wrong direction.\n"
+            "Visitor: Oh no. How do I get there?\n"
+            "Local: Go back to the traffic lights and turn left.\n"
+            "Local: Then walk straight for about five minutes.\n"
+            "Local: You'll see a big clock tower. The station entrance is right next to it.\n"
+            "Visitor: Got it. Left at the lights, then straight.\n"
+            "Local: Yes, exactly. You can't miss it.\n"
+            "Visitor: Thank you so much!\n"
+            "Local: No problem. Have a good trip!"
+        ),
+        "order": 3,
+    },
+    # ── ENGLISH INTERMEDIATE ─────────────────────────────────────────────────
+    {
+        "slug": "en-intermediate-doctor",
+        "language": "en",
+        "difficulty": "intermediate",
+        "length": "short",        "title": "At the doctor",
+        "description_en": "Describe symptoms and get advice from a doctor.",
+        "description_da": "Beskriv symptomer og få råd fra en læge.",
+        "description_it": "Descrivere sintomi e ricevere consigli dal medico.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Doctor", "Patient"]),
+        "setup_type": "Problem-Solving",
+        "setup_summary": "A patient describes throat pain and cough; the doctor examines them, identifies a viral infection, and recommends rest and hydration.",
+        "body": (
+            "Doctor: Good morning. What brings you in today?\n"
+            "Patient: I've had a sore throat and a headache for the past four days.\n"
+            "Doctor: Do you have a fever?\n"
+            "Patient: I did yesterday, about thirty-eight point five. It seems to have gone down overnight.\n"
+            "Doctor: Any other symptoms? Cough, runny nose, body aches?\n"
+            "Patient: A bit of a runny nose, and I feel quite tired.\n"
+            "Doctor: Have you taken anything for the fever?\n"
+            "Patient: Just ibuprofen. It helped for a few hours.\n"
+            "Doctor: Let me take a look at your throat. Open wide and say ahh.\n"
+            "Patient: Ahh.\n"
+            "Doctor: Your throat is a little red, but I don't see signs of a bacterial infection.\n"
+            "Doctor: This looks like a viral illness.\n"
+            "Patient: Should I take antibiotics?\n"
+            "Doctor: No, antibiotics don't work against viruses.\n"
+            "Doctor: Rest, stay hydrated, and keep taking ibuprofen as needed.\n"
+            "Doctor: If you're not improving in five days, or if your fever spikes again, come back.\n"
+            "Patient: Thank you, doctor."
+        ),
+        "order": 1,
+    },
+    {
+        "slug": "en-intermediate-apartment",
+        "language": "en",
+        "difficulty": "intermediate",
+        "length": "short",        "title": "Renting an apartment",
+        "description_en": "Enquire about an apartment listing on the phone.",
+        "description_da": "Forhør dig om en lejlighedsannonce per telefon.",
+        "description_it": "Informarsi su un annuncio di appartamento per telefono.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Caller", "Agent"]),
+        "setup_type": "Event/Preparation",
+        "setup_summary": "A caller and rental agent discuss an apartment listing, negotiating details and scheduling a viewing.",
+        "body": (
+            "Caller: Hi, I'm calling about the two-bedroom apartment you have listed.\n"
+            "Agent: Oh, yes. Are you interested in viewing it?\n"
+            "Caller: Definitely. Can you tell me a bit more about it first?\n"
+            "Agent: Of course. It's on the third floor, about seventy square metres.\n"
+            "Agent: It has a modern kitchen, a balcony, and great natural light.\n"
+            "Caller: Is parking included?\n"
+            "Agent: There's one parking space in the garage, yes.\n"
+            "Caller: What's the monthly rent?\n"
+            "Agent: It's fifteen hundred a month, plus utilities.\n"
+            "Caller: Are utilities usually another hundred or two?\n"
+            "Agent: About that, yes, depending on usage.\n"
+            "Caller: Is the landlord open to a long-term lease?\n"
+            "Agent: Yes, he prefers at least twelve months.\n"
+            "Caller: That works for me. When can I come to see it?\n"
+            "Agent: How about Saturday at eleven?\n"
+            "Caller: Saturday at eleven is perfect. What's the address?\n"
+            "Agent: It's forty-two Maple Street, apartment three B.\n"
+            "Caller: Great. See you then. Thanks!"
+        ),
+        "order": 2,
+    },
+    {
+        "slug": "en-intermediate-bookshop",
+        "language": "en",
+        "difficulty": "intermediate",
+        "length": "short",        "title": "The old bookshop",
+        "description_en": "Discover a handwritten note inside a second-hand book and learn about a bookshop's hidden tradition.",
+        "description_da": "Opdag en håndskrevet seddel i en brugt bog og lær om en boghandels skjulte tradition.",
+        "description_it": "Scoprire un biglietto scritto a mano in un libro usato e conoscere una tradizione segreta della libreria.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Customer", "Owner"]),
+        "setup_type": "Discovery/Unexpected",
+        "setup_summary": "A customer discovers a handwritten note inside a second-hand book and the bookshop owner shares the story behind the shop's tradition of hidden messages.",
+        "body": (
+            "Customer: Excuse me, I bought this book yesterday and I found something inside.\n"
+            "Owner: Oh? What did you find?\n"
+            "Customer: A handwritten note. It says, To whoever reads this next: I hope this story finds you at the right time.\n"
+            "Owner: That's lovely. May I see it?\n"
+            "Customer: Of course. Is this something that happens often?\n"
+            "Owner: Actually, yes. We have a tradition here. Some customers leave notes inside the books they've loved.\n"
+            "Customer: Really? How did that start?\n"
+            "Owner: About ten years ago, a regular customer started tucking little messages into books before donating them. She said books should carry conversations between strangers.\n"
+            "Customer: That's a beautiful idea.\n"
+            "Owner: It caught on. Now we find notes in donated books all the time. Some are quotes, some are personal reflections.\n"
+            "Customer: I have to admit, it made me smile. I'd had a long day and almost didn't open the book last night.\n"
+            "Owner: That's exactly why they matter. The right words at the right moment.\n"
+            "Customer: Do you keep any of the notes?\n"
+            "Owner: We have a board by the window. Take a look. Those are some of our favourites.\n"
+            "Customer: Don't be afraid to start again. The best chapter is always the next one. These are wonderful.\n"
+            "Owner: People connect through stories in ways they don't expect.\n"
+            "Customer: Would it be all right if I left a note in a book too?\n"
+            "Owner: We'd love that. Pick any book on the donation shelf.\n"
+            "Customer: I think I know exactly what I want to write.\n"
+            "Owner: Take your time. There's no rush."
+        ),
+        "order": 3,
+    },
+    # ── ENGLISH ADVANCED ─────────────────────────────────────────────────────
+    {
+        "slug": "en-advanced-negotiation",
+        "language": "en",
+        "difficulty": "advanced",
+        "length": "short",        "title": "Salary negotiation",
+        "description_en": "Negotiate your salary in a job offer conversation.",
+        "description_da": "Forhandl løn i forbindelse med et jobtilbud.",
+        "description_it": "Negoziare il proprio stipendio in una trattativa di lavoro.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Recruiter", "Candidate"]),
+        "setup_type": "Problem-Solving",
+        "setup_summary": "A candidate and recruiter negotiate salary, bonuses, benefits, and employment terms, reaching agreement on compensation.",
+        "body": (
+            "Recruiter: We're pleased to offer you the position. Before we proceed, I'd like to discuss compensation.\n"
+            "Candidate: Thank you. I'm genuinely excited about the role.\n"
+            "Recruiter: Based on your experience, we're proposing a base salary of sixty-two thousand.\n"
+            "Candidate: I appreciate the offer. I was hoping we could discuss something closer to sixty-eight thousand.\n"
+            "Candidate: That's based on my seven years of industry experience and the results I've driven, particularly the thirty per cent revenue increase in my last role.\n"
+            "Recruiter: I understand your reasoning. Sixty-eight is above our current band for this level.\n"
+            "Candidate: Could we meet somewhere in the middle? Perhaps sixty-five thousand, with a review at six months?\n"
+            "Recruiter: I could see sixty-five working, especially with the six-month review.\n"
+            "Candidate: What does the bonus structure look like?\n"
+            "Recruiter: There's an annual performance bonus of up to fifteen per cent of base salary.\n"
+            "Candidate: And the benefits package?\n"
+            "Recruiter: Private healthcare, twenty-five days' holiday, pension contributions, and a hybrid working policy.\n"
+            "Candidate: That's a strong package. I'd like to accept at sixty-five thousand with the conditions we've discussed.\n"
+            "Recruiter: Wonderful. We'll get the formal offer letter to you by end of day.\n"
+            "Candidate: Thank you. I look forward to joining the team."
+        ),
+        "order": 1,
+    },
+    {
+        "slug": "en-advanced-reunion",
+        "language": "en",
+        "difficulty": "advanced",
+        "length": "short",        "title": "An unexpected reunion",
+        "description_en": "Two former university friends accidentally meet at a train station after sixteen years apart.",
+        "description_da": "To gamle universitetsvenner mødes tilfældigt på en togstation efter seksten år.",
+        "description_it": "Due ex compagni di università si incontrano per caso in una stazione ferroviaria dopo sedici anni.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Rachel", "Marcus"]),
+        "setup_type": "Narrative/Descriptive",
+        "setup_summary": "Two former university friends accidentally meet at a train station after sixteen years apart and catch up on divergent life paths, rediscovering common ground despite different choices.",
+        "body": (
+            "Rachel: I'm sorry, do I... wait. Is that Marcus?\n"
+            "Marcus: Rachel? Rachel Chen?\n"
+            "Rachel: It is you! I almost walked right past. How long has it been?\n"
+            "Marcus: Sixteen years. Since graduation.\n"
+            "Rachel: Sixteen years. You look different. The beard suits you.\n"
+            "Marcus: And you look exactly the same. Still carrying three bags everywhere you go.\n"
+            "Rachel: Some things never change. What are you doing in Manchester?\n"
+            "Marcus: I live here now. Moved up from London about four years ago. My partner got a position at the university.\n"
+            "Rachel: I had no idea. I'm just passing through. I've got a workshop in Leeds tomorrow.\n"
+            "Marcus: What kind of workshop?\n"
+            "Rachel: I run a small consultancy now. We help schools redesign their science programmes. It's not what I planned, but I love it.\n"
+            "Marcus: That's brilliant. You always said you wanted to make science accessible.\n"
+            "Rachel: Did I? I barely remember what I said back then. I was all over the place in my twenties.\n"
+            "Marcus: Weren't we all? I spent five years in corporate law before I realised I was miserable every single morning.\n"
+            "Rachel: What happened?\n"
+            "Marcus: I quit. Took six months off. Travelled a bit. Then I trained as a counsellor.\n"
+            "Rachel: A counsellor? That's quite a shift from law.\n"
+            "Marcus: It turns out that listening to people's problems is more rewarding when you're not charging them four hundred pounds an hour for it.\n"
+            "Rachel: Ha! I can imagine. Are you happy?\n"
+            "Marcus: Most days, yes. Genuinely happy. It took a long time to get here, though. Leaving a career that everyone else admires is harder than it sounds.\n"
+            "Rachel: I know exactly what you mean. When I left research, my parents didn't speak to me for a month. They'd told everyone their daughter was going to be a professor.\n"
+            "Marcus: And now?\n"
+            "Rachel: Now they tell everyone about the schools I've helped. It took time, but they came around.\n"
+            "Marcus: Funny how the hardest choices end up making the best stories.\n"
+            "Rachel: That sounds like something you'd embroider on a cushion.\n"
+            "Marcus: I might, actually. My partner makes them. I'll send you one.\n"
+            "Rachel: Deal. Do you have time for a coffee? My train isn't for another hour.\n"
+            "Marcus: I was just heading to the café across the platform. Join me.\n"
+            "Rachel: Sixteen years of catching up in one hour. Think we can manage it?\n"
+            "Marcus: We managed three-hour exams on no sleep. I think we'll be fine.\n"
+            "Rachel: Then let's start with the important things. Are you still a terrible cook?\n"
+            "Marcus: Worse. My partner won't let me near the kitchen.\n"
+            "Rachel: Some things really never change."
+        ),
+        "order": 2,
+    },
+    {
+        "slug": "en-advanced-conference",
+        "language": "en",
+        "difficulty": "advanced",
+        "length": "short",        "title": "At a professional conference",
+        "description_en": "Network and discuss ideas at an industry conference.",
+        "description_da": "Netværk og diskuter idéer på en branchekonference.",
+        "description_it": "Fare networking e discutere idee a una conferenza di settore.",
+        "format": "dialogue",
+        "speakers": json.dumps(["Alex", "Jordan"]),
+        "setup_type": "Dialogue-Driven",
+        "setup_summary": "Conference attendees meet, discuss common industry challenges around sustainability and supply chain innovation, and explore partnership opportunities.",
+        "body": (
+            "Alex: Excuse me, I loved your talk on sustainable supply chains.\n"
+            "Jordan: Thank you so much! Are you in the logistics sector?\n"
+            "Alex: I'm in procurement, actually. We're grappling with the same challenges.\n"
+            "Alex: The pressure to decarbonise while keeping costs competitive is enormous.\n"
+            "Jordan: Absolutely. We've been trialling carbon-offset partnerships with our key suppliers.\n"
+            "Jordan: The results have been mixed, but directionally positive.\n"
+            "Alex: That's interesting. We've been exploring supplier incentive programmes.\n"
+            "Alex: We reward partners who meet sustainability targets with preferential payment terms.\n"
+            "Jordan: That's a smart lever. Does it scale across a large supplier base?\n"
+            "Alex: It's a challenge. We piloted it with the top twenty suppliers first.\n"
+            "Alex: The plan is to roll it out to the next tier next quarter.\n"
+            "Jordan: Would you be open to connecting further on this?\n"
+            "Jordan: We have a working group on sustainable procurement, and your insights could be valuable.\n"
+            "Alex: I'd be delighted. Here's my card.\n"
+            "Jordan: Brilliant. I'll reach out next week. There's a lot we could learn from each other.\n"
+            "Alex: Looking forward to it. Enjoy the rest of the conference!"
+        ),
+        "order": 3,
+    },
+]
+
+
+_TITLE_SUFFIXES = {
+    "en": {"medium": "Extended", "long": "Complete"},
+    "da": {"medium": "Udvidet", "long": "Komplet"},
+    "it": {"medium": "Versione estesa", "long": "Versione completa"},
+}
+
+_DESCRIPTION_SUFFIXES = {
+    "en": {
+        "medium": " Longer practice version.",
+        "long": " Full-length practice version.",
+    },
+    "da": {
+        "medium": " Længere øveversion.",
+        "long": " Fuld øveversion.",
+    },
+    "it": {
+        "medium": " Versione di pratica più lunga.",
+        "long": " Versione completa per esercitarsi.",
+    },
+}
+
+_UNIQUE_BEATS = {
+    "en": [
+        {"focus": "timing", "obstacle": "a small delay", "action": "the final check", "result": "a smoother plan"},
+        {"focus": "budget", "obstacle": "extra fees", "action": "a clearer estimate", "result": "fewer surprises"},
+        {"focus": "quality", "obstacle": "limited options", "action": "a practical alternative", "result": "a better fit"},
+        {"focus": "communication", "obstacle": "mixed information", "action": "a written summary", "result": "fewer misunderstandings"},
+        {"focus": "availability", "obstacle": "a busy schedule", "action": "a confirmed slot", "result": "a reliable next step"},
+        {"focus": "preparation", "obstacle": "missing details", "action": "a checklist", "result": "faster progress"},
+        {"focus": "coordination", "obstacle": "different priorities", "action": "a shared plan", "result": "better alignment"},
+        {"focus": "follow-up", "obstacle": "unclear ownership", "action": "clear responsibilities", "result": "better execution"},
+        {"focus": "consistency", "obstacle": "last-minute changes", "action": "a simple routine", "result": "steady improvement"},
+    ],
+    "da": [
+        {"focus": "timing", "obstacle": "en lille forsinkelse", "action": "det sidste tjek", "result": "en mere rolig plan"},
+        {"focus": "budget", "obstacle": "ekstra gebyrer", "action": "et klarere overslag", "result": "færre overraskelser"},
+        {"focus": "kvalitet", "obstacle": "få valgmuligheder", "action": "et praktisk alternativ", "result": "en bedre løsning"},
+        {"focus": "kommunikation", "obstacle": "blandet information", "action": "et skriftligt overblik", "result": "færre misforståelser"},
+        {"focus": "tilgængelighed", "obstacle": "en travl kalender", "action": "en bekræftet tid", "result": "et sikkert næste skridt"},
+        {"focus": "forberedelse", "obstacle": "manglende detaljer", "action": "en tjekliste", "result": "hurtigere fremdrift"},
+        {"focus": "koordinering", "obstacle": "forskellige prioriteter", "action": "en fælles plan", "result": "bedre samspil"},
+        {"focus": "opfølgning", "obstacle": "uklart ansvar", "action": "tydelige roller", "result": "bedre udførelse"},
+        {"focus": "stabilitet", "obstacle": "sidste-øjebliks ændringer", "action": "en enkel rutine", "result": "jævn forbedring"},
+    ],
+    "it": [
+        {"focus": "tempistiche", "obstacle": "un piccolo ritardo", "action": "la verifica finale", "result": "un piano più fluido"},
+        {"focus": "budget", "obstacle": "costi extra", "action": "una stima più chiara", "result": "meno sorprese"},
+        {"focus": "qualità", "obstacle": "poche opzioni", "action": "un'alternativa pratica", "result": "una scelta migliore"},
+        {"focus": "comunicazione", "obstacle": "informazioni confuse", "action": "un riepilogo scritto", "result": "meno malintesi"},
+        {"focus": "disponibilità", "obstacle": "un'agenda piena", "action": "uno slot confermato", "result": "un prossimo passo sicuro"},
+        {"focus": "preparazione", "obstacle": "dettagli mancanti", "action": "una checklist", "result": "avanzamento più rapido"},
+        {"focus": "coordinamento", "obstacle": "priorità diverse", "action": "un piano condiviso", "result": "maggiore allineamento"},
+        {"focus": "follow-up", "obstacle": "responsabilità poco chiare", "action": "ruoli definiti", "result": "esecuzione migliore"},
+        {"focus": "continuità", "obstacle": "cambi all'ultimo minuto", "action": "una routine semplice", "result": "miglioramento costante"},
+    ],
+}
+
+
+def _speaker_name(speakers: list[str], index: int) -> str:
+    if not speakers:
+        return f"Speaker {index + 1}"
+    if index < len(speakers):
+        return speakers[index]
+    return speakers[-1]
+
+
+def _slug_seed(slug: str) -> int:
+    return sum(ord(char) for char in slug)
+
+
+def _build_unique_block(story: dict, block_index: int, speakers: list[str]) -> list[str]:
+    language = story["language"]
+    topic = story["title"].lower()
+    beats = _UNIQUE_BEATS[language]
+    beat = beats[(_slug_seed(story["slug"]) + block_index) % len(beats)]
+    s1 = _speaker_name(speakers, 0)
+    s2 = _speaker_name(speakers, 1)
+    s3 = _speaker_name(speakers, 2)
+
+    if language == "da":
+        return [
+            f"{s1}: Når vi taler om {topic}, er der én ting mere, vi bør afklare.",
+            f"{s2}: Enig. Den største udfordring lige nu er {beat['obstacle']}.",
+            f"{s1}: Så lad os fokusere på {beat['focus']} først.",
+            f"{s2}: God idé. Jeg tager mig af {beat['action']} i dag.",
+            f"{s3}: Imens gennemgår jeg detaljer og tidsplan.",
+            f"{s1}: Perfekt, så kan vi tage næste trin bagefter.",
+            f"{s2}: Målet er {beat['result']}.",
+            f"{s1}: Super. Lad os følge op senere og bekræfte alt.",
+        ]
+
+    if language == "it":
+        return [
+            f"{s1}: Restando su {topic}, c'è ancora un punto da chiarire.",
+            f"{s2}: D'accordo. Il problema principale adesso è {beat['obstacle']}.",
+            f"{s1}: Allora concentriamoci prima su {beat['focus']}.",
+            f"{s2}: Perfetto. Oggi mi occupo io di {beat['action']}.",
+            f"{s3}: Intanto controllo bene dettagli e tempistiche.",
+            f"{s1}: Ottimo, così possiamo passare allo step successivo.",
+            f"{s2}: L'obiettivo è {beat['result']}.",
+            f"{s1}: Benissimo. Più tardi facciamo un rapido follow-up.",
+        ]
+
+    return [
+        f"{s1}: Since we're still talking about {topic}, there is one more point to settle.",
+        f"{s2}: Agreed. The main obstacle right now is {beat['obstacle']}.",
+        f"{s1}: Then let's focus on {beat['focus']} first.",
+        f"{s2}: Good call. I'll handle {beat['action']} today.",
+        f"{s3}: Meanwhile I'll review the details and timeline.",
+        f"{s1}: Great, then we can move to the next step.",
+        f"{s2}: The target outcome is {beat['result']}.",
+        f"{s1}: Perfect. Let's follow up later and confirm everything.",
+    ]
+
+
+def _variant_title(title: str, language: str, length: str) -> str:
+    return f"{title} - {_TITLE_SUFFIXES[language][length]}"
+
+
+def _variant_description(description: str, language: str, length: str) -> str:
+    return f"{description}{_DESCRIPTION_SUFFIXES[language][length]}"
+
+
+def _extend_dialogue_body(story: dict, blocks_to_add: int) -> str:
+    speakers = json.loads(story.get("speakers") or "[]")
+    language = story["language"]
+    topic = story["title"].lower()
+    s1 = _speaker_name(speakers, 0)
+    s2 = _speaker_name(speakers, 1)
+
+    if language == "da":
+        opener = [
+            f"{s1}: Skal vi tage en ny snak om {topic}?",
+            f"{s2}: Ja, lad os starte fra begyndelsen og lægge en klar plan.",
+        ]
+        closer = [
+            f"{s1}: Perfekt. Nu føles beslutningen mere gennemarbejdet.",
+            f"{s2}: Enig. Vi følger op i morgen og justerer om nødvendigt.",
+        ]
+    elif language == "it":
+        opener = [
+            f"{s1}: Possiamo riprendere il tema di {topic} da un nuovo punto di vista?",
+            f"{s2}: Certo, ricominciamo con un piano più chiaro e dettagliato.",
+        ]
+        closer = [
+            f"{s1}: Perfetto, adesso la decisione è molto più solida.",
+            f"{s2}: D'accordo. Facciamo un follow-up domani e rifiniamo i dettagli.",
+        ]
+    else:
+        opener = [
+            f"{s1}: Can we revisit {topic} with a fresh plan?",
+            f"{s2}: Absolutely. Let's rebuild the conversation step by step.",
+        ]
+        closer = [
+            f"{s1}: Great, this feels much clearer than before.",
+            f"{s2}: Agreed. We'll follow up tomorrow and lock the final details.",
+        ]
+
+    body_lines: list[str] = []
+    body_lines.extend(opener)
+    for block_index in range(blocks_to_add):
+        body_lines.extend(_build_unique_block(story, block_index, speakers))
+    body_lines.extend(closer)
+    return "\n".join(body_lines)
+
+
+def _build_variant_story(story: dict, *, length: str, order_offset: int, blocks_to_add: int) -> dict:
+    variant = dict(story)
+    variant["slug"] = f"{story['slug']}-{length}"
+    variant["length"] = length
+    variant["title"] = _variant_title(story["title"], story["language"], length)
+    variant["description_en"] = _variant_description(story["description_en"], "en", length)
+    variant["description_da"] = _variant_description(story["description_da"], "da", length)
+    variant["description_it"] = _variant_description(story["description_it"], "it", length)
+    variant["body"] = _extend_dialogue_body(story, blocks_to_add)
+    variant["order"] = story["order"] + order_offset
+    return variant
+
+
+def _build_story_variants(base_stories: list[dict]) -> list[dict]:
+    expanded: list[dict] = []
+    for story in base_stories:
+        short_story = dict(story)
+        short_story["length"] = "short"
+        expanded.append(short_story)
+        expanded.append(
+            _build_variant_story(short_story, length="medium", order_offset=3, blocks_to_add=2)
+        )
+        expanded.append(
+            _build_variant_story(short_story, length="long", order_offset=6, blocks_to_add=4)
+        )
+    return expanded
+
+
+STORIES = _build_story_variants(STORIES)
+
+
+def seed_stories(db) -> None:
+    print(f"  Seeding {len(STORIES)} stories...")
+    for s in STORIES:
+        existing = (
+            db.query(Story)
+            .filter(Story.slug == s["slug"], Story.language == s["language"])
+            .first()
+        )
+        if existing:
+            existing.difficulty = s["difficulty"]
+            existing.length = s.get("length", "short")
+            existing.title = s["title"]
+            existing.description_en = s["description_en"]
+            existing.description_da = s["description_da"]
+            existing.description_it = s["description_it"]
+            existing.body = s["body"]
+            existing.format = s.get("format", "narrative")
+            existing.speakers = s.get("speakers")
+            existing.setup_type = s.get("setup_type")
+            existing.setup_summary = s.get("setup_summary")
+            existing.order = s["order"]
+        else:
+            db.add(Story(
+                id=str(uuid.uuid4()),
+                slug=s["slug"],
+                language=s["language"],
+                difficulty=s["difficulty"],
+                length=s.get("length", "short"),
+                title=s["title"],
+                description_en=s["description_en"],
+                description_da=s["description_da"],
+                description_it=s["description_it"],
+                body=s["body"],
+                format=s.get("format", "narrative"),
+                speakers=s.get("speakers"),
+                setup_type=s.get("setup_type"),
+                setup_summary=s.get("setup_summary"),
+                order=s["order"],
+            ))
+    db.commit()
+    persisted_stories = db.query(Story).all()
+    print(f"  Pre-generating story audio for {len(persisted_stories)} stories and {len(STORY_SPEED_TO_RATE)} speeds...")
+    failures = 0
+    for story in persisted_stories:
+        failures += upsert_story_audio(db, story)
+    if failures:
+        print(f"  Story audio generation failures: {failures}")
+    print("  Done.")
+
+
+if __name__ == "__main__":
+    db = SessionLocal()
+    try:
+        seed_stories(db)
+    finally:
+        db.close()

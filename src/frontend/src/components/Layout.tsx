@@ -1,6 +1,6 @@
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { LayoutGrid, BookOpen, Search, UserCircle, LogOut } from "lucide-react";
+import { LayoutGrid, BookOpen, UserCircle, LogOut } from "lucide-react";
 import { useAuth } from "./AuthProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useEffect, useState } from "react";
@@ -52,10 +52,6 @@ export default function Layout() {
             <NavLink to="/stories" className={linkClass}>
               <BookOpen size={16} />
               {t("nav.stories")}
-            </NavLink>
-            <NavLink to="/search" className={linkClass}>
-              <Search size={16} />
-              {t("nav.search")}
             </NavLink>
             <NavLink to="/profile" className={linkClass}>
               <UserCircle size={16} />

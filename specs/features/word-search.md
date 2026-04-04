@@ -25,6 +25,7 @@ Users can type a word into a search bar and, if it exists in the dictionary for 
 ### 3.1 Search Bar Placement
 - A search bar must be accessible from every page of the application (e.g., in the header/navigation bar).
 - The search bar must have clear placeholder text indicating what can be searched (e.g., "Search for a word…").
+- The search input must have an `aria-label` attribute (e.g., the localised equivalent of "Search for a word") so that screen readers identify the field even when no visible `<label>` element is present. *(See F-A11Y REM-2)*
 
 ### 3.2 Search Input
 - Search must accept input in the user's current target language or reference language.

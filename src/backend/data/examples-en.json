@@ -1,169 +1,988 @@
 {
-  "hello": { "en": "Hello, it's nice to see you again!", "da": "Hej, det er dejligt at se dig igen!", "it": "Ciao, è bello rivederti!" },
-  "goodbye": { "en": "Goodbye, I hope to see you soon.", "da": "Farvel, jeg håber at se dig snart.", "it": "Arrivederci, spero di vederti presto." },
-  "good morning": { "en": "Good morning, would you like a cup of tea?", "da": "Godmorgen, vil du have en kop te?", "it": "Buongiorno, vuoi una tazza di tè?" },
-  "good evening": { "en": "Good evening everyone, welcome to the show.", "da": "Godaften alle sammen, velkommen til showet.", "it": "Buonasera a tutti, benvenuti allo spettacolo." },
-  "good night": { "en": "Good night, sleep well and see you tomorrow.", "da": "Godnat, sov godt og vi ses i morgen.", "it": "Buonanotte, dormi bene e ci vediamo domani." },
-  "please": { "en": "Could I have a glass of water, please?", "da": "Må jeg bede om et glas vand?", "it": "Posso avere un bicchiere d'acqua, per favore?" },
-  "thank you": { "en": "Thank you very much for your help!", "da": "Mange tak for din hjælp!", "it": "Grazie mille per il tuo aiuto!" },
-  "you're welcome": { "en": "You're welcome, it was no trouble at all.", "da": "Selv tak, det var ingen problemer.", "it": "Prego, non è stato alcun problema." },
-  "excuse me": { "en": "Excuse me, could you tell me the time?", "da": "Undskyld, kan du fortælle mig hvad klokken er?", "it": "Scusi, può dirmi che ora è?" },
-  "sorry": { "en": "I'm sorry, I didn't mean to bump into you.", "da": "Undskyld, det var ikke meningen at skubbe til dig.", "it": "Mi dispiace, non volevo urtarti." },
-  "yes": { "en": "Yes, I would love to come to the party.", "da": "Ja, jeg vil meget gerne komme til festen.", "it": "Sì, mi piacerebbe molto venire alla festa." },
-  "no": { "en": "No, thank you, I'm fine as I am.", "da": "Nej tak, jeg har det fint som det er.", "it": "No, grazie, sto bene così." },
-  "how are you": { "en": "How are you? I haven't seen you in ages!", "da": "Hvordan har du det? Jeg har ikke set dig i evigheder!", "it": "Come stai? Non ti vedo da secoli!" },
-  "nice to meet you": { "en": "Nice to meet you, I'm James from London.", "da": "Rart at møde dig, jeg er James fra London.", "it": "Piacere di conoscerti, sono James da Londra." },
-  "cheers": { "en": "Cheers! Here's to a wonderful evening.", "da": "Skål! Her er til en vidunderlig aften.", "it": "Salute! A una serata meravigliosa." },
-  "well done": { "en": "Well done on passing your exam!", "da": "Godt klaret med at bestå din eksamen!", "it": "Ben fatto per aver superato l'esame!" },
-  "see you later": { "en": "See you later, I'm off to the shops.", "da": "Vi ses senere, jeg tager i butikkerne.", "it": "Ci vediamo dopo, vado nei negozi." },
-  "brilliant": { "en": "That's brilliant, what a great idea!", "da": "Det er fantastisk, hvilken god idé!", "it": "Fantastico, che bella idea!" },
-  "lovely": { "en": "What a lovely day, let's go for a walk.", "da": "Sikke en dejlig dag, lad os gå en tur.", "it": "Che bella giornata, andiamo a fare una passeggiata." },
-  "one": { "en": "I have one brother and two sisters.", "da": "Jeg har én bror og to søstre.", "it": "Ho un fratello e due sorelle." },
-  "two": { "en": "We need two tickets for the cinema.", "da": "Vi har brug for to billetter til biografen.", "it": "Abbiamo bisogno di due biglietti per il cinema." },
-  "three": { "en": "The bus comes every three minutes.", "da": "Bussen kommer hvert tredje minut.", "it": "L'autobus passa ogni tre minuti." },
-  "four": { "en": "There are four seasons in the year.", "da": "Der er fire årstider i året.", "it": "Ci sono quattro stagioni nell'anno." },
-  "five": { "en": "We arrived five minutes early.", "da": "Vi ankom fem minutter for tidligt.", "it": "Siamo arrivati cinque minuti in anticipo." },
-  "six": { "en": "She wakes up at six every morning.", "da": "Hun vågner klokken seks hver morgen.", "it": "Si sveglia alle sei ogni mattina." },
-  "seven": { "en": "I read seven books last month.", "da": "Jeg læste syv bøger sidste måned.", "it": "Ho letto sette libri il mese scorso." },
-  "eight": { "en": "School starts at eight o'clock.", "da": "Skolen starter klokken otte.", "it": "La scuola inizia alle otto." },
-  "nine": { "en": "The shop opens at nine in the morning.", "da": "Butikken åbner klokken ni om morgenen.", "it": "Il negozio apre alle nove di mattina." },
-  "ten": { "en": "I've been to London at least ten times.", "da": "Jeg har været i London mindst ti gange.", "it": "Sono stato a Londra almeno dieci volte." },
-  "twenty": { "en": "There are about twenty people in the room.", "da": "Der er omkring tyve personer i rummet.", "it": "Ci sono circa venti persone nella stanza." },
-  "fifty": { "en": "The journey takes about fifty minutes.", "da": "Rejsen tager omkring halvtreds minutter.", "it": "Il viaggio dura circa cinquanta minuti." },
-  "hundred": { "en": "The house is over a hundred years old.", "da": "Huset er over hundrede år gammelt.", "it": "La casa ha più di cento anni." },
-  "thousand": { "en": "London has thousands of restaurants.", "da": "London har tusindvis af restauranter.", "it": "Londra ha migliaia di ristoranti." },
-  "first": { "en": "This is my first time in England.", "da": "Det er min første gang i England.", "it": "È la mia prima volta in Inghilterra." },
-  "second": { "en": "Take the second turning on the left.", "da": "Tag den anden drejning til venstre.", "it": "Prendi la seconda svolta a sinistra." },
-  "half": { "en": "I'll be there in half an hour.", "da": "Jeg er der om en halv time.", "it": "Sarò lì tra mezz'ora." },
-  "bread": { "en": "Could I have some bread with my soup, please?", "da": "Må jeg bede om noget brød til min suppe?", "it": "Posso avere del pane con la zuppa, per favore?" },
-  "butter": { "en": "Would you like some butter on your toast?", "da": "Vil du have noget smør på din toast?", "it": "Vuoi del burro sul tuo toast?" },
-  "cheese": { "en": "English cheese is wonderful, try the cheddar.", "da": "Engelsk ost er vidunderlig, prøv cheddaren.", "it": "Il formaggio inglese è meraviglioso, prova il cheddar." },
-  "milk": { "en": "Do you take milk in your tea?", "da": "Tager du mælk i din te?", "it": "Metti il latte nel tè?" },
-  "water": { "en": "Could I have a glass of water, please?", "da": "Må jeg bede om et glas vand?", "it": "Posso avere un bicchiere d'acqua, per favore?" },
-  "coffee": { "en": "I'll have a coffee with milk, please.", "da": "Jeg vil gerne have en kaffe med mælk, tak.", "it": "Prendo un caffè con latte, per favore." },
-  "tea": { "en": "Nothing beats a nice cup of tea in the afternoon.", "da": "Intet slår en god kop te om eftermiddagen.", "it": "Niente batte una bella tazza di tè nel pomeriggio." },
-  "beer": { "en": "Shall we go to the pub for a beer?", "da": "Skal vi gå på pubben og få en øl?", "it": "Andiamo al pub per una birra?" },
-  "wine": { "en": "Would you prefer red or white wine?", "da": "Foretrækker du rødvin eller hvidvin?", "it": "Preferisci vino rosso o bianco?" },
-  "chicken": { "en": "The roast chicken with potatoes is delicious.", "da": "Stegekyllingen med kartofler er lækker.", "it": "Il pollo arrosto con patate è delizioso." },
-  "fish": { "en": "Fish and chips is a classic British dish.", "da": "Fish and chips er en klassisk britisk ret.", "it": "Fish and chips è un piatto classico britannico." },
-  "cake": { "en": "Would you like a slice of cake with your tea?", "da": "Vil du have et stykke kage til din te?", "it": "Vuoi una fetta di torta con il tè?" },
-  "fruit": { "en": "I always have fresh fruit for breakfast.", "da": "Jeg har altid frisk frugt til morgenmad.", "it": "Mangio sempre frutta fresca a colazione." },
-  "vegetables": { "en": "The market sells lovely fresh vegetables.", "da": "Markedet sælger dejlige friske grøntsager.", "it": "Il mercato vende deliziose verdure fresche." },
-  "potato": { "en": "A jacket potato with cheese is very filling.", "da": "En bagt kartoffel med ost er meget mættende.", "it": "Una patata al forno con formaggio è molto saziante." },
-  "soup": { "en": "A bowl of soup is perfect on a cold day.", "da": "En skål suppe er perfekt på en kold dag.", "it": "Una ciotola di zuppa è perfetta in una giornata fredda." },
-  "breakfast": { "en": "A full English breakfast includes eggs, bacon and toast.", "da": "En fuld engelsk morgenmad inkluderer æg, bacon og toast.", "it": "Una colazione inglese completa include uova, bacon e toast." },
-  "lunch": { "en": "We usually have lunch at about one o'clock.", "da": "Vi spiser normalt frokost omkring klokken et.", "it": "Di solito pranziamo verso l'una." },
-  "dinner": { "en": "Dinner is usually served at seven in the evening.", "da": "Aftensmad serveres normalt klokken syv om aftenen.", "it": "La cena è di solito servita alle sette di sera." },
-  "dessert": { "en": "For dessert we have apple crumble.", "da": "Til dessert har vi æblecrumble.", "it": "Come dolce abbiamo crumble di mele." },
-  "airport": { "en": "The airport is about thirty minutes by train.", "da": "Lufthavnen er omkring tredive minutter med tog.", "it": "L'aeroporto è a circa trenta minuti di treno." },
-  "station": { "en": "The nearest station is a five minute walk.", "da": "Den nærmeste station er fem minutters gang.", "it": "La stazione più vicina è a cinque minuti a piedi." },
-  "train": { "en": "The train to Edinburgh takes about four hours.", "da": "Toget til Edinburgh tager omkring fire timer.", "it": "Il treno per Edimburgo impiega circa quattro ore." },
-  "bus": { "en": "The bus stop is just around the corner.", "da": "Busstoppestedet er lige om hjørnet.", "it": "La fermata dell'autobus è proprio dietro l'angolo." },
-  "bicycle": { "en": "You can hire a bicycle to explore the city.", "da": "Du kan leje en cykel til at udforske byen.", "it": "Puoi noleggiare una bicicletta per esplorare la città." },
-  "hotel": { "en": "The hotel is in a lovely quiet street.", "da": "Hotellet ligger i en dejlig stille gade.", "it": "L'albergo è in una bella strada tranquilla." },
-  "street": { "en": "The restaurant is on the next street.", "da": "Restauranten er i den næste gade.", "it": "Il ristorante è nella prossima strada." },
-  "left": { "en": "Turn left at the traffic lights.", "da": "Drej til venstre ved lyskrydset.", "it": "Gira a sinistra al semaforo." },
-  "right": { "en": "The museum is on the right side.", "da": "Museet er på højre side.", "it": "Il museo è sul lato destro." },
-  "straight ahead": { "en": "Go straight ahead for about two hundred metres.", "da": "Gå ligeud i cirka to hundrede meter.", "it": "Vai dritto per circa duecento metri." },
-  "map": { "en": "Have you got a map of the city centre?", "da": "Har du et kort over bycentrum?", "it": "Hai una mappa del centro città?" },
-  "ticket": { "en": "I'd like a return ticket to Manchester.", "da": "Jeg vil gerne have en returbillet til Manchester.", "it": "Vorrei un biglietto di andata e ritorno per Manchester." },
-  "journey": { "en": "The journey from London to Oxford takes about an hour.", "da": "Rejsen fra London til Oxford tager omkring en time.", "it": "Il viaggio da Londra a Oxford dura circa un'ora." },
-  "arrival": { "en": "The arrival time is shown on the departure board.", "da": "Ankomsttiden vises på afgangstavlen.", "it": "L'orario di arrivo è mostrato sul tabellone delle partenze." },
-  "departure": { "en": "The departure has been delayed by thirty minutes.", "da": "Afgangen er blevet forsinket med tredive minutter.", "it": "La partenza è stata ritardata di trenta minuti." },
-  "passport": { "en": "Don't forget to bring your passport to the airport.", "da": "Glem ikke at tage dit pas med i lufthavnen.", "it": "Non dimenticare di portare il passaporto all'aeroporto." },
-  "price": { "en": "What's the price of this jacket?", "da": "Hvad er prisen på denne jakke?", "it": "Qual è il prezzo di questa giacca?" },
-  "money": { "en": "I need to change some money at the bank.", "da": "Jeg skal veksle nogle penge i banken.", "it": "Devo cambiare dei soldi in banca." },
-  "shop": { "en": "The shops close at six on Saturday.", "da": "Butikkerne lukker klokken seks om lørdagen.", "it": "I negozi chiudono alle sei il sabato." },
-  "to buy": { "en": "I want to buy a present for my friend.", "da": "Jeg vil gerne købe en gave til min ven.", "it": "Voglio comprare un regalo per il mio amico." },
-  "cheap": { "en": "This restaurant is quite cheap and very good.", "da": "Denne restaurant er ret billig og meget god.", "it": "Questo ristorante è piuttosto economico e molto buono." },
-  "expensive": { "en": "London is quite expensive compared to other cities.", "da": "London er ret dyrt sammenlignet med andre byer.", "it": "Londra è piuttosto cara rispetto ad altre città." },
-  "discount": { "en": "Do you offer a student discount?", "da": "Tilbyder I studenterrabat?", "it": "Offrite uno sconto per studenti?" },
-  "bill": { "en": "Could we have the bill, please?", "da": "Må vi bede om regningen?", "it": "Possiamo avere il conto, per favore?" },
-  "cash": { "en": "Sorry, we only accept cash here.", "da": "Beklager, vi tager kun imod kontanter her.", "it": "Mi dispiace, accettiamo solo contanti qui." },
-  "card": { "en": "Can I pay by card or do you need cash?", "da": "Kan jeg betale med kort, eller har I brug for kontanter?", "it": "Posso pagare con carta o servono contanti?" },
-  "receipt": { "en": "Could I have a receipt for that, please?", "da": "Kan jeg få en kvittering for det, tak?", "it": "Posso avere lo scontrino, per favore?" },
-  "sale": { "en": "There's a big sale on at the department store.", "da": "Der er stort udsalg i stormagasinet.", "it": "Ci sono grandi saldi al grande magazzino." },
-  "mother": { "en": "My mother is a wonderful cook.", "da": "Min mor er en fantastisk kok.", "it": "Mia madre è una cuoca meravigliosa." },
-  "father": { "en": "My father taught me how to ride a bike.", "da": "Min far lærte mig at cykle.", "it": "Mio padre mi ha insegnato ad andare in bicicletta." },
-  "sister": { "en": "My sister lives in Manchester with her family.", "da": "Min søster bor i Manchester med sin familie.", "it": "Mia sorella vive a Manchester con la sua famiglia." },
-  "brother": { "en": "My brother is three years older than me.", "da": "Min bror er tre år ældre end mig.", "it": "Mio fratello ha tre anni più di me." },
-  "child": { "en": "Every child in the school learns to read.", "da": "Hvert barn i skolen lærer at læse.", "it": "Ogni bambino della scuola impara a leggere." },
-  "grandmother": { "en": "My grandmother makes the best scones.", "da": "Min bedstemor laver de bedste scones.", "it": "Mia nonna fa i migliori scones." },
-  "grandfather": { "en": "My grandfather served in the Royal Navy.", "da": "Min bedstefar tjente i den kongelige flåde.", "it": "Mio nonno ha prestato servizio nella Marina Reale." },
-  "husband": { "en": "My husband and I are celebrating our anniversary.", "da": "Min mand og jeg fejrer vores årsdag.", "it": "Mio marito ed io festeggiamo il nostro anniversario." },
-  "wife": { "en": "My wife is from Edinburgh originally.", "da": "Min kone er oprindeligt fra Edinburgh.", "it": "Mia moglie è originariamente di Edimburgo." },
-  "friend": { "en": "I'm meeting a friend for lunch today.", "da": "Jeg mødes med en ven til frokost i dag.", "it": "Incontro un amico per pranzo oggi." },
-  "neighbour": { "en": "Our neighbour has a lovely garden.", "da": "Vores nabo har en dejlig have.", "it": "Il nostro vicino ha un bel giardino." },
-  "colleague": { "en": "My colleague helped me with the presentation.", "da": "Min kollega hjalp mig med præsentationen.", "it": "Il mio collega mi ha aiutato con la presentazione." },
-  "baby": { "en": "The baby is sleeping peacefully in her cot.", "da": "Babyen sover fredeligt i sin tremmeseng.", "it": "Il neonato dorme tranquillamente nella culla." },
-  "cousin": { "en": "My cousin is coming to visit next week.", "da": "Min fætter kommer på besøg i næste uge.", "it": "Mio cugino viene a trovarci la settimana prossima." },
-  "uncle": { "en": "My uncle has a cottage in the countryside.", "da": "Min onkel har et sommerhus på landet.", "it": "Mio zio ha un cottage in campagna." },
-  "aunt": { "en": "My aunt always brings sweets when she visits.", "da": "Min tante tager altid slik med når hun besøger os.", "it": "Mia zia porta sempre dolci quando ci viene a trovare." },
-  "time": { "en": "What time does the next train arrive?", "da": "Hvad tid ankommer det næste tog?", "it": "A che ora arriva il prossimo treno?" },
-  "hour": { "en": "The film lasts about two hours.", "da": "Filmen varer omkring to timer.", "it": "Il film dura circa due ore." },
-  "minute": { "en": "Wait a minute, I'll be right back.", "da": "Vent et minut, jeg er straks tilbage.", "it": "Aspetta un minuto, torno subito." },
-  "today": { "en": "Today is a lovely day for a walk in the park.", "da": "I dag er en dejlig dag til en tur i parken.", "it": "Oggi è una bella giornata per una passeggiata nel parco." },
-  "tomorrow": { "en": "Tomorrow we're going to the countryside.", "da": "I morgen tager vi på landet.", "it": "Domani andiamo in campagna." },
-  "yesterday": { "en": "Yesterday the weather was absolutely terrible.", "da": "I går var vejret helt forfærdeligt.", "it": "Ieri il tempo era assolutamente terribile." },
-  "Monday": { "en": "Monday is usually the busiest day at work.", "da": "Mandag er normalt den travleste dag på arbejdet.", "it": "Il lunedì è di solito il giorno più impegnativo al lavoro." },
-  "Tuesday": { "en": "I have a dentist appointment on Tuesday.", "da": "Jeg har en tandlægeaftale tirsdag.", "it": "Ho un appuntamento dal dentista martedì." },
-  "Wednesday": { "en": "We play football every Wednesday evening.", "da": "Vi spiller fodbold hver onsdag aften.", "it": "Giochiamo a calcio ogni mercoledì sera." },
-  "Thursday": { "en": "Thursday is our team meeting day.", "da": "Torsdag er vores teammødedag.", "it": "Il giovedì è il giorno della riunione di squadra." },
-  "Friday": { "en": "Thank goodness it's Friday!", "da": "Gudskelov det er fredag!", "it": "Per fortuna è venerdì!" },
-  "Saturday": { "en": "On Saturday we usually go to the market.", "da": "Om lørdagen går vi normalt på markedet.", "it": "Il sabato di solito andiamo al mercato." },
-  "Sunday": { "en": "Sunday is for a proper roast dinner.", "da": "Søndag er til en ordentlig søndagssteg.", "it": "La domenica è per un pranzo arrosto come si deve." },
-  "morning": { "en": "I go for a run every morning before work.", "da": "Jeg løber en tur hver morgen før arbejde.", "it": "Vado a correre ogni mattina prima del lavoro." },
-  "evening": { "en": "In the evening we like to read or watch television.", "da": "Om aftenen kan vi lide at læse eller se fjernsyn.", "it": "La sera ci piace leggere o guardare la televisione." },
-  "night": { "en": "The stars are beautiful on a clear night.", "da": "Stjernerne er smukke på en klar nat.", "it": "Le stelle sono bellissime in una notte serena." },
-  "sun": { "en": "The sun is shining, let's have lunch outside.", "da": "Solen skinner, lad os spise frokost udenfor.", "it": "Il sole splende, pranziamo fuori." },
-  "rain": { "en": "Don't forget your umbrella, it looks like rain.", "da": "Glem ikke din paraply, det ser ud til regn.", "it": "Non dimenticare l'ombrello, sembra che pioverà." },
-  "snow": { "en": "The children love it when it snows at Christmas.", "da": "Børnene elsker det når det sner til jul.", "it": "I bambini adorano quando nevica a Natale." },
-  "wind": { "en": "The wind is quite strong along the coast.", "da": "Vinden er ret stærk langs kysten.", "it": "Il vento è piuttosto forte lungo la costa." },
-  "cloud": { "en": "Dark clouds are gathering, it might storm.", "da": "Mørke skyer samler sig, det kan blive storm.", "it": "Si stanno raccogliendo nuvole scure, potrebbe esserci un temporale." },
-  "cold": { "en": "It's very cold today, wear a warm coat.", "da": "Det er meget koldt i dag, tag en varm jakke på.", "it": "Fa molto freddo oggi, metti un cappotto caldo." },
-  "warm": { "en": "It's quite warm for this time of year.", "da": "Det er ret varmt for denne tid på året.", "it": "Fa piuttosto caldo per questo periodo dell'anno." },
-  "tree": { "en": "The oak tree in the garden is very old.", "da": "Egetræet i haven er meget gammelt.", "it": "La quercia nel giardino è molto vecchia." },
-  "flower": { "en": "The garden is full of beautiful flowers.", "da": "Haven er fuld af smukke blomster.", "it": "Il giardino è pieno di bei fiori." },
-  "sea": { "en": "We can hear the sea from our holiday cottage.", "da": "Vi kan høre havet fra vores feriehus.", "it": "Possiamo sentire il mare dal nostro cottage vacanze." },
-  "lake": { "en": "We went for a lovely walk around the lake.", "da": "Vi gik en dejlig tur rundt om søen.", "it": "Abbiamo fatto una bella passeggiata intorno al lago." },
-  "beach": { "en": "The beach is beautiful but the water is quite cold.", "da": "Stranden er smuk, men vandet er ret koldt.", "it": "La spiaggia è bella ma l'acqua è piuttosto fredda." },
-  "mountain": { "en": "We walked up the mountain and the view was amazing.", "da": "Vi gik op på bjerget, og udsigten var fantastisk.", "it": "Siamo saliti sulla montagna e la vista era incredibile." },
-  "forest": { "en": "The forest is a wonderful place for a walk.", "da": "Skoven er et vidunderligt sted for en tur.", "it": "La foresta è un posto meraviglioso per una passeggiata." },
-  "doctor": { "en": "I need to see the doctor about my cough.", "da": "Jeg skal til lægen med min hoste.", "it": "Devo andare dal medico per la mia tosse." },
-  "pharmacy": { "en": "The pharmacy is open until nine in the evening.", "da": "Apoteket har åbent til klokken ni om aftenen.", "it": "La farmacia è aperta fino alle nove di sera." },
-  "hospital": { "en": "The hospital is about ten minutes by taxi.", "da": "Sygehuset er omkring ti minutter med taxa.", "it": "L'ospedale è a circa dieci minuti di taxi." },
-  "head": { "en": "I've got a terrible headache, my head is pounding.", "da": "Jeg har en forfærdelig hovedpine, mit hoved dunker.", "it": "Ho un terribile mal di testa, mi martella la testa." },
-  "hand": { "en": "Give me your hand, the path is slippery.", "da": "Giv mig din hånd, stien er glat.", "it": "Dammi la mano, il sentiero è scivoloso." },
-  "foot": { "en": "My foot hurts after walking all day.", "da": "Min fod gør ondt efter at have gået hele dagen.", "it": "Mi fa male il piede dopo aver camminato tutto il giorno." },
-  "eye": { "en": "She has beautiful green eyes.", "da": "Hun har smukke grønne øjne.", "it": "Ha dei bellissimi occhi verdi." },
-  "ear": { "en": "I have an earache, my ear really hurts.", "da": "Jeg har ørepine, mit øre gør virkelig ondt.", "it": "Ho mal d'orecchio, mi fa davvero male l'orecchio." },
-  "help": { "en": "Could you help me carry these bags?", "da": "Kan du hjælpe mig med at bære disse tasker?", "it": "Puoi aiutarmi a portare queste borse?" },
-  "sick": { "en": "I'm feeling sick, I think I ate something bad.", "da": "Jeg har det dårligt, jeg tror jeg har spist noget dårligt.", "it": "Mi sento male, penso di aver mangiato qualcosa di cattivo." },
-  "healthy": { "en": "Regular exercise helps you stay healthy.", "da": "Regelmæssig motion hjælper dig med at holde dig sund.", "it": "L'esercizio regolare ti aiuta a mantenerti sano." },
-  "pain": { "en": "I have a sharp pain in my back.", "da": "Jeg har en skarp smerte i ryggen.", "it": "Ho un dolore acuto alla schiena." },
-  "medicine": { "en": "Take this medicine three times a day after meals.", "da": "Tag denne medicin tre gange om dagen efter måltiderne.", "it": "Prendi questa medicina tre volte al giorno dopo i pasti." },
-  "allergy": { "en": "I have a nut allergy, please be careful.", "da": "Jeg har en nøddeallergi, pas venligst på.", "it": "Ho un'allergia alle noci, per favore fate attenzione." },
-  "tooth": { "en": "I've got a terrible toothache.", "da": "Jeg har en forfærdelig tandpine.", "it": "Ho un terribile mal di denti." },
-  "to be": { "en": "To be or not to be, that is the question.", "da": "At være eller ikke at være, det er spørgsmålet.", "it": "Essere o non essere, questo è il problema." },
-  "to have": { "en": "I have to leave early today.", "da": "Jeg er nødt til at gå tidligt i dag.", "it": "Devo andarmene presto oggi." },
-  "to go": { "en": "Let's go to the park this afternoon.", "da": "Lad os gå i parken i eftermiddag.", "it": "Andiamo al parco questo pomeriggio." },
-  "to come": { "en": "Would you like to come to dinner on Saturday?", "da": "Vil du komme til middag lørdag?", "it": "Vorresti venire a cena sabato?" },
-  "to eat": { "en": "We usually eat dinner at about seven.", "da": "Vi spiser normalt aftensmad omkring klokken syv.", "it": "Di solito ceniamo verso le sette." },
-  "to drink": { "en": "Would you like something to drink?", "da": "Vil du have noget at drikke?", "it": "Vorresti qualcosa da bere?" },
-  "to speak": { "en": "Do you speak English? I don't speak much Danish.", "da": "Taler du engelsk? Jeg taler ikke meget dansk.", "it": "Parli inglese? Non parlo molto danese." },
-  "to understand": { "en": "I understand French but I can't speak it well.", "da": "Jeg forstår fransk, men kan ikke tale det godt.", "it": "Capisco il francese ma non lo parlo bene." },
-  "to see": { "en": "Can you see the cathedral from here?", "da": "Kan du se katedralen herfra?", "it": "Riesci a vedere la cattedrale da qui?" },
-  "to hear": { "en": "I can hear the birds singing in the garden.", "da": "Jeg kan høre fuglene synge i haven.", "it": "Posso sentire gli uccelli cantare nel giardino." },
-  "to know": { "en": "Do you know what time the museum closes?", "da": "Ved du hvad tid museet lukker?", "it": "Sai a che ora chiude il museo?" },
-  "to make": { "en": "I'm going to make a cup of tea, would you like one?", "da": "Jeg skal lave en kop te, vil du have en?", "it": "Vado a fare una tazza di tè, ne vuoi una?" },
-  "to take": { "en": "Take an umbrella, it might rain later.", "da": "Tag en paraply med, det kan regne senere.", "it": "Prendi un ombrello, potrebbe piovere più tardi." },
-  "to give": { "en": "Can you give me directions to the station?", "da": "Kan du fortælle mig vejen til stationen?", "it": "Puoi indicarmi la strada per la stazione?" },
-  "to say": { "en": "What did you say? I couldn't hear you.", "da": "Hvad sagde du? Jeg kunne ikke høre dig.", "it": "Cosa hai detto? Non riuscivo a sentirti." },
-  "to think": { "en": "I think the weather will be nice tomorrow.", "da": "Jeg tror vejret bliver godt i morgen.", "it": "Penso che il tempo sarà bello domani." },
-  "to read": { "en": "I love to read a good book on a rainy day.", "da": "Jeg elsker at læse en god bog på en regnvejrsdag.", "it": "Amo leggere un buon libro in un giorno di pioggia." },
-  "to write": { "en": "I need to write a letter to my grandmother.", "da": "Jeg skal skrive et brev til min bedstemor.", "it": "Devo scrivere una lettera a mia nonna." },
-  "to love": { "en": "I love the English countryside in spring.", "da": "Jeg elsker det engelske landskab om foråret.", "it": "Amo la campagna inglese in primavera." },
-  "to work": { "en": "I work in the city centre near the station.", "da": "Jeg arbejder i bycentrum nær stationen.", "it": "Lavoro in centro città vicino alla stazione." },
-  "to sleep": { "en": "I couldn't sleep last night because of the storm.", "da": "Jeg kunne ikke sove i nat på grund af stormen.", "it": "Non riuscivo a dormire ieri notte a causa della tempesta." },
-  "to learn": { "en": "I'm learning to speak Danish and Italian.", "da": "Jeg er ved at lære at tale dansk og italiensk.", "it": "Sto imparando a parlare danese e italiano." }
+  "hello": {
+    "en": "Hello, it's nice to see you again!",
+    "da": "Hej, det er dejligt at se dig igen!",
+    "it": "Ciao, è bello rivederti!",
+    "es": "¡Hola, es un placer verte de nuevo!"
+  },
+  "goodbye": {
+    "en": "Goodbye, I hope to see you soon.",
+    "da": "Farvel, jeg håber at se dig snart.",
+    "it": "Arrivederci, spero di vederti presto.",
+    "es": "Adiós, espero verte pronto."
+  },
+  "good morning": {
+    "en": "Good morning, would you like a cup of tea?",
+    "da": "Godmorgen, vil du have en kop te?",
+    "it": "Buongiorno, vuoi una tazza di tè?",
+    "es": "Buenos días, ¿quieres una taza de té?"
+  },
+  "good evening": {
+    "en": "Good evening everyone, welcome to the show.",
+    "da": "Godaften alle sammen, velkommen til showet.",
+    "it": "Buonasera a tutti, benvenuti allo spettacolo.",
+    "es": "Buenas tardes a todos, bienvenidos al espectáculo."
+  },
+  "good night": {
+    "en": "Good night, sleep well and see you tomorrow.",
+    "da": "Godnat, sov godt og vi ses i morgen.",
+    "it": "Buonanotte, dormi bene e ci vediamo domani.",
+    "es": "Buenas noches, duerme bien y nos vemos mañana."
+  },
+  "please": {
+    "en": "Could I have a glass of water, please?",
+    "da": "Må jeg bede om et glas vand?",
+    "it": "Posso avere un bicchiere d'acqua, per favore?",
+    "es": "¿Podría darme un vaso de agua, por favor?"
+  },
+  "thank you": {
+    "en": "Thank you very much for your help!",
+    "da": "Mange tak for din hjælp!",
+    "it": "Grazie mille per il tuo aiuto!",
+    "es": "¡Muchas gracias por tu ayuda!"
+  },
+  "you're welcome": {
+    "en": "You're welcome, it was no trouble at all.",
+    "da": "Selv tak, det var ingen problemer.",
+    "it": "Prego, non è stato alcun problema.",
+    "es": "De nada, no fue ningún problema."
+  },
+  "excuse me": {
+    "en": "Excuse me, could you tell me the time?",
+    "da": "Undskyld, kan du fortælle mig hvad klokken er?",
+    "it": "Scusi, può dirmi che ora è?",
+    "es": "Disculpe, ¿podría decirme la hora?"
+  },
+  "sorry": {
+    "en": "I'm sorry, I didn't mean to bump into you.",
+    "da": "Undskyld, det var ikke meningen at skubbe til dig.",
+    "it": "Mi dispiace, non volevo urtarti.",
+    "es": "Lo siento, no quería chocar contigo."
+  },
+  "yes": {
+    "en": "Yes, I would love to come to the party.",
+    "da": "Ja, jeg vil meget gerne komme til festen.",
+    "it": "Sì, mi piacerebbe molto venire alla festa.",
+    "es": "Sí, me encantaría ir a la fiesta."
+  },
+  "no": {
+    "en": "No, thank you, I'm fine as I am.",
+    "da": "Nej tak, jeg har det fint som det er.",
+    "it": "No, grazie, sto bene così.",
+    "es": "No, gracias, estoy bien así."
+  },
+  "how are you": {
+    "en": "How are you? I haven't seen you in ages!",
+    "da": "Hvordan har du det? Jeg har ikke set dig i evigheder!",
+    "it": "Come stai? Non ti vedo da secoli!",
+    "es": "¿Cómo estás? ¡Hace siglos que no te veo!"
+  },
+  "nice to meet you": {
+    "en": "Nice to meet you, I'm James from London.",
+    "da": "Rart at møde dig, jeg er James fra London.",
+    "it": "Piacere di conoscerti, sono James da Londra.",
+    "es": "Encantado de conocerte, soy James de Londres."
+  },
+  "cheers": {
+    "en": "Cheers! Here's to a wonderful evening.",
+    "da": "Skål! Her er til en vidunderlig aften.",
+    "it": "Salute! A una serata meravigliosa.",
+    "es": "¡Salud! ¡Por una velada maravillosa!"
+  },
+  "well done": {
+    "en": "Well done on passing your exam!",
+    "da": "Godt klaret med at bestå din eksamen!",
+    "it": "Ben fatto per aver superato l'esame!",
+    "es": "¡Enhorabuena por aprobar tu examen!"
+  },
+  "see you later": {
+    "en": "See you later, I'm off to the shops.",
+    "da": "Vi ses senere, jeg tager i butikkerne.",
+    "it": "Ci vediamo dopo, vado nei negozi.",
+    "es": "Hasta luego, me voy de tiendas."
+  },
+  "brilliant": {
+    "en": "That's brilliant, what a great idea!",
+    "da": "Det er fantastisk, hvilken god idé!",
+    "it": "Fantastico, che bella idea!",
+    "es": "¡Genial, qué buena idea!"
+  },
+  "lovely": {
+    "en": "What a lovely day, let's go for a walk.",
+    "da": "Sikke en dejlig dag, lad os gå en tur.",
+    "it": "Che bella giornata, andiamo a fare una passeggiata.",
+    "es": "¡Qué día tan bonito, vamos a dar un paseo!"
+  },
+  "one": {
+    "en": "I have one brother and two sisters.",
+    "da": "Jeg har én bror og to søstre.",
+    "it": "Ho un fratello e due sorelle.",
+    "es": "Tengo un hermano y dos hermanas."
+  },
+  "two": {
+    "en": "We need two tickets for the cinema.",
+    "da": "Vi har brug for to billetter til biografen.",
+    "it": "Abbiamo bisogno di due biglietti per il cinema.",
+    "es": "Necesitamos dos entradas para el cine."
+  },
+  "three": {
+    "en": "The bus comes every three minutes.",
+    "da": "Bussen kommer hvert tredje minut.",
+    "it": "L'autobus passa ogni tre minuti.",
+    "es": "El autobús pasa cada tres minutos."
+  },
+  "four": {
+    "en": "There are four seasons in the year.",
+    "da": "Der er fire årstider i året.",
+    "it": "Ci sono quattro stagioni nell'anno.",
+    "es": "Hay cuatro estaciones en el año."
+  },
+  "five": {
+    "en": "We arrived five minutes early.",
+    "da": "Vi ankom fem minutter for tidligt.",
+    "it": "Siamo arrivati cinque minuti in anticipo.",
+    "es": "Llegamos cinco minutos antes."
+  },
+  "six": {
+    "en": "She wakes up at six every morning.",
+    "da": "Hun vågner klokken seks hver morgen.",
+    "it": "Si sveglia alle sei ogni mattina.",
+    "es": "Ella se despierta a las seis cada mañana."
+  },
+  "seven": {
+    "en": "I read seven books last month.",
+    "da": "Jeg læste syv bøger sidste måned.",
+    "it": "Ho letto sette libri il mese scorso.",
+    "es": "Leí siete libros el mes pasado."
+  },
+  "eight": {
+    "en": "School starts at eight o'clock.",
+    "da": "Skolen starter klokken otte.",
+    "it": "La scuola inizia alle otto.",
+    "es": "La escuela empieza a las ocho."
+  },
+  "nine": {
+    "en": "The shop opens at nine in the morning.",
+    "da": "Butikken åbner klokken ni om morgenen.",
+    "it": "Il negozio apre alle nove di mattina.",
+    "es": "La tienda abre a las nueve de la mañana."
+  },
+  "ten": {
+    "en": "I've been to London at least ten times.",
+    "da": "Jeg har været i London mindst ti gange.",
+    "it": "Sono stato a Londra almeno dieci volte.",
+    "es": "He estado en Londres al menos diez veces."
+  },
+  "twenty": {
+    "en": "There are about twenty people in the room.",
+    "da": "Der er omkring tyve personer i rummet.",
+    "it": "Ci sono circa venti persone nella stanza.",
+    "es": "Veinte personas vinieron a la fiesta."
+  },
+  "fifty": {
+    "en": "The journey takes about fifty minutes.",
+    "da": "Rejsen tager omkring halvtreds minutter.",
+    "it": "Il viaggio dura circa cinquanta minuti.",
+    "es": "Cuesta cincuenta euros."
+  },
+  "hundred": {
+    "en": "The house is over a hundred years old.",
+    "da": "Huset er over hundrede år gammelt.",
+    "it": "La casa ha più di cento anni.",
+    "es": "Hay cien personas en la sala."
+  },
+  "thousand": {
+    "en": "London has thousands of restaurants.",
+    "da": "London har tusindvis af restauranter.",
+    "it": "Londra ha migliaia di ristoranti.",
+    "es": "Londres está a mil kilómetros."
+  },
+  "first": {
+    "en": "This is my first time in England.",
+    "da": "Det er min første gang i England.",
+    "it": "È la mia prima volta in Inghilterra.",
+    "es": "Es mi primer viaje a Inglaterra."
+  },
+  "second": {
+    "en": "Take the second turning on the left.",
+    "da": "Tag den anden drejning til venstre.",
+    "it": "Prendi la seconda svolta a sinistra.",
+    "es": "Vivimos en el segundo piso."
+  },
+  "half": {
+    "en": "I'll be there in half an hour.",
+    "da": "Jeg er der om en halv time.",
+    "it": "Sarò lì tra mezz'ora.",
+    "es": "Ya hemos recorrido la mitad del camino."
+  },
+  "bread": {
+    "en": "Could I have some bread with my soup, please?",
+    "da": "Må jeg bede om noget brød til min suppe?",
+    "it": "Posso avere del pane con la zuppa, per favore?",
+    "es": "Voy a comprar pan fresco en la panadería."
+  },
+  "butter": {
+    "en": "Would you like some butter on your toast?",
+    "da": "Vil du have noget smør på din toast?",
+    "it": "Vuoi del burro sul tuo toast?",
+    "es": "¿Me pasas la mantequilla, por favor?"
+  },
+  "cheese": {
+    "en": "English cheese is wonderful, try the cheddar.",
+    "da": "Engelsk ost er vidunderlig, prøv cheddaren.",
+    "it": "Il formaggio inglese è meraviglioso, prova il cheddar.",
+    "es": "El queso cheddar es muy popular en Inglaterra."
+  },
+  "milk": {
+    "en": "Do you take milk in your tea?",
+    "da": "Tager du mælk i din te?",
+    "it": "Metti il latte nel tè?",
+    "es": "Necesito comprar más leche."
+  },
+  "water": {
+    "en": "Could I have a glass of water, please?",
+    "da": "Må jeg bede om et glas vand?",
+    "it": "Posso avere un bicchiere d'acqua, per favore?",
+    "es": "Un vaso de agua, por favor."
+  },
+  "coffee": {
+    "en": "I'll have a coffee with milk, please.",
+    "da": "Jeg vil gerne have en kaffe med mælk, tak.",
+    "it": "Prendo un caffè con latte, per favore.",
+    "es": "Me encanta el café por la mañana."
+  },
+  "tea": {
+    "en": "Nothing beats a nice cup of tea in the afternoon.",
+    "da": "Intet slår en god kop te om eftermiddagen.",
+    "it": "Niente batte una bella tazza di tè nel pomeriggio.",
+    "es": "¿Prefieres té o café?"
+  },
+  "beer": {
+    "en": "Shall we go to the pub for a beer?",
+    "da": "Skal vi gå på pubben og få en øl?",
+    "it": "Andiamo al pub per una birra?",
+    "es": "Dos cervezas, por favor."
+  },
+  "wine": {
+    "en": "Would you prefer red or white wine?",
+    "da": "Foretrækker du rødvin eller hvidvin?",
+    "it": "Preferisci vino rosso o bianco?",
+    "es": "Me gusta el vino tinto."
+  },
+  "chicken": {
+    "en": "The roast chicken with potatoes is delicious.",
+    "da": "Stegekyllingen med kartofler er lækker.",
+    "it": "Il pollo arrosto con patate è delizioso.",
+    "es": "Hoy vamos a comer pollo asado."
+  },
+  "fish": {
+    "en": "Fish and chips is a classic British dish.",
+    "da": "Fish and chips er en klassisk britisk ret.",
+    "it": "Fish and chips è un piatto classico britannico.",
+    "es": "El pescado del mercado está muy fresco."
+  },
+  "cake": {
+    "en": "Would you like a slice of cake with your tea?",
+    "da": "Vil du have et stykke kage til din te?",
+    "it": "Vuoi una fetta di torta con il tè?",
+    "es": "¡Esta tarta de chocolate está deliciosa!"
+  },
+  "fruit": {
+    "en": "I always have fresh fruit for breakfast.",
+    "da": "Jeg har altid frisk frugt til morgenmad.",
+    "it": "Mangio sempre frutta fresca a colazione.",
+    "es": "La fruta fresca es muy sana."
+  },
+  "vegetables": {
+    "en": "The market sells lovely fresh vegetables.",
+    "da": "Markedet sælger dejlige friske grøntsager.",
+    "it": "Il mercato vende deliziose verdure fresche.",
+    "es": "Deberías comer más verduras."
+  },
+  "potato": {
+    "en": "A jacket potato with cheese is very filling.",
+    "da": "En bagt kartoffel med ost er meget mættende.",
+    "it": "Una patata al forno con formaggio è molto saziante.",
+    "es": "Las patatas fritas son muy populares."
+  },
+  "soup": {
+    "en": "A bowl of soup is perfect on a cold day.",
+    "da": "En skål suppe er perfekt på en kold dag.",
+    "it": "Una ciotola di zuppa è perfetta in una giornata fredda.",
+    "es": "En invierno me gusta tomar sopa caliente."
+  },
+  "breakfast": {
+    "en": "A full English breakfast includes eggs, bacon and toast.",
+    "da": "En fuld engelsk morgenmad inkluderer æg, bacon og toast.",
+    "it": "Una colazione inglese completa include uova, bacon e toast.",
+    "es": "El desayuno es la comida más importante."
+  },
+  "lunch": {
+    "en": "We usually have lunch at about one o'clock.",
+    "da": "Vi spiser normalt frokost omkring klokken et.",
+    "it": "Di solito pranziamo verso l'una.",
+    "es": "Almorzamos a las doce y media."
+  },
+  "dinner": {
+    "en": "Dinner is usually served at seven in the evening.",
+    "da": "Aftensmad serveres normalt klokken syv om aftenen.",
+    "it": "La cena è di solito servita alle sette di sera.",
+    "es": "La cena está lista."
+  },
+  "dessert": {
+    "en": "For dessert we have apple crumble.",
+    "da": "Til dessert har vi æblecrumble.",
+    "it": "Come dolce abbiamo crumble di mele.",
+    "es": "¿Qué quieres de postre?"
+  },
+  "airport": {
+    "en": "The airport is about thirty minutes by train.",
+    "da": "Lufthavnen er omkring tredive minutter med tog.",
+    "it": "L'aeroporto è a circa trenta minuti di treno.",
+    "es": "El aeropuerto está a treinta minutos."
+  },
+  "station": {
+    "en": "The nearest station is a five minute walk.",
+    "da": "Den nærmeste station er fem minutters gang.",
+    "it": "La stazione più vicina è a cinque minuti a piedi.",
+    "es": "¿Dónde está la estación de tren?"
+  },
+  "train": {
+    "en": "The train to Edinburgh takes about four hours.",
+    "da": "Toget til Edinburgh tager omkring fire timer.",
+    "it": "Il treno per Edimburgo impiega circa quattro ore.",
+    "es": "El tren a Edimburgo sale a las diez."
+  },
+  "bus": {
+    "en": "The bus stop is just around the corner.",
+    "da": "Busstoppestedet er lige om hjørnet.",
+    "it": "La fermata dell'autobus è proprio dietro l'angolo.",
+    "es": "El autobús llega en cinco minutos."
+  },
+  "bicycle": {
+    "en": "You can hire a bicycle to explore the city.",
+    "da": "Du kan leje en cykel til at udforske byen.",
+    "it": "Puoi noleggiare una bicicletta per esplorare la città.",
+    "es": "Me encanta ir en bicicleta por la ciudad."
+  },
+  "hotel": {
+    "en": "The hotel is in a lovely quiet street.",
+    "da": "Hotellet ligger i en dejlig stille gade.",
+    "it": "L'albergo è in una bella strada tranquilla.",
+    "es": "Hemos reservado un hotel cerca de la playa."
+  },
+  "street": {
+    "en": "The restaurant is on the next street.",
+    "da": "Restauranten er i den næste gade.",
+    "it": "Il ristorante è nella prossima strada.",
+    "es": "La panadería está en la siguiente calle."
+  },
+  "left": {
+    "en": "Turn left at the traffic lights.",
+    "da": "Drej til venstre ved lyskrydset.",
+    "it": "Gira a sinistra al semaforo.",
+    "es": "Gira a la izquierda en el semáforo."
+  },
+  "right": {
+    "en": "The museum is on the right side.",
+    "da": "Museet er på højre side.",
+    "it": "Il museo è sul lato destro.",
+    "es": "El museo está a la derecha."
+  },
+  "straight ahead": {
+    "en": "Go straight ahead for about two hundred metres.",
+    "da": "Gå ligeud i cirka to hundrede meter.",
+    "it": "Vai dritto per circa duecento metri.",
+    "es": "Sigue todo recto hasta la plaza."
+  },
+  "map": {
+    "en": "Have you got a map of the city centre?",
+    "da": "Har du et kort over bycentrum?",
+    "it": "Hai una mappa del centro città?",
+    "es": "¿Tienes un mapa de la ciudad?"
+  },
+  "ticket": {
+    "en": "I'd like a return ticket to Manchester.",
+    "da": "Jeg vil gerne have en returbillet til Manchester.",
+    "it": "Vorrei un biglietto di andata e ritorno per Manchester.",
+    "es": "Necesito un billete de ida y vuelta."
+  },
+  "journey": {
+    "en": "The journey from London to Oxford takes about an hour.",
+    "da": "Rejsen fra London til Oxford tager omkring en time.",
+    "it": "Il viaggio da Londra a Oxford dura circa un'ora.",
+    "es": "Ha sido un viaje maravilloso."
+  },
+  "arrival": {
+    "en": "The arrival time is shown on the departure board.",
+    "da": "Ankomsttiden vises på afgangstavlen.",
+    "it": "L'orario di arrivo è mostrato sul tabellone delle partenze.",
+    "es": "La hora de llegada es a las tres."
+  },
+  "departure": {
+    "en": "The departure has been delayed by thirty minutes.",
+    "da": "Afgangen er blevet forsinket med tredive minutter.",
+    "it": "La partenza è stata ritardata di trenta minuti.",
+    "es": "¿Dónde está la puerta de salida?"
+  },
+  "passport": {
+    "en": "Don't forget to bring your passport to the airport.",
+    "da": "Glem ikke at tage dit pas med i lufthavnen.",
+    "it": "Non dimenticare di portare il passaporto all'aeroporto.",
+    "es": "No olvides traer tu pasaporte."
+  },
+  "price": {
+    "en": "What's the price of this jacket?",
+    "da": "Hvad er prisen på denne jakke?",
+    "it": "Qual è il prezzo di questa giacca?",
+    "es": "¿Cuál es el precio de esto?"
+  },
+  "money": {
+    "en": "I need to change some money at the bank.",
+    "da": "Jeg skal veksle nogle penge i banken.",
+    "it": "Devo cambiare dei soldi in banca.",
+    "es": "No tengo suficiente dinero."
+  },
+  "shop": {
+    "en": "The shops close at six on Saturday.",
+    "da": "Butikkerne lukker klokken seks om lørdagen.",
+    "it": "I negozi chiudono alle sei il sabato.",
+    "es": "La tienda cierra a las nueve."
+  },
+  "to buy": {
+    "en": "I want to buy a present for my friend.",
+    "da": "Jeg vil gerne købe en gave til min ven.",
+    "it": "Voglio comprare un regalo per il mio amico.",
+    "es": "Quiero comprar un regalo para mi madre."
+  },
+  "cheap": {
+    "en": "This restaurant is quite cheap and very good.",
+    "da": "Denne restaurant er ret billig og meget god.",
+    "it": "Questo ristorante è piuttosto economico e molto buono.",
+    "es": "Este restaurante es muy barato."
+  },
+  "expensive": {
+    "en": "London is quite expensive compared to other cities.",
+    "da": "London er ret dyrt sammenlignet med andre byer.",
+    "it": "Londra è piuttosto cara rispetto ad altre città.",
+    "es": "Londres es una ciudad bastante cara."
+  },
+  "discount": {
+    "en": "Do you offer a student discount?",
+    "da": "Tilbyder I studenterrabat?",
+    "it": "Offrite uno sconto per studenti?",
+    "es": "¿Tienen algún descuento para estudiantes?"
+  },
+  "bill": {
+    "en": "Could we have the bill, please?",
+    "da": "Må vi bede om regningen?",
+    "it": "Possiamo avere il conto, per favore?",
+    "es": "La cuenta, por favor."
+  },
+  "cash": {
+    "en": "Sorry, we only accept cash here.",
+    "da": "Beklager, vi tager kun imod kontanter her.",
+    "it": "Mi dispiace, accettiamo solo contanti qui.",
+    "es": "¿Puedo pagar en efectivo?"
+  },
+  "card": {
+    "en": "Can I pay by card or do you need cash?",
+    "da": "Kan jeg betale med kort, eller har I brug for kontanter?",
+    "it": "Posso pagare con carta o servono contanti?",
+    "es": "¿Aceptan tarjeta de crédito?"
+  },
+  "receipt": {
+    "en": "Could I have a receipt for that, please?",
+    "da": "Kan jeg få en kvittering for det, tak?",
+    "it": "Posso avere lo scontrino, per favore?",
+    "es": "¿Me puede dar un recibo?"
+  },
+  "sale": {
+    "en": "There's a big sale on at the department store.",
+    "da": "Der er stort udsalg i stormagasinet.",
+    "it": "Ci sono grandi saldi al grande magazzino.",
+    "es": "Las rebajas empiezan mañana."
+  },
+  "mother": {
+    "en": "My mother is a wonderful cook.",
+    "da": "Min mor er en fantastisk kok.",
+    "it": "Mia madre è una cuoca meravigliosa.",
+    "es": "Mi madre cocina la mejor comida."
+  },
+  "father": {
+    "en": "My father taught me how to ride a bike.",
+    "da": "Min far lærte mig at cykle.",
+    "it": "Mio padre mi ha insegnato ad andare in bicicletta.",
+    "es": "Mi padre trabaja en una oficina."
+  },
+  "sister": {
+    "en": "My sister lives in Manchester with her family.",
+    "da": "Min søster bor i Manchester med sin familie.",
+    "it": "Mia sorella vive a Manchester con la sua famiglia.",
+    "es": "Mi hermana estudia en la universidad."
+  },
+  "brother": {
+    "en": "My brother is three years older than me.",
+    "da": "Min bror er tre år ældre end mig.",
+    "it": "Mio fratello ha tre anni più di me.",
+    "es": "Mi hermano vive en Manchester."
+  },
+  "child": {
+    "en": "Every child in the school learns to read.",
+    "da": "Hvert barn i skolen lærer at læse.",
+    "it": "Ogni bambino della scuola impara a leggere.",
+    "es": "El niño juega en el parque."
+  },
+  "grandmother": {
+    "en": "My grandmother makes the best scones.",
+    "da": "Min bedstemor laver de bedste scones.",
+    "it": "Mia nonna fa i migliori scones.",
+    "es": "Mi abuela cuenta historias increíbles."
+  },
+  "grandfather": {
+    "en": "My grandfather served in the Royal Navy.",
+    "da": "Min bedstefar tjente i den kongelige flåde.",
+    "it": "Mio nonno ha prestato servizio nella Marina Reale.",
+    "es": "Mi abuelo tiene ochenta años."
+  },
+  "husband": {
+    "en": "My husband and I are celebrating our anniversary.",
+    "da": "Min mand og jeg fejrer vores årsdag.",
+    "it": "Mio marito ed io festeggiamo il nostro anniversario.",
+    "es": "Mi marido y yo vamos de vacaciones."
+  },
+  "wife": {
+    "en": "My wife is from Edinburgh originally.",
+    "da": "Min kone er oprindeligt fra Edinburgh.",
+    "it": "Mia moglie è originariamente di Edimburgo.",
+    "es": "Su mujer es profesora."
+  },
+  "friend": {
+    "en": "I'm meeting a friend for lunch today.",
+    "da": "Jeg mødes med en ven til frokost i dag.",
+    "it": "Incontro un amico per pranzo oggi.",
+    "es": "Voy a cenar con un amigo."
+  },
+  "neighbour": {
+    "en": "Our neighbour has a lovely garden.",
+    "da": "Vores nabo har en dejlig have.",
+    "it": "Il nostro vicino ha un bel giardino.",
+    "es": "Nuestro vecino es muy amable."
+  },
+  "colleague": {
+    "en": "My colleague helped me with the presentation.",
+    "da": "Min kollega hjalp mig med præsentationen.",
+    "it": "Il mio collega mi ha aiutato con la presentazione.",
+    "es": "Mi colega me ayudó con el proyecto."
+  },
+  "baby": {
+    "en": "The baby is sleeping peacefully in her cot.",
+    "da": "Babyen sover fredeligt i sin tremmeseng.",
+    "it": "Il neonato dorme tranquillamente nella culla.",
+    "es": "El bebé duerme toda la noche."
+  },
+  "cousin": {
+    "en": "My cousin is coming to visit next week.",
+    "da": "Min fætter kommer på besøg i næste uge.",
+    "it": "Mio cugino viene a trovarci la settimana prossima.",
+    "es": "Mi primo viene a visitarnos este verano."
+  },
+  "uncle": {
+    "en": "My uncle has a cottage in the countryside.",
+    "da": "Min onkel har et sommerhus på landet.",
+    "it": "Mio zio ha un cottage in campagna.",
+    "es": "Mi tío vive en Leeds."
+  },
+  "aunt": {
+    "en": "My aunt always brings sweets when she visits.",
+    "da": "Min tante tager altid slik med når hun besøger os.",
+    "it": "Mia zia porta sempre dolci quando ci viene a trovare.",
+    "es": "Mi tía prepara pasteles deliciosos."
+  },
+  "time": {
+    "en": "What time does the next train arrive?",
+    "da": "Hvad tid ankommer det næste tog?",
+    "it": "A che ora arriva il prossimo treno?"
+  },
+  "hour": {
+    "en": "The film lasts about two hours.",
+    "da": "Filmen varer omkring to timer.",
+    "it": "Il film dura circa due ore.",
+    "es": "¿Qué hora es?"
+  },
+  "minute": {
+    "en": "Wait a minute, I'll be right back.",
+    "da": "Vent et minut, jeg er straks tilbage.",
+    "it": "Aspetta un minuto, torno subito.",
+    "es": "Espera un minuto, ya voy."
+  },
+  "today": {
+    "en": "Today is a lovely day for a walk in the park.",
+    "da": "I dag er en dejlig dag til en tur i parken.",
+    "it": "Oggi è una bella giornata per una passeggiata nel parco.",
+    "es": "Hoy hace muy buen tiempo."
+  },
+  "tomorrow": {
+    "en": "Tomorrow we're going to the countryside.",
+    "da": "I morgen tager vi på landet.",
+    "it": "Domani andiamo in campagna.",
+    "es": "Mañana salimos temprano."
+  },
+  "yesterday": {
+    "en": "Yesterday the weather was absolutely terrible.",
+    "da": "I går var vejret helt forfærdeligt.",
+    "it": "Ieri il tempo era assolutamente terribile.",
+    "es": "Ayer fuimos al cine."
+  },
+  "Monday": {
+    "en": "Monday is usually the busiest day at work.",
+    "da": "Mandag er normalt den travleste dag på arbejdet.",
+    "it": "Il lunedì è di solito il giorno più impegnativo al lavoro.",
+    "es": "El lunes empiezo un curso nuevo."
+  },
+  "Tuesday": {
+    "en": "I have a dentist appointment on Tuesday.",
+    "da": "Jeg har en tandlægeaftale tirsdag.",
+    "it": "Ho un appuntamento dal dentista martedì.",
+    "es": "Los martes voy al gimnasio."
+  },
+  "Wednesday": {
+    "en": "We play football every Wednesday evening.",
+    "da": "Vi spiller fodbold hver onsdag aften.",
+    "it": "Giochiamo a calcio ogni mercoledì sera.",
+    "es": "El miércoles tenemos una reunión."
+  },
+  "Thursday": {
+    "en": "Thursday is our team meeting day.",
+    "da": "Torsdag er vores teammødedag.",
+    "it": "Il giovedì è il giorno della riunione di squadra.",
+    "es": "El jueves vienen mis padres."
+  },
+  "Friday": {
+    "en": "Thank goodness it's Friday!",
+    "da": "Gudskelov det er fredag!",
+    "it": "Per fortuna è venerdì!",
+    "es": "Los viernes salimos a cenar fuera."
+  },
+  "Saturday": {
+    "en": "On Saturday we usually go to the market.",
+    "da": "Om lørdagen går vi normalt på markedet.",
+    "it": "Il sabato di solito andiamo al mercato.",
+    "es": "El sábado vamos al mercado."
+  },
+  "Sunday": {
+    "en": "Sunday is for a proper roast dinner.",
+    "da": "Søndag er til en ordentlig søndagssteg.",
+    "it": "La domenica è per un pranzo arrosto come si deve.",
+    "es": "Los domingos descanso en casa."
+  },
+  "morning": {
+    "en": "I go for a run every morning before work.",
+    "da": "Jeg løber en tur hver morgen før arbejde.",
+    "it": "Vado a correre ogni mattina prima del lavoro."
+  },
+  "evening": {
+    "en": "In the evening we like to read or watch television.",
+    "da": "Om aftenen kan vi lide at læse eller se fjernsyn.",
+    "it": "La sera ci piace leggere o guardare la televisione."
+  },
+  "night": {
+    "en": "The stars are beautiful on a clear night.",
+    "da": "Stjernerne er smukke på en klar nat.",
+    "it": "Le stelle sono bellissime in una notte serena."
+  },
+  "sun": {
+    "en": "The sun is shining, let's have lunch outside.",
+    "da": "Solen skinner, lad os spise frokost udenfor.",
+    "it": "Il sole splende, pranziamo fuori.",
+    "es": "Hoy hace mucho sol."
+  },
+  "rain": {
+    "en": "Don't forget your umbrella, it looks like rain.",
+    "da": "Glem ikke din paraply, det ser ud til regn.",
+    "it": "Non dimenticare l'ombrello, sembra che pioverà.",
+    "es": "La lluvia no para desde ayer."
+  },
+  "snow": {
+    "en": "The children love it when it snows at Christmas.",
+    "da": "Børnene elsker det når det sner til jul.",
+    "it": "I bambini adorano quando nevica a Natale.",
+    "es": "La nieve cubre las montañas."
+  },
+  "wind": {
+    "en": "The wind is quite strong along the coast.",
+    "da": "Vinden er ret stærk langs kysten.",
+    "it": "Il vento è piuttosto forte lungo la costa.",
+    "es": "Hace mucho viento hoy."
+  },
+  "cloud": {
+    "en": "Dark clouds are gathering, it might storm.",
+    "da": "Mørke skyer samler sig, det kan blive storm.",
+    "it": "Si stanno raccogliendo nuvole scure, potrebbe esserci un temporale.",
+    "es": "No hay ni una nube en el cielo."
+  },
+  "cold": {
+    "en": "It's very cold today, wear a warm coat.",
+    "da": "Det er meget koldt i dag, tag en varm jakke på.",
+    "it": "Fa molto freddo oggi, metti un cappotto caldo.",
+    "es": "Tengo mucho frío, ¿puedes cerrar la ventana?"
+  },
+  "warm": {
+    "en": "It's quite warm for this time of year.",
+    "da": "Det er ret varmt for denne tid på året.",
+    "it": "Fa piuttosto caldo per questo periodo dell'anno."
+  },
+  "tree": {
+    "en": "The oak tree in the garden is very old.",
+    "da": "Egetræet i haven er meget gammelt.",
+    "it": "La quercia nel giardino è molto vecchia.",
+    "es": "Hay un árbol grande en el jardín."
+  },
+  "flower": {
+    "en": "The garden is full of beautiful flowers.",
+    "da": "Haven er fuld af smukke blomster.",
+    "it": "Il giardino è pieno di bei fiori.",
+    "es": "Esta flor huele muy bien."
+  },
+  "sea": {
+    "en": "We can hear the sea from our holiday cottage.",
+    "da": "Vi kan høre havet fra vores feriehus.",
+    "it": "Possiamo sentire il mare dal nostro cottage vacanze.",
+    "es": "Me encanta nadar en el mar."
+  },
+  "lake": {
+    "en": "We went for a lovely walk around the lake.",
+    "da": "Vi gik en dejlig tur rundt om søen.",
+    "it": "Abbiamo fatto una bella passeggiata intorno al lago.",
+    "es": "El lago es muy bonito."
+  },
+  "beach": {
+    "en": "The beach is beautiful but the water is quite cold.",
+    "da": "Stranden er smuk, men vandet er ret koldt.",
+    "it": "La spiaggia è bella ma l'acqua è piuttosto fredda.",
+    "es": "Vamos a la playa este fin de semana."
+  },
+  "mountain": {
+    "en": "We walked up the mountain and the view was amazing.",
+    "da": "Vi gik op på bjerget, og udsigten var fantastisk.",
+    "it": "Siamo saliti sulla montagna e la vista era incredibile.",
+    "es": "Me encanta hacer senderismo en la montaña."
+  },
+  "forest": {
+    "en": "The forest is a wonderful place for a walk.",
+    "da": "Skoven er et vidunderligt sted for en tur.",
+    "it": "La foresta è un posto meraviglioso per una passeggiata."
+  },
+  "doctor": {
+    "en": "I need to see the doctor about my cough.",
+    "da": "Jeg skal til lægen med min hoste.",
+    "it": "Devo andare dal medico per la mia tosse.",
+    "es": "Tengo cita con el médico mañana."
+  },
+  "pharmacy": {
+    "en": "The pharmacy is open until nine in the evening.",
+    "da": "Apoteket har åbent til klokken ni om aftenen.",
+    "it": "La farmacia è aperta fino alle nove di sera.",
+    "es": "¿Hay una farmacia por aquí?"
+  },
+  "hospital": {
+    "en": "The hospital is about ten minutes by taxi.",
+    "da": "Sygehuset er omkring ti minutter med taxa.",
+    "it": "L'ospedale è a circa dieci minuti di taxi.",
+    "es": "El hospital está cerca del centro."
+  },
+  "head": {
+    "en": "I've got a terrible headache, my head is pounding.",
+    "da": "Jeg har en forfærdelig hovedpine, mit hoved dunker.",
+    "it": "Ho un terribile mal di testa, mi martella la testa.",
+    "es": "Me duele la cabeza."
+  },
+  "hand": {
+    "en": "Give me your hand, the path is slippery.",
+    "da": "Giv mig din hånd, stien er glat.",
+    "it": "Dammi la mano, il sentiero è scivoloso.",
+    "es": "Me he hecho daño en la mano."
+  },
+  "foot": {
+    "en": "My foot hurts after walking all day.",
+    "da": "Min fod gør ondt efter at have gået hele dagen.",
+    "it": "Mi fa male il piede dopo aver camminato tutto il giorno.",
+    "es": "No puedo caminar, me duele el pie."
+  },
+  "eye": {
+    "en": "She has beautiful green eyes.",
+    "da": "Hun har smukke grønne øjne.",
+    "it": "Ha dei bellissimi occhi verdi.",
+    "es": "Tiene los ojos azules."
+  },
+  "ear": {
+    "en": "I have an earache, my ear really hurts.",
+    "da": "Jeg har ørepine, mit øre gør virkelig ondt.",
+    "it": "Ho mal d'orecchio, mi fa davvero male l'orecchio."
+  },
+  "help": {
+    "en": "Could you help me carry these bags?",
+    "da": "Kan du hjælpe mig med at bære disse tasker?",
+    "it": "Puoi aiutarmi a portare queste borse?"
+  },
+  "sick": {
+    "en": "I'm feeling sick, I think I ate something bad.",
+    "da": "Jeg har det dårligt, jeg tror jeg har spist noget dårligt.",
+    "it": "Mi sento male, penso di aver mangiato qualcosa di cattivo."
+  },
+  "healthy": {
+    "en": "Regular exercise helps you stay healthy.",
+    "da": "Regelmæssig motion hjælper dig med at holde dig sund.",
+    "it": "L'esercizio regolare ti aiuta a mantenerti sano.",
+    "es": "Comida sana para una vida sana."
+  },
+  "pain": {
+    "en": "I have a sharp pain in my back.",
+    "da": "Jeg har en skarp smerte i ryggen.",
+    "it": "Ho un dolore acuto alla schiena.",
+    "es": "Tengo un dolor en la espalda."
+  },
+  "medicine": {
+    "en": "Take this medicine three times a day after meals.",
+    "da": "Tag denne medicin tre gange om dagen efter måltiderne.",
+    "it": "Prendi questa medicina tre volte al giorno dopo i pasti."
+  },
+  "allergy": {
+    "en": "I have a nut allergy, please be careful.",
+    "da": "Jeg har en nøddeallergi, pas venligst på.",
+    "it": "Ho un'allergia alle noci, per favore fate attenzione."
+  },
+  "tooth": {
+    "en": "I've got a terrible toothache.",
+    "da": "Jeg har en forfærdelig tandpine.",
+    "it": "Ho un terribile mal di denti.",
+    "es": "Tengo que ir al dentista, me duele un diente."
+  },
+  "to be": {
+    "en": "To be or not to be, that is the question.",
+    "da": "At være eller ikke at være, det er spørgsmålet.",
+    "it": "Essere o non essere, questo è il problema.",
+    "es": "Soy estudiante de inglés."
+  },
+  "to have": {
+    "en": "I have to leave early today.",
+    "da": "Jeg er nødt til at gå tidligt i dag.",
+    "it": "Devo andarmene presto oggi.",
+    "es": "Tengo dos gatos y un perro."
+  },
+  "to go": {
+    "en": "Let's go to the park this afternoon.",
+    "da": "Lad os gå i parken i eftermiddag.",
+    "it": "Andiamo al parco questo pomeriggio.",
+    "es": "Vamos al cine esta noche."
+  },
+  "to come": {
+    "en": "Would you like to come to dinner on Saturday?",
+    "da": "Vil du komme til middag lørdag?",
+    "it": "Vorresti venire a cena sabato?",
+    "es": "¿Quieres venir a la fiesta?"
+  },
+  "to eat": {
+    "en": "We usually eat dinner at about seven.",
+    "da": "Vi spiser normalt aftensmad omkring klokken syv.",
+    "it": "Di solito ceniamo verso le sette.",
+    "es": "Comemos a las dos."
+  },
+  "to drink": {
+    "en": "Would you like something to drink?",
+    "da": "Vil du have noget at drikke?",
+    "it": "Vorresti qualcosa da bere?",
+    "es": "Hay que beber mucha agua."
+  },
+  "to speak": {
+    "en": "Do you speak English? I don't speak much Danish.",
+    "da": "Taler du engelsk? Jeg taler ikke meget dansk.",
+    "it": "Parli inglese? Non parlo molto danese.",
+    "es": "¿Hablas inglés?"
+  },
+  "to understand": {
+    "en": "I understand French but I can't speak it well.",
+    "da": "Jeg forstår fransk, men kan ikke tale det godt.",
+    "it": "Capisco il francese ma non lo parlo bene.",
+    "es": "Lo siento, no entiendo."
+  },
+  "to see": {
+    "en": "Can you see the cathedral from here?",
+    "da": "Kan du se katedralen herfra?",
+    "it": "Riesci a vedere la cattedrale da qui?",
+    "es": "Quiero ver la puesta de sol."
+  },
+  "to hear": {
+    "en": "I can hear the birds singing in the garden.",
+    "da": "Jeg kan høre fuglene synge i haven.",
+    "it": "Posso sentire gli uccelli cantare nel giardino."
+  },
+  "to know": {
+    "en": "Do you know what time the museum closes?",
+    "da": "Ved du hvad tid museet lukker?",
+    "it": "Sai a che ora chiude il museo?",
+    "es": "No sé dónde está la estación."
+  },
+  "to make": {
+    "en": "I'm going to make a cup of tea, would you like one?",
+    "da": "Jeg skal lave en kop te, vil du have en?",
+    "it": "Vado a fare una tazza di tè, ne vuoi una?"
+  },
+  "to take": {
+    "en": "Take an umbrella, it might rain later.",
+    "da": "Tag en paraply med, det kan regne senere.",
+    "it": "Prendi un ombrello, potrebbe piovere più tardi."
+  },
+  "to give": {
+    "en": "Can you give me directions to the station?",
+    "da": "Kan du fortælle mig vejen til stationen?",
+    "it": "Puoi indicarmi la strada per la stazione?",
+    "es": "¿Me puedes dar tu número de teléfono?"
+  },
+  "to say": {
+    "en": "What did you say? I couldn't hear you.",
+    "da": "Hvad sagde du? Jeg kunne ikke høre dig.",
+    "it": "Cosa hai detto? Non riuscivo a sentirti.",
+    "es": "¿Cómo se dice esto en español?"
+  },
+  "to think": {
+    "en": "I think the weather will be nice tomorrow.",
+    "da": "Jeg tror vejret bliver godt i morgen.",
+    "it": "Penso che il tempo sarà bello domani.",
+    "es": "Tengo que pensar en ello."
+  },
+  "to read": {
+    "en": "I love to read a good book on a rainy day.",
+    "da": "Jeg elsker at læse en god bog på en regnvejrsdag.",
+    "it": "Amo leggere un buon libro in un giorno di pioggia.",
+    "es": "Me gusta leer por las noches."
+  },
+  "to write": {
+    "en": "I need to write a letter to my grandmother.",
+    "da": "Jeg skal skrive et brev til min bedstemor.",
+    "it": "Devo scrivere una lettera a mia nonna.",
+    "es": "Voy a escribir un correo electrónico."
+  },
+  "to love": {
+    "en": "I love the English countryside in spring.",
+    "da": "Jeg elsker det engelske landskab om foråret.",
+    "it": "Amo la campagna inglese in primavera."
+  },
+  "to work": {
+    "en": "I work in the city centre near the station.",
+    "da": "Jeg arbejder i bycentrum nær stationen.",
+    "it": "Lavoro in centro città vicino alla stazione.",
+    "es": "Trabajo de lunes a viernes."
+  },
+  "to sleep": {
+    "en": "I couldn't sleep last night because of the storm.",
+    "da": "Jeg kunne ikke sove i nat på grund af stormen.",
+    "it": "Non riuscivo a dormire ieri notte a causa della tempesta.",
+    "es": "Necesito dormir ocho horas."
+  },
+  "to learn": {
+    "en": "I'm learning to speak Danish and Italian.",
+    "da": "Jeg er ved at lære at tale dansk og italiensk.",
+    "it": "Sto imparando a parlare danese e italiano."
+  }
 }

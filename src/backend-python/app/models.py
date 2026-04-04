@@ -30,6 +30,7 @@ class Category(Base):
     name_en: Mapped[str] = mapped_column("nameEn", String, nullable=False)
     name_da: Mapped[str] = mapped_column("nameDa", String, nullable=False)
     name_it: Mapped[str] = mapped_column("nameIt", String, nullable=False, default="")
+    name_es: Mapped[str] = mapped_column("nameEs", String, nullable=False, default="")
     order: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
 
 
@@ -44,10 +45,12 @@ class Word(Base):
     translation_en: Mapped[str] = mapped_column("translationEn", String, nullable=False)
     translation_da: Mapped[str] = mapped_column("translationDa", String, nullable=False)
     translation_it: Mapped[str] = mapped_column("translationIt", String, nullable=False, default="")
+    translation_es: Mapped[str] = mapped_column("translationEs", String, nullable=False, default="")
     difficulty: Mapped[str] = mapped_column(String, nullable=False)
     example_it: Mapped[str] = mapped_column("exampleIt", String, nullable=False, default="")
     example_en: Mapped[str] = mapped_column("exampleEn", String, nullable=False, default="")
     example_da: Mapped[str] = mapped_column("exampleDa", String, nullable=False, default="")
+    example_es: Mapped[str] = mapped_column("exampleEs", String, nullable=False, default="")
     audio_path: Mapped[str | None] = mapped_column("audioPath", String, nullable=True)
     source: Mapped[str] = mapped_column(String, nullable=False, default="seed")
     contributed_by: Mapped[str | None] = mapped_column("contributedBy", String, ForeignKey("User.id", ondelete="SET NULL"), nullable=True)
@@ -84,11 +87,15 @@ class Story(Base):
     description_en: Mapped[str] = mapped_column("descriptionEn", String, nullable=False, default="")
     description_da: Mapped[str] = mapped_column("descriptionDa", String, nullable=False, default="")
     description_it: Mapped[str] = mapped_column("descriptionIt", String, nullable=False, default="")
+    description_es: Mapped[str] = mapped_column("descriptionEs", String, nullable=False, default="")
     body: Mapped[str] = mapped_column(Text, nullable=False)
     length: Mapped[str] = mapped_column(String, nullable=False, default="short")
     format: Mapped[str] = mapped_column(String, nullable=False, default="narrative")
     speakers: Mapped[str | None] = mapped_column(String, nullable=True, default=None)
+    setup_type: Mapped[str | None] = mapped_column(String, nullable=True, default=None)
+    setup_summary: Mapped[str | None] = mapped_column(String, nullable=True, default=None)
     order: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    user_id: Mapped[str | None] = mapped_column("userId", String, ForeignKey("User.id", ondelete="CASCADE"), nullable=True, default=None)
 
 
 class StoryAudio(Base):
@@ -103,3 +110,39 @@ class StoryAudio(Base):
     audio_bytes: Mapped[bytes] = mapped_column("audioBytes", LargeBinary, nullable=False)
     created_at: Mapped[datetime] = mapped_column("createdAt", DateTime, nullable=False, server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column("updatedAt", DateTime, nullable=False, server_default=func.now(), onupdate=func.now())
+
+
+class ContentReport(Base):
+    __tablename__ = "ContentReport"
+
+    id: Mapped[str] = mapped_column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id: Mapped[str | None] = mapped_column("userId", String, ForeignKey("User.id", ondelete="SET NULL"), nullable=True)
+    content_type: Mapped[str] = mapped_column("contentType", String, nullable=False)
+    content_id: Mapped[str] = mapped_column("contentId", String, nullable=False)
+    category: Mapped[str] = mapped_column(String, nullable=False)
+    description: Mapped[str | None] = mapped_column(String, nullable=True)
+    status: Mapped[str] = mapped_column(String, nullable=False, default="new")
+    resolution_note: Mapped[str | None] = mapped_column("resolutionNote", String, nullable=True)
+    created_at: Mapped[datetime] = mapped_column("createdAt", DateTime, nullable=False, server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column("updatedAt", DateTime, nullable=False, server_default=func.now(), onupdate=func.now())
+
+
+class TranslationCache(Base):
+    """Persistent cache for on-the-fly translations produced by an external provider.
+
+    Terminology mapping:
+    - sourceLang = the language the word is in (the app's "target language" — what the user is learning)
+    - targetLang = the language of the translation (the app's "reference language" — the user's native language)
+    """
+
+    __tablename__ = "TranslationCache"
+    __table_args__ = (
+        UniqueConstraint("word", "sourceLang", "targetLang", name="TranslationCache_word_src_tgt_key"),
+    )
+
+    id: Mapped[str] = mapped_column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    word: Mapped[str] = mapped_column(String, nullable=False)
+    source_lang: Mapped[str] = mapped_column("sourceLang", String, nullable=False)
+    target_lang: Mapped[str] = mapped_column("targetLang", String, nullable=False)
+    translation: Mapped[str] = mapped_column(String, nullable=False)
+    created_at: Mapped[datetime] = mapped_column("createdAt", DateTime, nullable=False, server_default=func.now())

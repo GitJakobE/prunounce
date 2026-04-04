@@ -141,6 +141,40 @@ const hosts = [
       `Candid portrait of Margaret Campbell, 68, Scottish grandmother by a fireplace. Curly silver hair, half-moon glasses, dimpled cheeks. Holding a cup of tea, tartan blanket draped over armchair. Warm fire glow. ${STYLE}`,
     ],
   },
+
+  // ── Spanish ──
+  {
+    id: "carlos",
+    variants: [
+      `Close-up portrait of Carlos Delgado, a 45-year-old Spanish chef from Madrid. Stocky, broad-shouldered, warm olive skin. Thick dark brown wavy hair with grey streaks at the temples. Deep brown eyes, pronounced crow's feet, strong square jaw, neatly trimmed dark goatee. Wearing a white chef coat, warm tapas bar background with hanging hams. Confident warm smile. ${STYLE}`,
+      `Half-body portrait of Carlos Delgado, 45-year-old Spanish chef, standing in a rustic Madrid tapas kitchen. Stocky build, olive skin, wavy dark brown hair greying at temples, dark goatee. Holding a ceramic plate of tapas, wearing a white chef coat. Warm terracotta-tiled kitchen. ${STYLE}`,
+      `Candid portrait of Carlos Delgado, 45, Spanish chef laughing at a sunlit outdoor table. Olive skin, thick wavy dark brown hair with grey streaks, dark goatee. Glass of sangria on the table, relaxed posture, infectious smile. Madrid plaza in soft-focus background. ${STYLE}`,
+    ],
+  },
+  {
+    id: "lucia",
+    variants: [
+      `Close-up portrait of Lucía Fernández, 37-year-old Spanish female professor from Barcelona. Tall, slender, warm olive complexion. Long dark brown wavy hair falling past her shoulders. Sharp dark brown eyes behind elegant round gold-framed glasses. High cheekbones, straight nose, composed thoughtful expression. Wearing a cream blouse and dark blazer. University library background with arched windows. ${STYLE}`,
+      `Half-body portrait of Lucía Fernández, 37, a Spanish linguistics professor. Olive skin, long dark wavy hair, gold-framed glasses. Standing in a Gaudí-inspired Barcelona hallway, gesturing elegantly. Smart blazer, colourful silk scarf. ${STYLE}`,
+      `Candid portrait of Lucía Fernández, 37, Spanish professor smiling warmly during a lecture. Dark wavy hair in a loose half-up style, gold-framed glasses, dark brown eyes. Standing at a podium, sunlit university hall with stained-glass windows. ${STYLE}`,
+    ],
+  },
+  {
+    id: "pablo",
+    variants: [
+      `Close-up portrait of Pablo Reyes, a 23-year-old Mexican male music student. Lean, athletic, warm brown skin. Thick straight black medium-length hair swept to one side. Bright dark brown eyes, thick eyebrows. Clean-shaven, youthful face with a wide playful grin. Small silver stud earring in left ear. Wearing a casual embroidered Mexican guayabera shirt. Colourful Mexico City street background. ${STYLE}`,
+      `Half-body portrait of Pablo Reyes, 23, Mexican student playing an acoustic guitar in a vibrant plaza. Straight black hair swept to one side, silver stud earring, casual guayabera shirt. Colourful buildings and murals in soft-focus background. Energetic expression. ${STYLE}`,
+      `Candid portrait of Pablo Reyes, 23, Mexican student sitting at a sunny café terrace with headphones around his neck. Straight black hair, dark brown eyes, silver earring, casual hoodie. Warm Mexico City street scene, potted plants. ${STYLE}`,
+    ],
+  },
+  {
+    id: "carmen",
+    variants: [
+      `Close-up portrait of Carmen Morales, a 71-year-old Andalusian Spanish grandmother. Petite, warm deeply tanned Mediterranean skin with fine wrinkles. Thick silver-grey wavy hair pinned in a loose bun with a decorative comb. Soft dark brown eyes, small round gold-rimmed spectacles. Rosy cheeks, gentle grandmotherly face. Small gold crucifix necklace. Traditional whitewashed Andalusian home background with potted geraniums. ${STYLE}`,
+      `Half-body portrait of Carmen Morales, 71, Andalusian grandmother in her kitchen. Silver-grey wavy hair with a decorative comb, gold-rimmed spectacles, embroidered apron over a simple floral dress. Making gazpacho at a tiled counter. Warm Andalusian kitchen with blue-and-white azulejo tiles. ${STYLE}`,
+      `Candid portrait of Carmen Morales, 71, Spanish grandmother sitting in a sunlit courtyard. Silver-grey wavy hair, gold spectacles, gold crucifix necklace. Holding a small cup of café con leche, smiling serenely. Whitewashed walls with bougainvillea in background. ${STYLE}`,
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════

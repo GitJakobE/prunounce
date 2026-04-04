@@ -14,7 +14,7 @@ STORIES_JSON = (
     Path(__file__).parent.parent.parent / "backend" / "data" / "stories.json"
 )
 
-VALID_LANGUAGES = {"it", "da", "en"}
+VALID_LANGUAGES = {"it", "da", "en", "es"}
 VALID_DIFFICULTIES = {"beginner", "intermediate", "advanced"}
 SLUG_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 
@@ -43,9 +43,9 @@ class TestStoriesJsonStructure:
     def test_json_file_exists(self) -> None:
         assert STORIES_JSON.exists(), f"stories.json not found at {STORIES_JSON}"
 
-    def test_exactly_27_stories(self) -> None:
+    def test_exactly_36_stories(self) -> None:
         stories = load_stories()
-        assert len(stories) == 27, f"Expected 27 stories, got {len(stories)}"
+        assert len(stories) == 36, f"Expected 36 stories, got {len(stories)}"
 
     def test_nine_stories_per_language(self) -> None:
         stories = load_stories()
@@ -71,7 +71,7 @@ class TestStoriesJsonStructure:
 
     def test_all_required_fields_present(self) -> None:
         required = {"id", "slug", "language", "difficulty", "title",
-                    "descriptionEn", "descriptionDa", "descriptionIt", "body", "order"}
+                    "descriptionEn", "descriptionDa", "descriptionIt", "descriptionEs", "body", "order"}
         stories = load_stories()
         for s in stories:
             missing = required - set(s.keys())
@@ -136,7 +136,7 @@ class TestStoriesJsonStructure:
     def test_descriptions_are_non_empty(self) -> None:
         stories = load_stories()
         for s in stories:
-            for field in ("descriptionEn", "descriptionDa", "descriptionIt"):
+            for field in ("descriptionEn", "descriptionDa", "descriptionIt", "descriptionEs"):
                 assert s[field].strip(), (
                     f"Story '{s['slug']}' has empty {field}"
                 )
@@ -169,7 +169,7 @@ class TestSeedStories:
             count = db.query(Story).count()
         finally:
             db.close()
-        assert count == 27
+        assert count == 36
 
     def test_seeder_is_idempotent(self, clean_db: None) -> None:
         from tests.conftest import TestSessionLocal
@@ -183,7 +183,7 @@ class TestSeedStories:
             count = db.query(Story).count()
         finally:
             db.close()
-        assert count == 27, "Re-running seeder should not create duplicates"
+        assert count == 36, "Re-running seeder should not create duplicates"
 
     def test_seeder_updates_existing_story_on_rerun(self, clean_db: None) -> None:
         from tests.conftest import TestSessionLocal
@@ -233,6 +233,6 @@ class TestSeedStories:
             seed_stories(db, load_stories())
             for diff in VALID_DIFFICULTIES:
                 count = db.query(Story).filter(Story.difficulty == diff).count()
-                assert count == 9, f"Expected 9 stories for difficulty '{diff}', got {count}"
+                assert count == 12, f"Expected 12 stories for difficulty '{diff}', got {count}"
         finally:
             db.close()

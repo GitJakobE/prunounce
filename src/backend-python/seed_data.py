@@ -9,7 +9,7 @@ from pathlib import Path
 
 sys.path.insert(0, ".")
 
-from app.database import SessionLocal, engine, Base
+from app.database import SessionLocal, engine, Base, ensure_sqlite_schema
 from app.models import Category, Story, Word, WordCategory
 
 DATA_DIR = Path(__file__).parent.parent / "backend" / "data"
@@ -28,6 +28,7 @@ def seed_categories(db, categories: list) -> None:
             existing.name_en = cat["nameEn"]
             existing.name_da = cat["nameDa"]
             existing.name_it = cat.get("nameIt", "")
+            existing.name_es = cat.get("nameEs", "")
             existing.order = cat["order"]
         else:
             db.add(Category(
@@ -35,6 +36,7 @@ def seed_categories(db, categories: list) -> None:
                 name_en=cat["nameEn"],
                 name_da=cat["nameDa"],
                 name_it=cat.get("nameIt", ""),
+                name_es=cat.get("nameEs", ""),
                 order=cat["order"],
             ))
     db.commit()
@@ -55,10 +57,12 @@ def seed_words(db, words: list, examples: dict, label: str) -> None:
             existing.translation_en = w["translationEn"]
             existing.translation_da = w["translationDa"]
             existing.translation_it = w.get("translationIt", "")
+            existing.translation_es = w.get("translationEs", "")
             existing.difficulty = w["difficulty"]
             existing.example_it = ex.get("it", "")
             existing.example_en = ex.get("en", "")
             existing.example_da = ex.get("da", "")
+            existing.example_es = ex.get("es", "")
         else:
             word_obj = Word(
                 id=str(uuid.uuid4()),
@@ -68,10 +72,12 @@ def seed_words(db, words: list, examples: dict, label: str) -> None:
                 translation_en=w["translationEn"],
                 translation_da=w["translationDa"],
                 translation_it=w.get("translationIt", ""),
+                translation_es=w.get("translationEs", ""),
                 difficulty=w["difficulty"],
                 example_it=ex.get("it", ""),
                 example_en=ex.get("en", ""),
                 example_da=ex.get("da", ""),
+                example_es=ex.get("es", ""),
                 source="seed",
             )
             db.add(word_obj)
@@ -103,6 +109,7 @@ def seed_stories(db, stories: list) -> None:
             existing.description_en = s.get("descriptionEn", "")
             existing.description_da = s.get("descriptionDa", "")
             existing.description_it = s.get("descriptionIt", "")
+            existing.description_es = s.get("descriptionEs", "")
             existing.body = s["body"]
             existing.order = s.get("order", 0)
         else:
@@ -115,6 +122,7 @@ def seed_stories(db, stories: list) -> None:
                 description_en=s.get("descriptionEn", ""),
                 description_da=s.get("descriptionDa", ""),
                 description_it=s.get("descriptionIt", ""),
+                description_es=s.get("descriptionEs", ""),
                 body=s["body"],
                 order=s.get("order", 0),
             ))
@@ -123,6 +131,7 @@ def seed_stories(db, stories: list) -> None:
 
 def main() -> None:
     Base.metadata.create_all(bind=engine)
+    ensure_sqlite_schema()
     db = SessionLocal()
     try:
         # --- Categories (from Italian seed file which has the full list) ---
@@ -157,6 +166,18 @@ def main() -> None:
         en_examples = load("examples-en.json")
         en_words = [{**w, "language": "en"} for w in en_data["words"]]
         seed_words(db, en_words, en_examples, "English")
+
+        # --- Spanish words ---
+        es_data = load("seed-words-es.json")
+        es_examples = load("examples-es.json")
+        es_words = [{**w, "language": "es"} for w in es_data["words"]]
+        seed_words(db, es_words, es_examples, "Spanish")
+
+        # --- Top-100 per-language words ---
+        for lang, label in [("it", "Italian"), ("da", "Danish"), ("en", "English"), ("es", "Spanish")]:
+            top_data = load(f"seed-top100-{lang}.json")
+            top_words = [{**w, "language": lang} for w in top_data["words"]]
+            seed_words(db, top_words, {}, f"Top-100 {label}")
 
         # --- Stories (seeded after words so vocabulary is available) ---
         stories_data = load("stories.json")

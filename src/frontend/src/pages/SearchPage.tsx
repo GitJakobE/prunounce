@@ -61,6 +61,7 @@ export default function SearchPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t("search.placeholder")}
+            aria-label={t("search.placeholder")}
             className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
           />
         </div>

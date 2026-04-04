@@ -9,7 +9,8 @@
     "profile": "Profile",
     "logout": "Log out",
     "changeHost": "Change host",
-    "stories": "Stories"
+    "stories": "Stories",
+    "review": "Review"
   },
   "auth": {
     "login": "Log in",
@@ -65,7 +66,8 @@
   "languages": {
     "en": "English",
     "da": "Dansk",
-    "it": "Italiano"
+    "it": "Italiano",
+    "es": "Español"
   },
   "host": {
     "title": "Choose your host",
@@ -77,7 +79,8 @@
     "subtitle": "Pick a host to start learning. Each host speaks a different language.",
     "learnItalian": "Learn Italian",
     "learnDanish": "Learn Danish",
-    "learnEnglish": "Learn English"
+    "learnEnglish": "Learn English",
+    "learnSpanish": "Learn Spanish"
   },
   "contribute": {
     "title": "Add a Word",
@@ -131,6 +134,75 @@
     "playWord": "Play pronunciation",
     "backToStories": "Back to stories",
     "noStories": "No stories available yet.",
-    "speaker": "{{name}} says"
+    "speaker": "{{name}} says",
+    "addStory": "Add Story",
+    "cancel": "Cancel",
+    "myStories": "My Stories",
+    "deleteStory": "Delete story",
+    "formTitle": "Title",
+    "formTitlePlaceholder": "Give your story a title…",
+    "formDescription": "Description (optional)",
+    "formDescriptionPlaceholder": "A short summary of your story…",
+    "formDifficulty": "Difficulty",
+    "formBody": "Story text",
+    "formBodyPlaceholder": "Write your story here…",
+    "submitStory": "Save Story",
+    "submitting": "Saving…",
+    "addStoryRequired": "Title and story text are required.",
+    "addStoryError": "Failed to save your story. Please try again."
+  },
+  "reports": {
+    "report": "Report",
+    "reportIssue": "Report an issue",
+    "category": "Issue type",
+    "categories": {
+      "grammar_spelling": "Grammar / Spelling",
+      "wrong_translation": "Wrong translation",
+      "pronunciation": "Pronunciation issue",
+      "formatting": "Formatting issue",
+      "other": "Other"
+    },
+    "description": "Description",
+    "descriptionPlaceholder": "Describe the issue (optional)…",
+    "submit": "Submit report",
+    "submitting": "Submitting…",
+    "submitted": "Report submitted",
+    "submitError": "Failed to submit report",
+    "cancel": "Cancel"
+  },
+  "review": {
+    "title": "Content Review",
+    "allStatuses": "All",
+    "allTypes": "All types",
+    "allCategories": "All categories",
+    "allLanguages": "All languages",
+    "status": {
+      "new": "New",
+      "reviewed": "Reviewed",
+      "resolved": "Resolved",
+      "dismissed": "Dismissed"
+    },
+    "type": {
+      "story": "Story",
+      "word": "Word"
+    },
+    "columns": {
+      "type": "Type",
+      "category": "Category",
+      "description": "Description",
+      "status": "Status",
+      "date": "Date",
+      "actions": "Actions"
+    },
+    "reportDetail": "Report Details",
+    "resolutionNote": "Resolution note",
+    "resolutionNotePlaceholder": "Add a note (optional)…",
+    "actions": {
+      "markReviewed": "Mark Reviewed",
+      "resolve": "Resolve",
+      "dismiss": "Dismiss"
+    },
+    "showing": "Showing {{from}}–{{to}} of {{total}} reports",
+    "empty": "No reports match the current filters."
   }
 }

@@ -1,2 +1,4 @@
-- Backend SQLite database should resolve to the repo-root app.db, not a cwd-relative path.
-- Relative sqlite:///./app.db caused the running API and seed script to read different files: app.db vs src/backend-python/app.db.
+- Backend SQLite database lives at `src/backend-python/app.db` (resolved via `config.py` DEFAULT_SQLITE_PATH = `Path(__file__).resolve().parent.parent / "app.db"`).
+- A stale `app.db` may exist at repo root from earlier bugs — the app does NOT use it. Always check `src/backend-python/app.db`.
+- `seed_data.py` and `seed_stories.py` both call `ensure_sqlite_schema()` to apply column migrations before seeding.
+- `ensure_sqlite_schema()` in `app/database.py` handles ALTER TABLE migrations for Spanish columns (nameEs, translationEs, exampleEs, descriptionEs).

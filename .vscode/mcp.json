@@ -23,6 +23,18 @@
     "deepwiki": {
       "type": "http",
       "url": "https://mcp.deepwiki.com/mcp"
+    },
+    "gemini": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "gemini-mcp-server"],
+      "env": {
+        "GEMINI_API_KEY": "${env:GEMINI_API_KEY}"
+      }
+    },
+    "anthropic_playwright": {
+      "command": "npx",
+      "args": ["@anthropic/mcp-playwright"]
     }
   }
 }

@@ -58,7 +58,7 @@ export default function RegisterPage() {
           </h3>
 
           {error && (
-            <div className="bg-red-50 text-red-700 px-4 py-3 rounded mb-4 text-sm">
+            <div role="alert" className="bg-red-50 text-red-700 px-4 py-3 rounded mb-4 text-sm">
               {error}
             </div>
           )}
@@ -133,6 +133,8 @@ export default function RegisterPage() {
               >
                 <option value="en">{t("languages.en")}</option>
                 <option value="da">{t("languages.da")}</option>
+                <option value="it">{t("languages.it")}</option>
+                <option value="es">{t("languages.es")}</option>
               </select>
             </div>
 
