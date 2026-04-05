@@ -168,6 +168,8 @@ def categories(
     result = []
     for category in categories_all:
         words = words_by_category.get(category.id, [])
+        if not words:
+            continue
         progress_by_difficulty = []
         for difficulty in VALID_DIFFICULTIES:
             words_at_level = [w for w in words if w.difficulty == difficulty]
