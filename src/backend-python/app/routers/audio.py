@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
@@ -8,6 +10,7 @@ from ..hosts import get_host
 from ..models import User, Word
 from ..services.tts import get_audio_path
 
+logger = logging.getLogger("pronuncia.audio")
 
 router = APIRouter(prefix="/api/audio")
 
@@ -46,6 +49,11 @@ def word_audio(
 
     audio_path = get_audio_path(word.word, None, host_id, voice_name)
     if not audio_path:
+        logger.error(
+            "Audio generation failed for word '%s' (host=%s, voice=%s). "
+            "Check that the audio-cache directory is writable and EdgeTTS can connect.",
+            word.word, host_id, voice_name,
+        )
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail="Pronunciation temporarily unavailable. Please try again shortly.",
@@ -76,6 +84,11 @@ def example_audio(
 
     audio_path = get_audio_path(f"ex_{word.word}_{word.language}", target_example, host_id, voice_name)
     if not audio_path:
+        logger.error(
+            "Example audio generation failed for word '%s' (host=%s, voice=%s). "
+            "Check that the audio-cache directory is writable and EdgeTTS can connect.",
+            word.word, host_id, voice_name,
+        )
         raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="Audio temporarily unavailable.")
 
     return FileResponse(

@@ -1,3 +1,6 @@
+import logging
+import os
+import tempfile
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
@@ -9,6 +12,8 @@ from fastapi.staticfiles import StaticFiles
 from .config import PUBLIC_DIR, settings
 from .database import Base, engine, ensure_sqlite_schema
 from .routers import audio, auth, dictionary, health, hosts, profile, progress, reports, search, stories
+
+logger = logging.getLogger("pronuncia")
 
 
 app = FastAPI(title="Pronuncia Italiana API (Python)")
@@ -40,6 +45,62 @@ app.add_middleware(
 def on_startup() -> None:
     Base.metadata.create_all(bind=engine)
     ensure_sqlite_schema()
+    _check_db_writable()
+    _check_audio_cache_writable()
+
+
+def _check_db_writable() -> None:
+    """Warn at startup if the SQLite database is not writable."""
+    if not settings.database_url.startswith("sqlite"):
+        return
+    # sqlite:/// or sqlite:////absolute
+    db_path = settings.database_url.replace("sqlite:///", "", 1)
+    if not db_path:
+        return
+    db_file = Path(db_path)
+    if db_file.exists() and not os.access(db_file, os.W_OK):
+        logger.error(
+            "DATABASE NOT WRITABLE: %s — user registration and progress tracking will fail. "
+            "Fix with: sudo chown www-data:www-data %s",
+            db_file,
+            db_file,
+        )
+    db_dir = db_file.parent
+    if db_dir.exists() and not os.access(db_dir, os.W_OK):
+        logger.error(
+            "DATABASE DIRECTORY NOT WRITABLE: %s — SQLite journal creation will fail. "
+            "Fix with: sudo chown www-data:www-data %s",
+            db_dir,
+            db_dir,
+        )
+
+
+def _check_audio_cache_writable() -> None:
+    """Warn at startup if the audio cache directory is not writable."""
+    cache_dir = Path(settings.audio_cache_dir)
+    try:
+        cache_dir.mkdir(parents=True, exist_ok=True)
+    except OSError as exc:
+        logger.error(
+            "AUDIO CACHE DIRECTORY CANNOT BE CREATED: %s — %s. "
+            "Category word audio will not work.",
+            cache_dir.resolve(),
+            exc,
+        )
+        return
+    # Verify we can actually write a file
+    try:
+        with tempfile.NamedTemporaryFile(dir=cache_dir, delete=True):
+            pass
+    except OSError as exc:
+        logger.error(
+            "AUDIO CACHE DIRECTORY NOT WRITABLE: %s — %s. "
+            "Category word audio will not work. "
+            "Fix with: sudo chown www-data:www-data %s",
+            cache_dir.resolve(),
+            exc,
+            cache_dir.resolve(),
+        )
 
 
 hosts_dir = PUBLIC_DIR / "hosts"

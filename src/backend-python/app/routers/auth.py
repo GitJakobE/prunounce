@@ -1,6 +1,8 @@
+import logging
 import re
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm import Session
 
 from ..auth import create_access_token, hash_password, verify_password
@@ -12,6 +14,7 @@ from ..schemas import AuthResponse, LoginInput, RegisterInput
 
 
 router = APIRouter(prefix="/api/auth")
+logger = logging.getLogger("pronuncia.auth")
 
 
 def _to_user_payload(user: User) -> dict:
@@ -62,9 +65,17 @@ def register(payload: RegisterInput, db: Session = Depends(get_db)) -> dict:
         language=language,
         display_name=display_name,
     )
-    db.add(user)
-    db.commit()
-    db.refresh(user)
+    try:
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+    except OperationalError as exc:
+        db.rollback()
+        logger.error("Registration failed — database write error: %s", exc)
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Registration is temporarily unavailable. Please try again later.",
+        ) from exc
 
     return {"token": create_access_token(user.id), "user": _to_user_payload(user)}
 

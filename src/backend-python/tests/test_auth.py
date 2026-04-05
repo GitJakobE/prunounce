@@ -1,4 +1,7 @@
+from unittest.mock import patch
+
 from fastapi.testclient import TestClient
+from sqlalchemy.exc import OperationalError
 
 from app.rate_limit import _store
 
@@ -146,6 +149,17 @@ def test_register_explicit_display_name_used(client: TestClient) -> None:
     )
     assert res.status_code == 200
     assert res.json()["user"]["displayName"] == "Bob"
+
+
+def test_register_returns_503_when_db_not_writable(client: TestClient) -> None:
+    """Registration should return 503 with a helpful message when the database is read-only."""
+    with patch("app.routers.auth.Session.commit", side_effect=OperationalError("", [], Exception("attempt to write a readonly database"))):
+        res = client.post(
+            "/api/auth/register",
+            json={"email": "readonly@example.com", "password": "Password1", "language": "en"},
+        )
+    assert res.status_code == 503
+    assert "temporarily unavailable" in res.json()["error"].lower()
 
 
 # ---------- Login ----------
