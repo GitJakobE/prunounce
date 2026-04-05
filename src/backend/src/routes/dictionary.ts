@@ -74,7 +74,7 @@ router.get(
       ).map((p) => p.wordId)
     );
 
-    const result = categories.map((cat) => {
+    const result = categories.filter((cat) => cat.words.length > 0).map((cat) => {
       const words = cat.words.map((wc) => wc.word);
       const difficulties = ["beginner", "intermediate", "advanced"];
       const progressByDifficulty = difficulties.map((d) => {

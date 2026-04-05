@@ -2,7 +2,9 @@
 
 ## 1. Purpose
 
-**Pronuncia** is a public-facing web application that helps users learn how to pronounce words in multiple languages. The platform supports learning Italian, Danish, and English pronunciation, with each language guided by its own set of native host personas who speak in their language. Users choose which language they want to learn and which reference language they want translations displayed in. Beyond fixed vocabulary, users can contribute their own words to the shared dictionary, with audio automatically generated for new entries.
+**Pronuncia** is a public-facing web application that helps users learn how to pronounce words in multiple languages. The platform currently supports learning Italian, Danish, English, and Spanish pronunciation, with each language guided by its own set of native host personas who speak in their language. Users choose which language they want to learn and which reference language they want translations displayed in. Beyond fixed vocabulary, users can contribute their own words to the shared dictionary, with audio automatically generated for new entries.
+
+The platform is designed to scale to many languages — including less widely spoken languages such as Icelandic and Swedish — so that learners can study a smaller language using a more widely known one, or vice versa. Adding a new language (as either a target or reference language) must be achievable by providing new content (host personas, seed data, translations, TTS voice assignments) without requiring changes to application logic, database schema restructuring, or code modifications beyond configuration.
 
 Existing dictionaries and translation tools are not optimised for quick, audio-first pronunciation practice. Users need a focused, simple tool that lets them hear correct pronunciation across languages, organised by category and difficulty to support progressive learning, and that grows with community contributions.
 
@@ -23,8 +25,8 @@ Existing dictionaries and translation tools are not optimised for quick, audio-f
 
 ### In Scope
 
-- **Multi-language learning** — Users can learn pronunciation in Italian, Danish, or English, with reference translations in any of the other supported languages
-- **Language-specific host personas** — Four host personas per target language (12 total at launch), each speaking in their native language with a distinct TTS voice
+- **Multi-language learning** — Users can learn pronunciation in any supported target language, with reference translations in any other supported language. At launch: Italian, Danish, English, and Spanish. The system is designed so new languages can be added without application logic or schema changes
+- **Language-specific host personas** — Host personas per target language, each speaking in their native language with a distinct TTS voice
 - **Host-first landing experience** — Host selection is the first interaction after login; the chosen host defines the target language and persists across sessions
 - **Curated word dictionary** organised by 10+ thematic categories and 3 difficulty levels (~25 words per category–difficulty group)
 - **User-contributed words** — Any logged-in user can add new words to the shared dictionary; TTS audio is auto-generated for new entries
@@ -45,7 +47,7 @@ Existing dictionaries and translation tools are not optimised for quick, audio-f
 
 - Practice mode / quiz functionality
 - Pronunciation recording and comparison (speech recognition)
-- Target languages beyond Italian, Danish, and English
+- Target languages beyond Italian, Danish, English, and Spanish (additional languages are planned but not in scope for the current release)
 - Mobile native apps (web-responsive only)
 - Offline mode
 - Admin UI for content moderation (community trust model for v2)
@@ -56,13 +58,13 @@ Existing dictionaries and translation tools are not optimised for quick, audio-f
 |---|---|---|
 | G-1 | Provide a useful, publicly accessible multi-language pronunciation tool | ≥ 500 unique visitors/month within 6 months of launch |
 | G-2 | Build a growing word library across all supported languages | ≥ 10 categories with ≥ 25 words each per language at launch |
-| G-3 | Support multi-language audiences and learning directions from day one | Full UI, word translations, and host personas for Italian, Danish, and English at launch |
+| G-3 | Support multi-language audiences and learning directions from day one | Full UI, word translations, and host personas for Italian, Danish, English, and Spanish at launch; adding a new language requires only content and configuration, not code changes |
 | G-4 | Encourage repeat usage through personalisation and contribution | ≥ 30% of registered users return within 7 days |
 | G-5 | Grow the dictionary through user contributions | ≥ 50 user-contributed words within 3 months of launch |
 
 ## 4. High-Level Requirements
 
-- [REQ-1] **Multi-language learning** — Users choose a target language (the language they want to learn to pronounce) and a reference language (the language they understand). The platform supports Italian, Danish, and English as both target and reference languages. The target language determines which words/audio are shown; the reference language determines which translations and UI text are displayed. Both preferences persist across sessions.
+- [REQ-1] **Multi-language learning** — Users choose a target language (the language they want to learn to pronounce) and a reference language (the language they understand). The platform supports Italian, Danish, English, and Spanish as both target and reference languages at launch, with a design that allows additional languages to be added by providing content (host personas, seed data, TTS voice assignments, translations, UI translation files) and configuration only — without changes to application logic or database schema restructuring. The target language determines which words/audio are shown; the reference language determines which translations and UI text are displayed. Both preferences persist across sessions. All user-visible content — including category names, story descriptions, difficulty labels, host persona descriptions, and progress summaries — must consistently follow the user's selected reference language.
 - [REQ-2] **Curated word dictionary** — Words are organised into at least 10 thematic categories (e.g., Greetings, Food & Drink, Travel, Numbers) with three difficulty levels (Beginner, Intermediate, Advanced). Each category–difficulty group targets ~25 words. Each word entry shows the target-language word, a phonetic hint, and the reference-language translation.
 - [REQ-3] **Audio pronunciation** — Every word has a pronunciation audio clip in the target language, generated via Microsoft Edge TTS with language-appropriate neural voices. Clicking a word plays its pronunciation immediately (< 1 s latency). Audio is cached after first generation. After the word pronunciation, an example sentence using that word in context is played automatically.
 - [REQ-4] **User authentication** — Users register with email/password. All content is gated behind login. Sessions persist across visits. Users can delete their account and all associated data (GDPR).
@@ -214,7 +216,7 @@ so that the word is immediately usable for pronunciation practice.
 ```
 
 ```gherkin
-As a contributor, I want to provide translations in all three languages when adding a word,
+As a contributor, I want to provide translations in all supported languages when adding a word,
 so that learners in every language group benefit from my contribution.
 ```
 
@@ -244,17 +246,18 @@ so that my personal information is removed in compliance with GDPR.
 
 ### Assumptions
 
-- Microsoft Edge TTS (msedge-tts) is available and reliable for Italian, Danish, and English neural voice generation.
+- Microsoft Edge TTS (msedge-tts) is available and reliable for neural voice generation in all supported languages. New languages are added only when suitable TTS voices are confirmed available.
 - The initial word list (~250+ words per language) will be curated manually and maintained in seed files.
 - Users have a modern browser with audio playback support (no plugins required).
 - Each supported language has at least four suitable neural TTS voices available in the Edge TTS voice catalogue.
 - English is an acceptable fallback when a translation is missing in another reference language.
+- The system is designed to support a growing number of languages (including less widely spoken languages such as Icelandic and Swedish). The content model, API, and UI must treat the set of supported languages as data-driven rather than hard-coded, so that adding a language is a content and configuration operation, not a code change.
 - A community-trust model (no moderation) is acceptable for user-contributed words at launch; moderation can be introduced in a later version if needed.
 
 ### Constraints
 
 - Edge TTS introduces a dependency on Microsoft's neural voice service; mitigated by caching all generated audio.
-- Adding a new target language requires: new host personas, new TTS voice assignments, seed data for that language, and translations for all existing reference languages.
+- Adding a new target language requires: new host personas, new TTS voice assignments, seed data for that language, translations for all existing reference languages, and a UI translation file. It must not require changes to application logic or database schema restructuring.
 - The site must comply with GDPR for EU users.
 - User-contributed words without example sentences will have reduced learning value compared to curated entries.
 
@@ -290,7 +293,7 @@ so that my personal information is removed in compliance with GDPR.
 | [ADR-0003](adr/0003-database.md) | Database: SQLite (ORM updated to SQLAlchemy per ADR-0010) | Partially superseded | REQ-12 |
 | [ADR-0004](adr/0004-authentication.md) | Authentication: Stateless JWT | Accepted | REQ-4, F-AUTH |
 | [ADR-0005](adr/0005-tts-provider.md) | TTS: Google Translate Free Endpoint | **Superseded** by ADR-0016 | REQ-3 |
-| [ADR-0006](adr/0006-internationalisation.md) | i18n: i18next + Column-per-Language (3 languages) | Accepted | REQ-1, F-LANG |
+| [ADR-0006](adr/0006-internationalisation.md) | i18n: i18next + Column-per-Language | Accepted — **needs revision** for language scalability | REQ-1, F-LANG |
 | [ADR-0007](adr/0007-audio-delivery.md) | Audio Delivery: Server-Side Cache with Token Auth | Accepted | REQ-3, F-AUDIO |
 | [ADR-0008](adr/0008-testing-strategy.md) | Testing: Vitest + Testing Library | Partially superseded (backend → Pytest) | — |
 | [ADR-0009](adr/0009-repo-structure.md) | Repo: Monorepo with Independent Projects | Accepted | — |
@@ -309,7 +312,10 @@ so that my personal information is removed in compliance with GDPR.
 | [ADR-0024](adr/0024-seeded-audio-generation-strategy.md) | Audio: Hybrid Pre-Generate + Lazy Fallback | Accepted | REQ-3, F-AUDIO |
 | [ADR-0025](adr/0025-on-the-fly-translation-provider.md) | Translation: deep-translator with Google Free | Proposed | REQ-18, F-OTFLOOKUP |
 | [ADR-0026](adr/0026-on-the-fly-translation-caching.md) | Caching: TranslationCache Table + Existing Audio Cache | Proposed | REQ-18, F-OTFLOOKUP |
-| [ADR-0027](adr/0027-story-lookup-cascade-and-otf-audio.md) | Lookup Cascade & Text-Based Audio Endpoint | Proposed | REQ-18, REQ-14, F-OTFLOOKUP |
+| [ADR-0027](adr/0027-story-lookup-cascade-and-otf-audio.md) | Lookup Cascade & Text-Based Audio Endpoint | Proposed | REQ-18, REQ-14, F-OTFL |
+| [ADR-0028](adr/0028-internationalisation-scalability.md) | i18n Scalability: Normalised Translation Table | Proposed | REQ-1, F-LANG |
+| [ADR-0029](adr/0029-content-quality-validation-pipeline.md) | Content Quality Validation Pipeline | Proposed | REQ-16, F-CONTENT-QA |
+| [ADR-0030](adr/0030-token-lifecycle-session-security.md) | Token Lifecycle & Session Security | Proposed | REQ-4, REQ-17, F-SECOOKUP |
 
 ### Quality Assurance
 
@@ -330,3 +336,11 @@ Items identified during technical review that do not block launch but should be 
 | PB-4 | Search input lacks `aria-label` — screen readers may not identify the search field | Minor | F-A11Y, F-SEARCH, REQ-5 |
 | PB-5 | Responsive breakpoints not verified with real browser — recommend Playwright visual regression check | Minor | F-RESPONSIVE |
 | PB-6 | axe-core automated accessibility sweep not performed — recommended before or shortly after launch | Minor | F-A11Y |
+
+
+## 7. Data Storage & System Constraints
+
+The system must support the following storage requirements for successful operation in production environments:
+1. **Writable Database Storage**: The application requires a persistent, writable database to support user registration, profile updates, and tracking reading progress. Read-only filesystems will break user creation and account modifications.
+2. **Audio File Caching**: The system requires a writable directory (e.g., udio-cache) with correct permissions to dynamically store and serve Text-to-Speech (TTS) audio files generated on-the-fly (e.g. for categories and dynamic word pronunciations).
+3. **Pre-seeded Content**: Core content (stories, dictionaries, host definitions) and pre-generated audio files (e.g., story narrations) may be read-only since they are populated during the build/deployment pipeline and do not change dynamically.

@@ -6,12 +6,14 @@
 
 ## 1. Overview
 
-The platform supports learning pronunciation in multiple target languages. At launch, users can learn Italian, Danish, or English. Each user has two independent language settings:
+The platform supports learning pronunciation in multiple target languages, with the ambition to scale to many languages over time — including less widely spoken languages such as Icelandic and Swedish. The core value proposition is that a learner can study a smaller language using a more widely known language as their reference, or vice versa.
+
+At launch, users can learn Italian, Danish, English, or Spanish. Each user has two independent language settings:
 
 - **Target language** — the language the user wants to learn to pronounce. This is implicitly set by choosing a host persona (Italian hosts → Italian target language, etc.).
 - **Reference language** — the language the user understands, used for translations and UI text. Users can choose any supported language except their current target language as their reference language.
 
-The system must be designed so that adding a new target or reference language requires only new content (host personas, seed data, TTS voice assignments, translations) and a database migration — not changes to application logic.
+The system must be designed so that adding a new target or reference language requires only new content (host personas, seed data, TTS voice assignments, translations, UI translation file) and configuration — not changes to application logic or database schema restructuring. The set of supported languages must be data-driven, not hard-coded in conditionals or switch statements.
 
 ## 2. User Stories
 
@@ -20,10 +22,12 @@ The system must be designed so that adding a new target or reference language re
 | US-L1 | As a first-time user, I want to select a host persona which sets my target language, so I immediately know what language I'll be learning. | Choosing a host sets the target language; word lists and audio reflect that language. |
 | US-L2 | As a user, I want to choose my reference language independently, so I see translations in the language I understand best. | A language switcher lets users pick any supported language except their current target language as the reference language. |
 | US-L3 | As a returning user, I want both my target and reference language preferences remembered, so I don't have to set them every time. | Both preferences persist in the user's profile and are applied automatically on login. |
-| US-L4 | As a user, I want to switch my reference language at any time from any page, so I can compare translations or change my mind. | A language switcher is accessible from every page; switching updates all visible text without a full page reload. |
-| US-L5 | As a Danish speaker, I want to learn English or Italian pronunciation with Danish translations. | Choosing a Danish reference language shows all UI and translations in Danish. |
-| US-L6 | As an English speaker, I want to learn Danish or Italian pronunciation with English translations. | Choosing an English reference language shows all UI and translations in English. |
-| US-L7 | As an Italian speaker, I want to learn Danish or English pronunciation with Italian translations. | Choosing an Italian reference language shows all UI and translations in Italian. |
+| US-L4 | As a user, I want to switch my reference language at any time from any page, so I can compare translations or change my mind. | A language switcher is accessible from every page; switching updates all visible content (UI labels, category names, story descriptions, word translations) without a full page reload. |
+| US-L5 | As a Danish speaker, I want to learn English, Italian, or Spanish pronunciation with Danish translations. | Choosing a Danish reference language shows all UI and translations in Danish. |
+| US-L6 | As an English speaker, I want to learn Danish, Italian, or Spanish pronunciation with English translations. | Choosing an English reference language shows all UI and translations in English. |
+| US-L7 | As an Italian speaker, I want to learn Danish, English, or Spanish pronunciation with Italian translations. | Choosing an Italian reference language shows all UI and translations in Italian. |
+| US-L8 | As a Spanish speaker, I want to learn Danish, English, or Italian pronunciation with Spanish translations. | Choosing a Spanish reference language shows all UI and translations in Spanish. |
+| US-L9 | As an administrator adding a new language, I want to be able to introduce it by providing only content and configuration files, so that no code changes are needed. | A new language can be made available by adding: host personas, seed data, TTS voice assignments, translations for existing content, and a UI translation file — without modifying application logic or restructuring the database. |
 
 ## 3. Functional Requirements
 
@@ -35,28 +39,53 @@ The system must be designed so that adding a new target or reference language re
 
 ### 3.2 Reference Language
 - A reference language picker must be available on every page (e.g., in the header, top-right area).
-- At launch, the picker offers Italian, Danish, and English — minus the user's current target language.
+- The picker must be a **compact dropdown menu** — not a row of buttons or other prominent control. Users change their reference language infrequently, so it should be unobtrusive and take up minimal header space.
+- The picker offers all supported languages minus the user's current target language. The list of available languages must be data-driven (not hard-coded).
 - The selected reference language is stored as part of the user's profile.
-- Switching the reference language updates all visible UI text, word translations, and descriptions without requiring a full page reload.
+- Switching the reference language updates all visible UI text, word translations, category names, story descriptions, difficulty labels, host persona descriptions, and progress summaries without requiring a full page reload.
 
 ### 3.3 Localisation of UI
-- All navigation labels, buttons, headings, instructions, error messages, and informational text must be available in Italian, Danish, and English.
+- All navigation labels, buttons, headings, instructions, error messages, and informational text must be available in every supported language.
 - Switching the reference language must update all visible text without losing navigation context.
+- Adding UI translations for a new language must only require adding a new translation file — no code changes to components or routing logic.
 
 ### 3.4 Localisation of Content
 - Every word entry in the dictionary must have translations in all supported reference languages.
 - Word descriptions, phonetic hints, and category names must also be localised.
 
-### 3.5 Supported Language Combinations at Launch
+### 3.5 Supported Languages at Launch
 
-| Target Language (learning) | Available Reference Languages |
-|---|---|
-| Italian | Danish, English |
-| Danish | Italian, English |
-| English | Italian, Danish |
+| Language | Code | Target | Reference |
+|---|---|---|---|
+| Italian | it | ✅ | ✅ |
+| Danish | da | ✅ | ✅ |
+| English | en | ✅ | ✅ |
+| Spanish | es | ✅ | ✅ |
 
-### 3.6 Extensibility
-- Adding a new language requires: new host personas, new TTS voice assignments, seed data with word entries, translations for all existing reference languages, and a database migration to add translation columns. No application logic changes should be required.
+**Planned future languages** (not in current release scope): Swedish, German, Chinese, Icelandic, and others.
+
+Every supported language functions as both a target language and a reference language. Any combination of target + reference is valid as long as they are different languages.
+
+### 3.6 Scalability & Language-as-Data
+
+- The set of supported languages must be defined in a single configuration source (not scattered across conditionals in application code).
+- All content-translation storage, retrieval, and display must treat languages generically. Adding a new language must not require adding new `if`/`elif` branches, new model columns, or new per-language field mappings in application code.
+- The content model must store translations in a way that scales to 10+ languages without schema changes for each new language.
+- All translatable content — category names, word translations, example sentences, story descriptions, host persona descriptions/greetings — must follow the same language-resolution pattern.
+- API endpoints must resolve the user's reference language dynamically from the stored translations, without per-language conditional logic in the route handlers.
+- When content for the user's reference language is unavailable, the system must fall back to English gracefully with a visual indicator.
+
+### 3.7 Completeness of Reference-Language Content
+
+- Every user-visible text that depends on the reference language must consistently follow the user's selected reference language. This includes but is not limited to:
+  - Category names
+  - Word translations and example sentences
+  - Story descriptions
+  - Difficulty level labels
+  - Host persona descriptions and greetings
+  - Progress summaries and completion indicators
+  - Search results and word cards
+- No content area may default to a hard-coded language (e.g., English) when the user has selected a different reference language and a translation exists for that language.
 
 ## 4. Edge Cases
 
@@ -66,11 +95,14 @@ The system must be designed so that adding a new target or reference language re
 
 ## 5. Acceptance Criteria
 
-- [ ] Users can learn pronunciation in Italian, Danish, or English by choosing an appropriate host.
+- [ ] Users can learn pronunciation in Italian, Danish, English, or Spanish by choosing an appropriate host.
 - [ ] Reference language can be set independently of target language.
-- [ ] UI is fully translated in Italian, Danish, and English with no untranslated strings.
-- [ ] Every word has translations in all three supported languages.
+- [ ] UI is fully translated in all supported languages with no untranslated strings.
+- [ ] Every word has translations in all supported reference languages.
+- [ ] All user-visible content (category names, story descriptions, difficulty labels, host descriptions, progress summaries) consistently follows the user's selected reference language.
 - [ ] Both target and reference language preferences persist across sessions.
 - [ ] Switching reference language updates all text in place without losing navigation state.
-- [ ] English is used as fallback when a translation is missing.
+- [ ] English is used as fallback when a translation is missing, with a visual indicator.
 - [ ] Progress is preserved per target language when switching hosts.
+- [ ] Adding a new language can be achieved by providing content (host personas, seed data, translations, TTS voice assignments, UI translation file) and configuration only — without changes to application logic or database schema restructuring.
+- [ ] The backend does not contain per-language conditional branches (if/elif chains) for resolving translations; language resolution is data-driven.

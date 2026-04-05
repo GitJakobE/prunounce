@@ -220,7 +220,7 @@ sudo certbot --nginx -d app.example.com
 Open the site and verify:
 
 - `/` loads the frontend.
-- `/api/health` returns success.
+- `/api/health` returns `{"status":"ok","database_writable":true,"audio_cache_writable":true}`.
 - `/hosts/...` images load.
 - Registration and login work.
 - Audio and stories work.
@@ -239,9 +239,22 @@ cd /opt/prunounce/src/backend-python
 source .venv/bin/activate
 poetry install --only main
 
+# Restore ownership so the service user can write to the database and audio cache
+sudo chown -R www-data:www-data /opt/prunounce/src/backend-python/app.db
+sudo chown -R www-data:www-data /opt/prunounce/src/backend-python/audio-cache
+
 sudo systemctl restart prunounce-backend
 sudo systemctl reload nginx
 ```
+
+After restarting, verify the health check returns fully healthy:
+
+```bash
+curl -s http://127.0.0.1:3001/api/health
+# Expected: {"status":"ok","database_writable":true,"audio_cache_writable":true}
+```
+
+If `database_writable` or `audio_cache_writable` is `false`, fix file ownership as shown above.
 
 ## Backups
 
@@ -251,6 +264,81 @@ At minimum, back up:
 - `/opt/prunounce/src/backend-python/audio-cache`
 
 SQLite on one VPS is acceptable for a small app, but you should schedule backups before inviting real users.
+
+## How Long This Stays Valid
+
+This setup remains valid through the early stage of growth if your traffic is still modest and you are optimizing for low cost.
+
+It is still a good fit when:
+
+- You have a small to moderate number of daily users.
+- Most traffic is read-heavy.
+- Audio files are cached and reused instead of regenerated constantly.
+- You can tolerate brief maintenance windows for server upgrades.
+- One server outage would be inconvenient but not business-critical.
+
+This setup starts to become a constraint when:
+
+- SQLite write contention becomes noticeable from concurrent signups, progress updates, or content changes.
+- Audio generation creates CPU, memory, or network spikes.
+- The audio cache grows enough that disk management becomes operational work.
+- You need zero-downtime deploys, failover, or multi-region availability.
+- You expect marketing spikes or classroom-scale concurrent usage.
+
+## Practical Growth Path
+
+Do not replace everything at once. Upgrade in this order.
+
+### Stage 1: Small growth
+
+Keep the same architecture and just resize the VPS.
+
+- Move from the smallest plan to 2 vCPU and 2 to 4 GB RAM.
+- Put backups on a schedule.
+- Add basic uptime monitoring and disk alerts.
+- Pre-generate popular audio to reduce burst load.
+
+### Stage 2: Moderate growth
+
+Keep one app server, but move the database off SQLite.
+
+- Replace SQLite with managed Postgres.
+- Keep frontend and backend on the same VPS or same reverse-proxied domain.
+- Move large or frequently accessed audio assets to object storage plus CDN if needed.
+
+This is usually the first real architectural change worth making.
+
+### Stage 3: Higher growth
+
+Split responsibilities.
+
+- Run the backend separately from static frontend hosting.
+- Put audio generation onto a background worker or queue.
+- Serve cached media from object storage or CDN.
+- Run multiple backend instances behind a load balancer.
+
+## Recommended Trigger Points
+
+Start planning the next step when one of these becomes true:
+
+- CPU is regularly above about 60 to 70 percent during busy periods.
+- Memory pressure causes swapping or restarts.
+- Disk usage from `app.db` and `audio-cache` grows faster than you can comfortably back up.
+- Page loads are fine but authenticated actions become inconsistent under concurrent use.
+- Deployments or maintenance windows start affecting real users.
+
+## Bottom Line
+
+For this repo today, a cheap VPS is still the right answer.
+
+It is valid for:
+
+- prototype
+- pilot
+- early production
+- modest paid usage
+
+It stops being the right default once reliability, concurrent writes, and audio workload matter more than minimizing monthly cost.
 
 ## Why This Is The Best Low-Cost Option For This Repo
 

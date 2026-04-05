@@ -68,7 +68,7 @@ Story Reading is a new top-level learning mode alongside the existing word Categ
 - At launch, the minimum set of 3 stories per difficulty level per language must represent at least 3 distinct setups per level rather than three close variations of the same premise.
 - Each story must have a title in the target language.
 - Each story must have a short description/theme summary in all supported reference languages.
-- At launch: **3 stories per difficulty level per target language** (9 stories per language × 3 languages = 27 stories total).
+- At launch: **3 stories per difficulty level per target language** (9 stories per language × number of supported target languages).
 
 ### 3.4 Story Reading View
 
@@ -129,10 +129,12 @@ Story Reading is a new top-level learning mode alongside the existing word Categ
 
 ### 3.9 Multi-Language Support
 
-- Stories are specific to a target language — Italian stories are written in Italian, Danish stories in Danish, English stories in English.
+- Stories are specific to a target language — each story is written in one target language.
 - Switching hosts to a different language shows the story library for that language.
 - Story titles are in the target language; descriptions and UI labels are in the user's reference language.
+- Story descriptions must be available in all supported reference languages. When a description is missing for the user's reference language, English is used as a fallback with a visual indicator.
 - The translation panel translates clicked words into the user's reference language.
+- Adding stories for a new target language requires only adding new seed data entries — no application logic changes.
 
 ## 4. Edge Cases
 

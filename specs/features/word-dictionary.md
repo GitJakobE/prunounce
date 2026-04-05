@@ -102,3 +102,7 @@ Each word entry must contain:
 - [ ] The seed process can be run repeatedly without creating duplicate entries.
 - [ ] Switching hosts/target language updates the word set accordingly.
 - [ ] User-contributed words appear alongside curated words in all views.
+
+
+### Audio Asset Processing Constraints
+The system requires read-write access to its designated caching directory (e.g., udio-cache). Dynamic generated pronunciations MUST be written successfully to this directory on the flying before being served.

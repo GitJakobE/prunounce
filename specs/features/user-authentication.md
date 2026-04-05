@@ -93,3 +93,7 @@ Users must create an account and log in to access the application's content. Aut
 - [ ] After account deletion, the user is logged out and all their data is removed.
 - [ ] Failed login attempts are rate-limited to prevent brute-force attacks.
 - [ ] The application uses HTTPS for all communication in production.
+
+
+### Registration Persistence Constraints
+The user registration system MUST interact with a **writable** data store. Deployments in ephemeral containerized bounds (like Docker) or host servers must have explicitly mapped persistent storage with appropriate file permissions (e.g., pp.db) to enable user registration.
